@@ -4,8 +4,6 @@
 
 ![GPM Dark Mode Logo](icons/logo1.png)
 
-A sleek and customizable dark mode extension for modern web browsing.
-
 ![Chrome Web Store](https://img.shields.io/badge/chrome-extension-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![Releases](https://img.shields.io/github/release/karthik558/GPM-DarkMode?)
@@ -27,7 +25,7 @@ A sleek and customizable dark mode extension for modern web browsing.
 
 ## 🌟 Features
 
-- **Multiple Dark Themes**
+- **Multiple Dark Themes (Coming Soon)**
 
   - Theme 0 (#1e1e1e)
   - Theme 1 (#2a2a2a) (Default Theme)
@@ -43,8 +41,8 @@ A sleek and customizable dark mode extension for modern web browsing.
 - **User-Friendly Interface**
   - One-click dark mode toggle
   - Easy theme switching (Coming Soon)
-  - Real-time UTC time display (Coming Soon)
-  - User login information (Coming Soon)
+  - Real-time UTC time display
+  - User login information
 
 ## 📥 Installation
 
@@ -109,6 +107,10 @@ git push origin feature/YourFeature
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ⛔️ DMCA
+
+This project is not affiliated with GPM team. This project is open-source and free to use. If you have any concerns, please contact me directly.
 
 ---
 
