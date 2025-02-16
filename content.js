@@ -154,9 +154,11 @@ const darkModeCSS = `
 
   /* Forms and inputs */
   input, textarea, select {
-    background-color: #2d2d2d !important;
-    border-color: #5f6368 !important;
+    background-color: #292a2d !important;
+    border-color: #ffff !important;
     color: #ffffff !important;
+    // border-radius: 5px !important;
+    margin: 0px 5px 0px 10px;
   }
 
   /* Tables */
@@ -195,8 +197,6 @@ const darkModeCSS = `
   .button:hover {
     background-color: #4c78ae !important;
   }
-
-  /* Adjust ul#tabmenu li a styling */
   ul#tabmenu li a {
     font-size: 0.9rem !important;
     padding: 8px 14px !important;
@@ -205,6 +205,10 @@ const darkModeCSS = `
     // border: 1px solid #5f6368 !important;
     border-radius: 15px !important;
     transition: background-color 0.2s ease-in-out !important;
+  }
+
+  ul#tabmenu li {
+    padding: 3px 0px 3px 0px !important; 
   }
 
   ul#tabmenu li a.selected {
@@ -273,6 +277,15 @@ const darkModeCSS = `
   
   .c-icon-style {
   background-color: #4c78ae !important;
+  }
+
+  .top-navigation .navbar-nav .c-dropdown-menu {
+  border-color: #4c78ae !important;
+  }
+
+  .message td {
+    background-color: #4c78ae !important;
+  }
 `;
 
 function showPage() {
