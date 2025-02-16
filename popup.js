@@ -1,40 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('darkModeToggle');
-  // const timeDisplay = document.querySelector('.current-time');
-  // const userDisplay = document.querySelector('.current-user');
+  const timeDisplay = document.querySelector('.current-time');
+  const userDisplay = document.querySelector('.current-user');
 
-  // Get current state
+  // Get current dark mode state from storage
   chrome.storage.local.get(['darkModeEnabled'], function (result) {
     toggle.checked = result.darkModeEnabled;
     document.body.classList.toggle('dark-mode', toggle.checked);
   });
 
-  // Update time and user info with exact format
+  // Update time display and apply styling
   function updateTimeAndUser() {
     const now = new Date();
-    const timeStr = now.toISOString()
-      .replace('T', ' ')
-      .substring(0, 19);
+    const timeStr = now.toISOString().replace('T', ' ').substring(0, 19);
+    timeDisplay.textContent =
+      'Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): ' + timeStr;
 
-    // Set the exact format with newlines
-    // timeDisplay.textContent = 'Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): ' + timeStr;
-    // userDisplay.textContent = 'Current User\'s Login: karthik558';
-
-    // Style both elements
-    // [timeDisplay, userDisplay].forEach(element => {
-    //   element.style.display = 'block';
-    //   element.style.marginBottom = '8px';
-    //   element.style.color = '#3d79b3';
-    //   element.style.fontFamily = 'Courier New, monospace';
-    // });
+    // Apply block display and styling to time and user elements
+    [timeDisplay, userDisplay].forEach(element => {
+      element.style.display = 'block';
+      element.style.marginBottom = '8px';
+      element.style.color = '#3d79b3';
+      element.style.fontFamily = 'Courier New, monospace';
+    });
   }
+
+  // Use chrome.identity.getProfileUserInfo to get the user profile info (requires "identity" permission)
+  chrome.identity.getProfileUserInfo(function (userInfo) {
+    if (userInfo.email) {
+      userDisplay.textContent = "Current User's Login: " + userInfo.email;
+    } else {
+      userDisplay.textContent = "Current User's Login: Unknown";
+    }
+  });
 
   // Initial update
   updateTimeAndUser();
-  // Update every second
+  // Update the time display every second
   setInterval(updateTimeAndUser, 1000);
 
-  // Handle toggle
+  // Handle dark mode toggle change
   toggle.addEventListener('change', function () {
     const isEnabled = toggle.checked;
     document.body.classList.toggle('dark-mode', isEnabled);
