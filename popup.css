@@ -1,8 +1,21 @@
+/* Variables for color reuse */
+:root {
+  --primary-blue: #4c78ae;
+  --light-gray: #f0f0f0;
+  --card-bg: #ffffff;
+  --border-light: #e0e0e0;
+  --dark-bg: #292a2d;
+  --text-dark: #333333;
+  --accent: #4c78ae;
+  --footer-bg: #f9f9f9;
+}
+
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: #f0f0f0;
+  background: var(--light-gray);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,37 +23,53 @@ body {
   transition: background 0.3s ease;
 }
 
+/* Container */
 .container {
-  width: 350px;
+  width: 300px;
+  height: auto;
   background: transparent;
+  padding: 10px;
 }
 
+/* Card */
 .card {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border: px solid var(--border-light);
   overflow: hidden;
-  border: 1px solid #e0e0e0;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  animation: slideIn 0.3s ease-out;
 }
 
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
 .header {
-  background: #3d79b3;
-  padding: 16px;
+  background: var(--primary-blue);
+  padding: 18px 16px;
   text-align: center;
   color: #ffffff;
+  position: relative;
 }
 
 .header .logo {
   width: auto;
   height: 50px;
+  margin-bottom: 8px;
 }
 
+/* Content */
 .content {
-  padding: 20px;
-  color: #333333;
+  padding: 22px 20px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 14px;
 }
 
+/* Toggle Switch */
 .toggle-wrapper {
   display: flex;
   align-items: center;
@@ -80,13 +109,13 @@ body {
   width: 20px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
+  background-color: #ffffff;
   transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #3d79b3;
+  background-color: var(--primary-blue);
 }
 
 input:checked + .slider:before {
@@ -98,32 +127,37 @@ input:checked + .slider:before {
   font-weight: 500;
 }
 
+/* Time Display */
 .time-display {
-  background: #f9f9f9;
+  background: var(--footer-bg);
   border-radius: 8px;
-  padding: 12px;
+  padding: 14px;
   margin-top: 16px;
   font-family: "Courier New", monospace;
+  font-size: 13px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .current-time,
 .current-user {
   font-size: 12px;
-  color: #3d79b3;
+  color: var(--primary-blue);
   margin: 4px 0;
 }
 
+/* Footer */
 .footer {
   padding: 10px 20px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-light);
   text-align: center;
-  background: #f9f9f9;
+  background: var(--footer-bg);
+  font-size: 12px;
 }
 
+/* Author link styling */
 .author-link {
-  color: #3d79b3;
+  color: var(--primary-blue);
   text-decoration: none;
-  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +173,7 @@ input:checked + .slider:before {
   opacity: 0.7;
 }
 
-/* Animation for window appearance */
+/* Animation for card appearance */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -151,22 +185,19 @@ input:checked + .slider:before {
   }
 }
 
-.card {
-  animation: slideIn 0.3s ease-out;
-}
-
-/* Dark mode styles */
+/* Dark Mode Styles */
 body.dark-mode {
-  background: #121212;
+  background: var(--dark-bg);
 }
 
 body.dark-mode .card {
-  background: #1e1e1e;
-  border-color: #444444;
+  background: var(--dark-bg);
+  border-color: var(--dark-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode .header {
-  background: #3d79b3;
+  background: var(--primary-blue);
   color: #ffffff;
 }
 
@@ -175,20 +206,20 @@ body.dark-mode .content {
 }
 
 body.dark-mode .time-display {
-  background: #2c2c2c;
+  background: var(--dark-bg);
 }
 
 body.dark-mode .current-time,
 body.dark-mode .current-user {
-  color: #3d79b3;
+  color: var(--primary-blue);
 }
 
 body.dark-mode .footer {
-  background: #2c2c2c;
+  background: var(--dark-bg);
 }
 
 body.dark-mode .author-link {
-  color: #3d79b3;
+  color: var(--primary-blue);
 }
 
 body.dark-mode .author-link:hover {
