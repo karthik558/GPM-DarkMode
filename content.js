@@ -270,6 +270,9 @@ const darkModeCSS = `
   .c-remove-text {
     padding: 8px 15px 0px 0px !important;
   }
+  
+  .c-icon-style {
+  background-color: #4c78ae !important;
 `;
 
 function showPage() {
