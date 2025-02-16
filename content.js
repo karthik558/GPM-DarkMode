@@ -32,6 +32,9 @@ const darkModeCSS = `
 
   body {
     background-color: #292a2d !important;
+    font-family: sans-serif !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5;
   }
     
   /* Background colors */
@@ -90,7 +93,7 @@ const darkModeCSS = `
     color: #ffffff !important;
   }
 
-  /* Convert #cadae7 and #555555 to #edaf67 */
+  /* Preserve custom colors */
   [style*="color: #cadae7"],
   [style*="color:#cadae7"],
   [style*="color: rgb(202, 218, 231)"],
@@ -172,6 +175,67 @@ const darkModeCSS = `
   img {
     filter: brightness(0.9);
   }
+
+  /* Improved button styling - padding removed */
+  button,
+  .btn,
+  .button {
+    background-color: #3d3d3d !important;
+    color: #ffffff !important;
+    border: 1px solid #4c78ae !important;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  button:hover,
+  .btn:hover,
+  .button:hover {
+    background-color: #4e4e4e !important;
+  }
+
+  /* Adjust ul#tabmenu li a styling */
+  ul#tabmenu li a {
+    font-size: 0.9rem !important;
+    padding: 8px 14px !important;
+    // background-color: #2d2d2d !important;
+    background-color: #4c78ae !important;
+    color: #ffffff !important;
+    border: 1px solid #5f6368 !important;
+    border-radius: 4px !important;
+    transition: background-color 0.2s ease-in-out !important;
+  }
+
+  ul#tabmenu li a.selected {
+    background-color:rgb(33, 74, 123) !important;
+  }
+    
+  ul#tabmenu li a:hover {
+    background-color:rgb(106, 165, 237) !important;
+  }
+  
+  .header {
+    background-color: #4c78ae !important;
+  }
+
+  .content th {
+    color: #4c78ae !important;
+  }
+
+  .navbar-static-top .c-dropdown-menu li a {
+    font-weight: 400 !important;
+    color: #4c78ae !important;
+  }
+
+  .k-button {
+    background-color: #4c78ae !important;
+    color: #2a2a2a !important;
+  }
+  
+  .redactor-toolbar {
+    background-color: #4c78ae !important;
+  }
 `;
 
 function showPage() {
@@ -185,7 +249,8 @@ function showPage() {
 function shouldPreserveColor(color) {
   const preserveColors = [
     '#4882c1', 'rgb(72, 130, 193)',
-    '#3c34e2', 'rgb(60, 52, 226)'
+    '#3c34e2', 'rgb(60, 52, 226)',
+    'red', 'green', 'yellow', 'blue'
   ];
   return preserveColors.some(preserveColor => color.includes(preserveColor));
 }
