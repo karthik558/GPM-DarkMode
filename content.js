@@ -183,7 +183,8 @@ const darkModeCSS = `
     background-color: #3d3d3d !important;
     color: #ffffff !important;
     border: 1px solid #4c78ae !important;
-    border-radius: 4px;
+    padding: 4px 13px !important;
+    border-radius: 15px;
     font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
@@ -192,18 +193,17 @@ const darkModeCSS = `
   button:hover,
   .btn:hover,
   .button:hover {
-    background-color: #4e4e4e !important;
+    background-color: #4c78ae !important;
   }
 
   /* Adjust ul#tabmenu li a styling */
   ul#tabmenu li a {
     font-size: 0.9rem !important;
     padding: 8px 14px !important;
-    // background-color: #2d2d2d !important;
     background-color: #4c78ae !important;
     color: #ffffff !important;
-    border: 1px solid #5f6368 !important;
-    border-radius: 4px !important;
+    // border: 1px solid #5f6368 !important;
+    border-radius: 15px !important;
     transition: background-color 0.2s ease-in-out !important;
   }
 
@@ -223,6 +223,31 @@ const darkModeCSS = `
     color: #4c78ae !important;
   }
 
+  .message-date {
+    color: #4c78ae !important;
+  }
+
+  .ibox-content {
+    border-width: 0.4px !important;
+  }
+  
+  .header .btn-warning {
+    background-color: #4c78ae !important;
+  }
+
+  .header .btn-warning:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  
+  .c-no-item-wrapper {
+	border: 0.5px solid #e7eaec;
+	border-radius: 15px;
+ }
+
+  .c-table td a {
+    font-weight: 600 !important;
+  }
+
   .navbar-static-top .c-dropdown-menu li a {
     font-weight: 400 !important;
     color: #4c78ae !important;
@@ -235,6 +260,11 @@ const darkModeCSS = `
   
   .redactor-toolbar {
     background-color: #4c78ae !important;
+  }
+
+  .navbar-expand-sm .navbar-nav {
+    background-color: #2a2a2a !important;
+    padding-bottom: 8px;    
   }
 `;
 
