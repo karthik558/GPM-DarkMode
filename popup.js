@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('darkModeToggle');
-  const timeDisplay = document.querySelector('.current-time');
-  const userDisplay = document.querySelector('.current-user');
+  // const timeDisplay = document.querySelector('.current-time');
+  // const userDisplay = document.querySelector('.current-user');
 
   // Get current state
   chrome.storage.local.get(['darkModeEnabled'], function (result) {
@@ -17,16 +17,16 @@ document.addEventListener('DOMContentLoaded', function () {
       .substring(0, 19);
 
     // Set the exact format with newlines
-    timeDisplay.textContent = 'Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): ' + timeStr;
-    userDisplay.textContent = 'Current User\'s Login: karthik558';
+    // timeDisplay.textContent = 'Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): ' + timeStr;
+    // userDisplay.textContent = 'Current User\'s Login: karthik558';
 
     // Style both elements
-    [timeDisplay, userDisplay].forEach(element => {
-      element.style.display = 'block';
-      element.style.marginBottom = '8px';
-      element.style.color = '#3d79b3';
-      element.style.fontFamily = 'Courier New, monospace';
-    });
+    // [timeDisplay, userDisplay].forEach(element => {
+    //   element.style.display = 'block';
+    //   element.style.marginBottom = '8px';
+    //   element.style.color = '#3d79b3';
+    //   element.style.fontFamily = 'Courier New, monospace';
+    // });
   }
 
   // Initial update

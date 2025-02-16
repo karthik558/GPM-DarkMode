@@ -31,12 +31,12 @@ const darkModeCSS = `
   }
 
   body {
-    background-color: #1e1e1e !important;
+    background-color: #292a2d !important;
   }
-
+    
   /* Background colors */
   div, section, article, aside, nav, main, header, footer {
-    background-color: #1e1e1e !important;
+    background-color: #292a2d !important;
   }
 
   /* Remove white background from .heading */
@@ -158,14 +158,14 @@ const darkModeCSS = `
 
   /* Tables */
   table, th, td {
-    background-color: #1e1e1e !important;
+    background-color: #292a2d !important;
     border-color: #5f6368 !important;
   }
 
   /* Override white backgrounds */
   [class*="bg-white"],
   [class*="bg-light"] {
-    background-color: #1e1e1e !important;
+    background-color: #292a2d !important;
   }
 
   /* Preserve images */
