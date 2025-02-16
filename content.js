@@ -266,6 +266,10 @@ const darkModeCSS = `
     background-color: #2a2a2a !important;
     padding-bottom: 8px;    
   }
+
+  .c-remove-text {
+    padding: 8px 15px 0px 0px !important;
+  }
 `;
 
 function showPage() {
