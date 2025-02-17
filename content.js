@@ -220,7 +220,7 @@ const darkModeCSS = `
   }
   
   .header {
-    background-color: #4c78ae !important;
+    background-color: #292a2d !important;
   }
 
   .content th {
