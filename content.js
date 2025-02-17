@@ -94,13 +94,9 @@ const darkModeCSS = `
   }
 
   /* Preserve custom colors */
-  [style*="color: #cadae7"],
-  [style*="color:#cadae7"],
   [style*="color: rgb(202, 218, 231)"],
   [style*="color: #555555"],
   [style*="color:#555555"],
-  // [style*="color: rgb(85, 85, 85)"] {
-  //   color: #edaf67 !important;
   }
 
   /* Convert #e5e7e9 to darker color */
@@ -354,8 +350,7 @@ function shouldChangeToWhite(color) {
 
 function shouldChangeToEdaf67(color) {
   const targetColors = [
-    '#555555', 'rgb(85, 85, 85)',
-    '#cadae7', 'rgb(202, 218, 231)'
+    '#555555', 'rgb(85, 85, 85)'
   ];
   return targetColors.some(targetColor => color.includes(targetColor));
 }
