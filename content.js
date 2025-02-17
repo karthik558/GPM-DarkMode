@@ -314,7 +314,10 @@ const darkModeCSS = `
   .label-info, .badge-info {
     background-color:rgb(198, 0, 0) !important;
   }
-    
+
+  .popup .popuptext {
+    background-color: #4c78ae !important;
+  }
 `;
 
 function showPage() {
