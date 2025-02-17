@@ -75,7 +75,7 @@ const darkModeCSS = `
   *:has(> :contains("Current User's Login:")),
   .datetime-display,
   .user-login-display {
-    color: #edaf67 !important;
+    color: #3d79b3 !important;
     background-color: transparent !important;
     font-family: monospace !important;
   }
@@ -99,8 +99,8 @@ const darkModeCSS = `
   [style*="color: rgb(202, 218, 231)"],
   [style*="color: #555555"],
   [style*="color:#555555"],
-  [style*="color: rgb(85, 85, 85)"] {
-    color: #edaf67 !important;
+  // [style*="color: rgb(85, 85, 85)"] {
+  //   color: #edaf67 !important;
   }
 
   /* Convert #e5e7e9 to darker color */
@@ -157,7 +157,6 @@ const darkModeCSS = `
     background-color: #292a2d !important;
     border-color: #ffff !important;
     color: #ffffff !important;
-    // border-radius: 5px !important;
     margin: 0px 5px 0px 10px;
   }
 
@@ -228,7 +227,7 @@ const darkModeCSS = `
   }
 
   .message-date {
-    color: #4c78ae !important;
+    color: #77aae8 !important;
   }
 
   .ibox-content {
@@ -283,9 +282,43 @@ const darkModeCSS = `
   border-color: #4c78ae !important;
   }
 
-  .message td {
+  // .message td {
+  //   background-color: #4c78ae !important;
+  // }
+
+  .c-breadcrumb {
     background-color: #4c78ae !important;
   }
+
+  .c-breadcrumb .breadcrumb {
+    background-color: #4c78ae !important;
+  }
+
+  .alert-success {
+    color: #2fc150 !important !important;
+    background-color:rgb(193, 254, 207) !important;
+  }
+  
+  .ui-datepicker .ui-datepicker-title {
+    color: #ffffff !important;
+  }
+  
+  a.closebtn {
+    background-color: #4c78ae !important;
+  }
+  
+  a.closebtn:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+
+  .progress-bar { 
+    background-color: #2fc150 !important;
+  }
+
+  .label-info, .badge-info {
+    background-color:rgb(198, 0, 0) !important;
+  }
+    
 `;
 
 function showPage() {
@@ -368,10 +401,10 @@ function adjustColors() {
             return;
           }
 
-          if (shouldChangeToEdaf67(currentColor)) {
-            el.style.setProperty('color', '#edaf67', 'important');
-            return;
-          }
+          // if (shouldChangeToEdaf67(currentColor)) {
+          //   el.style.setProperty('color', '#edaf67', 'important');
+          //   return;
+          // }
 
           if (shouldChangeToDarker(currentColor)) {
             el.style.setProperty('color', '#2d2d2d', 'important');
