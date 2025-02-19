@@ -318,6 +318,10 @@ const darkModeCSS = `
   .popup .popuptext {
     background-color: #4c78ae !important;
   }
+
+  .c-ibox-value span {
+    background-color: #f80000 !important;
+  }
 `;
 
 function showPage() {
@@ -398,11 +402,6 @@ function adjustColors() {
           if (shouldPreserveColor(currentColor)) {
             return;
           }
-
-          // if (shouldChangeToEdaf67(currentColor)) {
-          //   el.style.setProperty('color', '#edaf67', 'important');
-          //   return;
-          // }
 
           if (shouldChangeToDarker(currentColor)) {
             el.style.setProperty('color', '#2d2d2d', 'important');
