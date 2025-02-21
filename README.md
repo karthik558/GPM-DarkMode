@@ -21,7 +21,14 @@
 
 ## 🖼️ Preview
 
+- <b> Extension Preview </b>
 ![GPM Dark Mode Preview](src/video/dark-enable.gif)
+  </br>
+- <b> Theme Preview Light Mode (Official one)</b>
+![Light Theme](src/picture/light-mode.png)
+  </br>
+- <b> Theme Preview Dark Mode (Customized one by me)</b>
+![Dark Theme](src/picture/dark-mode.png)
 
 ## 🌟 Features
 
