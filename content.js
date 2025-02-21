@@ -197,7 +197,9 @@ const darkModeCSS = `
     padding: 8px 14px !important;
     background-color: #4c78ae !important;
     color: #ffffff !important;
-    // border: 1px solid #5f6368 !important;
+    border: 0.1px solid #4c78ae !important;
+    border-right: 0.1px solid #4c78ae !important;
+    border-top-top-radius: 15px !important;
     border-radius: 15px !important;
     transition: background-color 0.2s ease-in-out !important;
   }
@@ -321,6 +323,46 @@ const darkModeCSS = `
 
   .c-ibox-value span {
     background-color: #f80000 !important;
+  }
+
+  .calendar tbody .day {
+    color: #fff !important;
+  }
+
+  .button, .btn, .button {
+  background-color: #4c78ae !important;
+  }
+
+  .button:hover, .btn:hover, .button:hover {
+  background-color: rgb(106, 165, 237) !important;
+  }
+
+  .btn-info {
+  color: #fff;
+  background-color: #4c78ae;
+  border-color: rgb(106, 165, 237);
+  border-radius: 15px;
+  }
+
+  .btn-info:hover {
+  background-color: rgb(106, 165, 237);
+  }
+
+  .btn-success {
+  color: #fff;
+  background-color: #1c84c6;
+  border-color: rgb(106, 165, 237);
+  border-radius: 15px;
+  padding: 4px 13px !important;
+}
+
+  .uidisp {
+    background-color: #4c78ae !important;
+  }
+
+  .delete-icon {
+    // background-color: #5c7 !important;
+    color:rgb(255, 255, 255) !important;
   }
 `;
 
