@@ -361,8 +361,20 @@ const darkModeCSS = `
   }
 
   .delete-icon {
-    // background-color: #5c7 !important;
     color:rgb(255, 255, 255) !important;
+  }
+
+  .fixed-dimensions-btn {
+    background-color: #4c78ae !important;
+    border-radius: 15px;
+  }
+
+  .fixed-dimensions-btn:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  
+  .pagination > li > a, .pagination > li > span {
+  border-radius: 15px;
   }
 `;
 
