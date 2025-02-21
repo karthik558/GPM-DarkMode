@@ -13,6 +13,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set up date and time
+      id: date
+      run: echo "RELEASE_TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+
     - name: Compress files
       run: |
         zip -r extension.zip . -x "src/*"
@@ -23,8 +27,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
       with:
-        tag_name: ${{ github.sha }}
-        release_name: Release ${{ github.sha }}
+        tag_name: ${{ env.RELEASE_TAG }}
+        release_name: Release ${{ env.RELEASE_TAG }}
         body: |
           Release for commit ${{ github.sha }}
         draft: false
