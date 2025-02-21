@@ -36,7 +36,7 @@ jobs:
     - name: Generate changelog
       id: changelog
       run: |
-        CHANGELOG=$(git log -n 5 --pretty=format:"- %s")
+        CHANGELOG=$(git log -n 6 --pretty=format:"- %s")
         echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
 
     - name: Create GitHub Release
