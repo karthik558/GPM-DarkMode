@@ -205,7 +205,7 @@ const darkModeCSS = `
   }
 
   ul#tabmenu li {
-    padding: 3px 0px 3px 0px !important; 
+    padding: 3px 3px 3px 3px !important; 
   }
 
   ul#tabmenu li a.selected {
