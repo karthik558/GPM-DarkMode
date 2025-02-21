@@ -24,11 +24,13 @@ jobs:
         echo "VERSION=$VERSION" >> $GITHUB_ENV
 
     - name: Compress files
+      id: compress_files
       run: |
         ZIP_NAME="GPM-DarkMode-${{ env.VERSION }}.zip"
         if [ -z "${{ env.VERSION }}" ]; then
           ZIP_NAME="GPM-DarkMode.zip"
         fi
+        echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
         zip -r $ZIP_NAME . -x ".git/*" -x ".github/*" -x "src/*"
 
     - name: Generate changelog
