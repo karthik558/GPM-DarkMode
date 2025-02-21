@@ -17,9 +17,25 @@ jobs:
       id: date
       run: echo "RELEASE_TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
+    - name: Get version from manifest.json
+      id: get_version
+      run: |
+        VERSION=$(jq -r '.version' manifest.json)
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+
     - name: Compress files
       run: |
-        zip -r extension.zip . -x "src/*"
+        ZIP_NAME="GPM-DarkMode-${{ env.VERSION }}.zip"
+        if [ -z "${{ env.VERSION }}" ]; then
+          ZIP_NAME="GPM-DarkMode.zip"
+        fi
+        zip -r $ZIP_NAME . -x ".git/*" -x ".github/*" -x "src/*"
+
+    - name: Generate changelog
+      id: changelog
+      run: |
+        CHANGELOG=$(git log -n 5 --pretty=format:"- %s")
+        echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
 
     - name: Create GitHub Release
       id: create_release
@@ -28,9 +44,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
       with:
         tag_name: ${{ env.RELEASE_TAG }}
-        release_name: Release ${{ env.RELEASE_TAG }}
+        release_name: GPM-DarkMode-${{ env.VERSION }}
         body: |
-          Release for commit ${{ github.sha }}
+          Changelog:
+          ${{ env.CHANGELOG }}
         draft: false
         prerelease: false
 
@@ -40,6 +57,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./extension.zip
-        asset_name: extension.zip
+        asset_path: ./${{ env.ZIP_NAME }}
+        asset_name: ${{ env.ZIP_NAME }}
         asset_content_type: application/zip
