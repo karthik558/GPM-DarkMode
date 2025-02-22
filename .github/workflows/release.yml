@@ -1,64 +1,76 @@
-name: Create Release
+name: Create and Upload GPM-DarkMode Release
 
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the release from
+      - main  # Change this branch if you have a different default branch
 
 jobs:
-  build:
+  build_and_release:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # 1. Check out your repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up date and time
-      id: date
-      run: echo "RELEASE_TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+      # 2. Set up a timestamp tag for this release
+      - name: Set up date and time
+        id: date
+        run: echo "RELEASE_TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
-    - name: Get version from manifest.json
-      id: get_version
-      run: |
-        VERSION=$(jq -r '.version' manifest.json)
-        echo "VERSION=$VERSION" >> $GITHUB_ENV
+      # 3. Retrieve version from manifest.json (requires jq)
+      - name: Get version from manifest.json
+        id: get_version
+        run: |
+          VERSION=$(jq -r '.version' manifest.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-    - name: Compress files
-      id: compress_files
-      run: |
-        ZIP_NAME="GPM-DarkMode-${{ env.VERSION }}.zip"
-        if [ -z "${{ env.VERSION }}" ]; then
-          ZIP_NAME="GPM-DarkMode.zip"
-        fi
-        echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
-        zip -r $ZIP_NAME . -x ".git/*" -x ".github/*" -x "src/*"
+      # 4. Compress files, excluding files and folders you don't want in the final package
+      - name: Compress files
+        id: compress_files
+        run: |
+          ZIP_NAME="GPM-DarkMode-${{ env.VERSION }}.zip"
+          if [ -z "${{ env.VERSION }}" ]; then
+            ZIP_NAME="GPM-DarkMode.zip"
+          fi
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
-    - name: Generate changelog
-      id: changelog
-      run: |
-        CHANGELOG=$(git log -n 6 --pretty=format:"- %s")
-        echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
+          # Exclude .git, .github, and src folders to reduce size
+          zip -r "$ZIP_NAME" . -x ".git/*" -x ".github/*" -x "src/*"
 
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
-      with:
-        tag_name: ${{ env.RELEASE_TAG }}
-        release_name: GPM-DarkMode-${{ env.VERSION }}
-        body: |
-          Changelog:
-          ${{ env.CHANGELOG }}
-        draft: false
-        prerelease: false
+      # 5. Generate a simple changelog with the last 6 commit messages
+      - name: Generate changelog
+        id: changelog
+        run: |
+          CHANGELOG=$(git log -n 6 --pretty=format:"- %s")
+          echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
 
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{ env.ZIP_NAME }}
-        asset_name: ${{ env.ZIP_NAME }}
-        asset_content_type: application/zip
+      # 6. Create a release on GitHub
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          # Replace with a token that has permission to create releases
+          GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
+        with:
+          # Use the timestamp from Step 2 for a unique tag
+          tag_name: ${{ env.RELEASE_TAG }}
+          # Include the current version in the release name (or default text if the version is empty)
+          release_name: GPM-DarkMode-${{ env.VERSION }}
+          body: |
+            Changelog:
+            ${{ env.CHANGELOG }}
+          draft: false
+          prerelease: false
+
+      # 7. Upload the ZIP file as a release asset
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          # Use the same token as above
+          GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.ZIP_NAME }}
+          asset_name: ${{ env.ZIP_NAME }}
+          asset_content_type: application/zip
