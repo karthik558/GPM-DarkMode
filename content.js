@@ -1,29 +1,8 @@
-// Initial setup with safety timeout
-(function () {
-  const preStyle = document.createElement('style');
-  preStyle.id = 'pre-dark-mode';
-  preStyle.textContent = `
-        body {
-            opacity: 0 !important;
-            transition: opacity 0.1s ease-in !important;
-        }
-    `;
-  document.documentElement.appendChild(preStyle);
+// ---------------------------
+// Theme CSS Definitions
+// ---------------------------
 
-  // Safety timeout to ensure page always becomes visible
-  setTimeout(() => {
-    const preStyle = document.getElementById('pre-dark-mode');
-    if (preStyle) {
-      preStyle.remove();
-      document.body.style.opacity = '1';
-    }
-  }, 1500);
-})();
-
-let darkModeStylesheet = null;
-let observer = null;
-let initializeAttempts = 0;
-
+// Dark Mode CSS (your tuned version)
 const darkModeCSS = `
   /* Base styles */
   html {
@@ -32,11 +11,12 @@ const darkModeCSS = `
 
   body {
     background-color: #292a2d !important;
+    color: #ffffff;
     font-family: sans-serif !important;
     font-size: 0.9rem !important;
     line-height: 1.5;
   }
-    
+
   /* Background colors */
   div, section, article, aside, nav, main, header, footer {
     background-color: #292a2d !important;
@@ -154,6 +134,7 @@ const darkModeCSS = `
     border-color: #ffff !important;
     color: #ffffff !important;
     margin: 0px 5px 0px 10px;
+    border-radius: 15px;
   }
 
   /* Tables */
@@ -205,17 +186,17 @@ const darkModeCSS = `
   }
 
   ul#tabmenu li {
-    padding: 3px 3px 3px 3px !important; 
+    padding: 3px 3px 3px 3px !important;
   }
 
   ul#tabmenu li a.selected {
     background-color:rgb(33, 74, 123) !important;
   }
-    
+
   ul#tabmenu li a:hover {
     background-color:rgb(106, 165, 237) !important;
   }
-  
+
   .header {
     background-color: #292a2d !important;
   }
@@ -231,7 +212,7 @@ const darkModeCSS = `
   .ibox-content {
     border-width: 0.4px !important;
   }
-  
+
   .header .btn-warning {
     background-color: #4c78ae !important;
   }
@@ -239,7 +220,7 @@ const darkModeCSS = `
   .header .btn-warning:hover {
     background-color: rgb(106, 165, 237) !important;
   }
-  
+
   .c-no-item-wrapper {
 	border: 0.5px solid #e7eaec;
 	border-radius: 15px;
@@ -258,20 +239,20 @@ const darkModeCSS = `
     background-color: #4c78ae !important;
     color: #2a2a2a !important;
   }
-  
+
   .redactor-toolbar {
     background-color: #4c78ae !important;
   }
 
   .navbar-expand-sm .navbar-nav {
     background-color: #2a2a2a !important;
-    padding-bottom: 8px;    
+    padding-bottom: 8px;
   }
 
   .c-remove-text {
     padding: 8px 15px 0px 0px !important;
   }
-  
+
   .c-icon-style {
   background-color: #4c78ae !important;
   }
@@ -280,36 +261,37 @@ const darkModeCSS = `
   border-color: #4c78ae !important;
   }
 
-  // .message td {
-  //   background-color: #4c78ae !important;
-  // }
+  .message td {
+    background-color: #4c78ae !important;
+    padding: 5px 5px;
+  }
 
   .c-breadcrumb {
     background-color: #4c78ae !important;
   }
 
   .c-breadcrumb .breadcrumb {
-    background-color: #4c78ae !important;
+    // background-color: #4c78ae !important;
   }
 
   .alert-success {
     color: #2fc150 !important !important;
     background-color:rgb(193, 254, 207) !important;
   }
-  
+
   .ui-datepicker .ui-datepicker-title {
     color: #ffffff !important;
   }
-  
+
   a.closebtn {
     background-color: #4c78ae !important;
   }
-  
+
   a.closebtn:hover {
     background-color: rgb(106, 165, 237) !important;
   }
 
-  .progress-bar { 
+  .progress-bar {
     background-color: #2fc150 !important;
   }
 
@@ -318,10 +300,12 @@ const darkModeCSS = `
   }
 
   .popup .popuptext {
-    background-color: #4c78ae !important;
+    background-color: #3084c6 !important;
+    color: #ffffff !important;
   }
 
   .c-ibox-value span {
+    // border-radius: 15px;
     background-color: #f80000 !important;
   }
 
@@ -372,225 +356,503 @@ const darkModeCSS = `
   .fixed-dimensions-btn:hover {
     background-color: rgb(106, 165, 237) !important;
   }
-  
+
   .pagination > li > a, .pagination > li > span {
   border-radius: 15px;
+  margin-left: 5px;
+  background-color: rgb(106, 165, 237) !important;
+  }
+  
+  .pagination > li > a, .pagination > li > span:hover {
+  background-color: #4c78ae !important;
+  }
+
+  .c-lowerlink-item {
+  color: #fff;
+  }
+
+  .c-lowerlink-item:hover {
+    color: rgb(106, 165, 237) !important;
+  }
+
+  .c-dropdown-toggle {
+  color: #fff;
+  }
+
+  .c-dropdown-toggle:hover {
+    color: rgb(106, 165, 237) !important;
+  }
+
+  .table {
+  color: #fff;
+  }
+
+  .c-no-item {
+  color: #fff;
+  }
+
+  .table > tfoot > tr > th {
+  color: #ffffff !important;
+  }
+
+  a {
+  color: #fff;
+  }
+
+  .calendar thead .title {
+   color: #fff !important;
+  }
+
+  .calendar thead .name {
+  color: #fff !important;
+  }
+
+  .calendar tfoot .ttip {
+  color: #fff !important;
+  }
+
+  .c-ibox-label {
+  color: #fff !important;
+  }
+
+  .panel-default > .panel-heading {
+  color: #fff !important;
+  }
+
+  select.form-control:not([size]):not([multiple]) {
+  height: 2.5rem;
+}
+
+.chat-message .c-message-avatar {
+    background-color: #4c78ae !important;
+  }
+
+  .c-form .form-group input, .c-form .form-group select {
+   border-radius: 15px;
   }
 `;
 
+// Light New Mode CSS (variant of dark theme with white backgrounds and dark text)
+// This CSS retains a similar structure but:
+// - Uses a light color scheme
+// - Sets structural backgrounds to white (#ffffff)
+// - Ensures text is dark and adjusts controls accordingly
+const lightNewCSS = `
+  /* Base styles */
+  html {
+    color-scheme: light !important;
+  }
+  body {
+    background-color: #ffffff !important;
+    font-family: sans-serif !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+    color: #000000 !important;
+  }
+  /* Background colors for structural elements */
+  div, section, article, aside, nav, main, header, footer {
+    // background-color: #ffffff !important;
+  }
+  /* Headings */
+  h1, .heading h1 {
+    color: #000000 !important;
+  }
+  /* Reset pagination background */
+  .pagination > li > a,
+  .pagination > li > span {
+    background-color: transparent !important;
+    border-color: #5f6368 !important;
+    color: #000000 !important;
+  }
+  /* Reset breadcrumbs background */
+  .breadcrumbs,
+  .breadcrumb,
+  .breadcrumb-item,
+  nav[aria-label="breadcrumb"] {
+    background-color: transparent !important;
+  }
+  /* UTC DateTime and User Login specific styles */
+  [data-content*="Current Date and Time (UTC"]::before,
+  [data-content*="Current User's Login:"]::before,
+  .datetime-display,
+  .user-login-display {
+    color: #3d79b3 !important;
+    background-color: transparent !important;
+    font-family: monospace !important;
+  }
+  /* Enhanced dropdown styles */
+  .dropdown-menu,
+  .dropdown-content,
+  .select-menu,
+  select option,
+  [role="menu"],
+  [role="listbox"],
+  .dropdown-item,
+  .select-option {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+  }
+  /* Preserve custom colors */
+  [style*="color: rgb(202, 218, 231)"],
+  [style*="color: #555555"],
+  [style*="color:#555555"] {
+    /* Leave intact */
+  }
+  /* Convert light colors to darker shades */
+  [style*="color: #e5e7e9"],
+  [style*="color:#e5e7e9"],
+  [style*="color: rgb(229, 231, 233)"] {
+    color: #2d2d2d !important;
+  }
+  /* Adjust text colors for readability */
+  [style*="color: #212529"],
+  [style*="color:#212529"],
+  [style*="color: rgb(33, 37, 41)"],
+  [style*="color:#354A55"],
+  [style*="color: #354A55"],
+  [style*="color: rgb(53, 74, 85)"],
+  [style*="color: #52616B"],
+  [style*="color:#52616B"],
+  [style*="color: rgb(82, 97, 107)"],
+  [style*="color: #000000"],
+  [style*="color:#000000"],
+  [style*="color: rgb(0, 0, 0)"],
+  [style*="color: black"],
+  [style*="color: #686a6c"],
+  [style*="color:#686a6c"],
+  [style*="color: rgb(104, 106, 108)"],
+  [style*="color: #333333"],
+  [style*="color:#333333"],
+  [style*="color: rgb(51, 51, 51)"],
+  [style*="color: #676a6c"],
+  [style*="color:#676a6c"],
+  [style*="color: rgb(103, 106, 108)"],
+  [style*="color: #2e2e2e"],
+  [style*="color:#2e2e2e"],
+  [style*="color: rgb(46, 46, 46)"] {
+    color: #000000 !important;
+  }
+  /* Handle icons */
+  i[style*="color: #000000"],
+  i[style*="color:#000000"],
+  i[style*="color: rgb(0, 0, 0)"],
+  i[style*="color: black"],
+  svg[style*="color: #000000"],
+  svg[style*="color:#000000"],
+  svg[style*="color: rgb(0, 0, 0)"],
+  svg[style*="color: black"] {
+    color: #000000 !important;
+    fill: #000000 !important;
+  }
+  /* Forms and inputs */
+  input, textarea, select {
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+    margin: 0px 5px 0px 10px;
+    border-radius: 15px;
+  }
+  /* Tables */
+  table, th, td {
+    background-color: #ffffff !important;
+    border-color: #5f6368 !important;
+  }
+  /* Override light backgrounds */
+  [class*="bg-white"],
+  [class*="bg-light"] {
+    background-color: #ffffff !important;
+  }
+  /* Preserve images */
+  img {
+    filter: brightness(1);
+  }
+  /* Button styling */
+  button,
+  .btn,
+  .button {
+    background-color: #e0e0e0 !important;
+    color: #000000 !important;
+    border: 1px solid #4c78ae !important;
+    padding: 4px 13px !important;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  button:hover,
+  .btn:hover,
+  .button:hover {
+    background-color: #c0c0c0 !important;
+  }
+  ul#tabmenu li a {
+    font-size: 0.9rem !important;
+    padding: 8px 14px !important;
+    background-color: #4c78ae !important;
+    color: #ffffff !important;
+    border: 0.1px solid #4c78ae !important;
+    border-right: 0.1px solid #4c78ae !important;
+    border-radius: 15px !important;
+    transition: background-color 0.2s ease-in-out !important;
+  }
+  ul#tabmenu li {
+    padding: 3px !important;
+  }
+  ul#tabmenu li a.selected {
+    background-color: rgb(33, 74, 123) !important;
+  }
+  ul#tabmenu li a:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  .header {
+    background-color: #4c78ae !important;
+  }
+  .content th {
+    color: #4c78ae !important;
+  }
+  .message-date {
+    color: #3d79b3 !important;
+  }
+  .ibox-content {
+    border-width: 0.4px !important;
+  }
+  .header .btn-warning {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  .header .btn-warning:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  .c-no-item-wrapper {
+    border: 0.5px solid #e7eaec;
+    border-radius: 15px;
+  }
+  .c-table td a {
+    font-weight: 600 !important;
+  }
+  .navbar-static-top .c-dropdown-menu li a {
+    font-weight: 400 !important;
+    color:rgb(0, 0, 0) !important;
+  }
+  .k-button {
+    background-color: #4c78ae !important;
+    color: #2a2a2a !important;
+  }
+  .redactor-toolbar {
+    background-color: #4c78ae !important;
+  }
+  .navbar-expand-sm .navbar-nav {
+    // background-color: #4c78ae !important;
+    // padding-bottom: 8px;    
+  }
+  .c-remove-text {
+    padding: 8px 15px 0px 0px !important;
+  }
+  .c-icon-style {
+    background-color: #4c78ae !important;
+  }
+  .top-navigation .navbar-nav .c-dropdown-menu {
+    border-color: #4c78ae !important;
+  }
+  .c-breadcrumb {
+    background-color: #4c78ae !important;
+  }
+  .c-breadcrumb .breadcrumb {
+    background-color: #4c78ae !important;
+  }
+  .alert-success {
+    color: #2fc150 !important;
+    background-color: rgb(193, 254, 207) !important;
+  }
+  .ui-datepicker .ui-datepicker-title {
+    color: #000000 !important;
+  }
+  a.closebtn {
+    background-color: #4c78ae !important;
+  }
+  a.closebtn:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  .progress-bar { 
+    background-color: #2fc150 !important;
+  }
+  .label-info, .badge-info {
+    background-color: rgb(198, 0, 0) !important;
+  }
+  .popup .popuptext {
+    background-color: #4c78ae !important;
+    color: #ffffff !important;
+  }
+  .c-ibox-value span {
+    background-color: #f80000 !important;
+    color: #ffffff !important;
+  }
+  .calendar tbody .day {
+    color: #000000 !important;
+  }
+  .button, .btn, .button {
+    background-color: #4c78ae !important;
+    color: #ffffff !important;
+  }
+  .button:hover, .btn:hover, .button:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  .btn-info {
+    color: #fff;
+    background-color: #4c78ae;
+    border-color: rgb(106, 165, 237);
+    border-radius: 15px;
+  }
+  .btn-info:hover {
+    background-color: rgb(106, 165, 237);
+  }
+  .btn-success {
+    color: #fff;
+    background-color: #1c84c6;
+    border-color: rgb(106, 165, 237);
+    border-radius: 15px;
+    padding: 4px 13px !important;
+  }
+  .uidisp {
+    background-color: #4c78ae !important;
+  }
+  .delete-icon {
+    color: rgb(255, 255, 255) !important;
+  }
+  .fixed-dimensions-btn {
+    background-color: #4c78ae !important;
+    border-radius: 15px;
+  }
+  .fixed-dimensions-btn:hover {
+    background-color: rgb(106, 165, 237) !important;
+  }
+  .pagination > li > a, .pagination > li > span {
+    border-radius: 15px;
+    margin-left: 5px;
+    background-color: rgb(106, 165, 237) !important;
+    color: #ffffff !important;  
+  }
+
+  .pagination > li > a, .pagination > li > span:hover {
+   background-color: #4c78ae !important;
+  }
+  
+  .chat-message .c-message-avatar {
+    background-color: #4c78ae !important;
+  }
+
+  .c-dropdown-toggle {
+  color: #000000;
+  }
+
+  .c-dropdown-toggle:hover {
+    color: rgb(106, 165, 237) !important;
+  }
+
+  .c-lowerlink-item {
+  color: #000000;
+  }
+
+  .c-lowerlink-item:hover {
+    color: rgb(106, 165, 237) !important;
+  }
+  
+  .c-form .form-group input, .c-form .form-group select {
+   border-radius: 15px;
+   border: 5px;
+  }
+`;
+
+// ---------------------------
+// Theme Application Logic
+// ---------------------------
+
+let activeTheme = "light"; // Default is Light Mode
+let themeStyleElement = null;
+let observer = null;
+
+// showPage: Ensures the page becomes visible
 function showPage() {
-  const preStyle = document.getElementById('pre-dark-mode');
+  const preStyle = document.getElementById("pre-dark-mode");
   if (preStyle) {
-    document.body.style.opacity = '1';
     preStyle.remove();
   }
+  document.body.style.opacity = "1";
 }
 
-function shouldPreserveColor(color) {
-  const preserveColors = [
-    '#4882c1', 'rgb(72, 130, 193)',
-    '#3c34e2', 'rgb(60, 52, 226)',
-    'red', 'green', 'yellow', 'blue'
-  ];
-  return preserveColors.some(preserveColor => color.includes(preserveColor));
-}
-
-function shouldChangeToWhite(color) {
-  const targetColors = [
-    '#212529', 'rgb(33, 37, 41)',
-    '#52616B', 'rgb(82, 97, 107)',
-    '#354A55', 'rgb(53, 74, 85)',
-    '#000000', 'rgb(0, 0, 0)', 'black',
-    '#686a6c', 'rgb(104, 106, 108)',
-    '#333333', 'rgb(51, 51, 51)',
-    '#676a6c', 'rgb(103, 106, 108)',
-    '#2e2e2e', 'rgb(46, 46, 46)'
-  ];
-  return targetColors.some(targetColor => color.includes(targetColor));
-}
-
-function shouldChangeToEdaf67(color) {
-  const targetColors = [
-    '#555555', 'rgb(85, 85, 85)'
-  ];
-  return targetColors.some(targetColor => color.includes(targetColor));
-}
-
-function shouldChangeToDarker(color) {
-  const targetColors = [
-    '#e5e7e9', 'rgb(229, 231, 233)'
-  ];
-  return targetColors.some(targetColor => color.includes(targetColor));
-}
-
-function adjustSpecialElements() {
-  // Handle UTC time format
-  document.querySelectorAll('*').forEach(el => {
-    const text = el.textContent;
-    if (text) {
-      // Match specific UTC date-time format
-      if (text.match(/Current Date and Time \(UTC - YYYY-MM-DD HH:MM:SS formatted\):/)) {
-        el.classList.add('datetime-display');
-      }
-      // Match specific user login format
-      if (text.match(/Current User's Login: karthik\d+/)) {
-        el.classList.add('user-login-display');
-      }
-    }
-  });
-
-  // Handle pagination and breadcrumbs
-  document.querySelectorAll('.pagination > li > a, .pagination > li > span, .breadcrumbs, .breadcrumb, .breadcrumb-item').forEach(el => {
-    el.style.setProperty('background-color', 'transparent', 'important');
-  });
-}
-
-function adjustColors() {
-  try {
-    requestAnimationFrame(() => {
-      document.querySelectorAll('*').forEach(el => {
-        try {
-          const style = window.getComputedStyle(el);
-          const currentColor = style.color;
-
-          if (shouldPreserveColor(currentColor)) {
-            return;
-          }
-
-          if (shouldChangeToDarker(currentColor)) {
-            el.style.setProperty('color', '#2d2d2d', 'important');
-            return;
-          }
-
-          if (shouldChangeToWhite(currentColor)) {
-            el.style.setProperty('color', '#ffffff', 'important');
-            if (el.tagName.toLowerCase() === 'svg' || el.tagName.toLowerCase() === 'i') {
-              el.style.setProperty('fill', '#ffffff', 'important');
-            }
-          }
-        } catch (elementError) {
-          // Skip problematic elements
-        }
-      });
-
-      adjustSpecialElements();
-    });
-  } catch (error) {
-    console.error('Error adjusting colors:', error);
-    showPage();
+// removeCurrentTheme: Remove any previously applied theme
+function removeCurrentTheme() {
+  if (themeStyleElement) {
+    themeStyleElement.remove();
+    themeStyleElement = null;
+  }
+  if (observer) {
+    observer.disconnect();
+    observer = null;
   }
 }
 
-function enableDarkMode() {
-  try {
-    if (!darkModeStylesheet) {
-      darkModeStylesheet = document.createElement('style');
-      darkModeStylesheet.id = 'smart-dark-mode-styles';
-      darkModeStylesheet.textContent = darkModeCSS;
-      document.documentElement.appendChild(darkModeStylesheet);
-
-      requestAnimationFrame(() => {
-        adjustColors();
-        showPage();
-      });
-
-      if (observer) {
-        observer.disconnect();
-      }
-
-      observer = new MutationObserver((mutations) => {
-        let shouldAdjust = false;
-        for (const mutation of mutations) {
-          if (mutation.addedNodes.length ||
-            mutation.attributeName === 'style' ||
-            mutation.attributeName === 'class') {
-            shouldAdjust = true;
-            break;
-          }
-        }
-        if (shouldAdjust) {
-          requestAnimationFrame(adjustColors);
-        }
-      });
-
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['style', 'class']
-      });
-    }
-  } catch (error) {
-    console.error('Error enabling dark mode:', error);
-    showPage();
+// setupObserver: Sets up a MutationObserver in case dynamic DOM changes require extra adjustments
+function setupObserver() {
+  if (observer) {
+    observer.disconnect();
   }
-}
-
-function disableDarkMode() {
-  if (darkModeStylesheet) {
-    darkModeStylesheet.remove();
-    darkModeStylesheet = null;
-
-    if (observer) {
-      observer.disconnect();
-      observer = null;
-    }
-
-    document.querySelectorAll('[style*="color"]').forEach(el => {
-      if (el.style.getPropertyPriority('color') === 'important') {
-        el.style.removeProperty('color');
-      }
-      if (el.style.getPropertyPriority('fill') === 'important') {
-        el.style.removeProperty('fill');
-      }
-    });
-  }
-}
-
-function initializeDarkMode() {
-  initializeAttempts++;
-
-  chrome.storage.local.get(['darkModeEnabled'], (result) => {
-    if (result.darkModeEnabled) {
-      enableDarkMode();
-    }
-
-    setTimeout(showPage, 50);
-
-    setTimeout(() => {
-      if (document.body.style.opacity === '0') {
-        document.body.style.opacity = '1';
-      }
-    }, 300);
+  observer = new MutationObserver((mutations) => {
+    // In our themes the CSS should cover new elements.
+    // If additional processing is needed, it can be added here.
   });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true
+  });
+}
 
-  if (initializeAttempts < 3) {
-    setTimeout(() => {
-      if (!darkModeStylesheet && document.body.style.opacity === '0') {
-        initializeDarkMode();
-      }
-    }, 500);
+// applyTheme: Applies the provided theme based on the mode string
+function applyTheme(mode) {
+  // Remove any existing theme styles
+  removeCurrentTheme();
+
+  if (mode === "dark") {
+    themeStyleElement = document.createElement("style");
+    themeStyleElement.id = "extension-dark-theme";
+    themeStyleElement.textContent = darkModeCSS;
+    document.documentElement.appendChild(themeStyleElement);
+    setupObserver();
+  } else if (mode === "light-new") {
+    themeStyleElement = document.createElement("style");
+    themeStyleElement.id = "extension-light-new-theme";
+    themeStyleElement.textContent = lightNewCSS;
+    document.documentElement.appendChild(themeStyleElement);
+    setupObserver();
   } else {
-    showPage();
+    // Light mode (default): no extra stylesheet is injected.
+    // Any previously injected rules are removed.
   }
+  activeTheme = mode;
+  showPage();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeDarkMode);
-} else {
-  initializeDarkMode();
-}
+// ---------------------------
+// Message Listener for Theme Switching
+// ---------------------------
 
+// Expects a message in the form { action: "setTheme", mode: "light" | "dark" | "light-new" }
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'toggleDarkMode') {
-    toggleDarkMode(request.enabled);
+  if (request.action === "setTheme" && request.mode) {
+    applyTheme(request.mode);
+    sendResponse({ status: "success", mode: request.mode });
   }
 });
 
-function toggleDarkMode(enabled) {
-  if (enabled) {
-    enableDarkMode();
-  } else {
-    disableDarkMode();
-  }
+// ---------------------------
+// Initial Setup
+// ---------------------------
+
+// If needed, you can add your safety timeout pre-style directly into the page via the manifest's content script injection.
+// Here we assume the page starts in a hidden state and then becomes visible once the theme is applied.
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    applyTheme(activeTheme);
+  });
+} else {
+  applyTheme(activeTheme);
 }

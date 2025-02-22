@@ -25,10 +25,8 @@ body {
 
 /* Container */
 .container {
-  width: 300px;
-  height: auto;
-  background: transparent;
-  padding: 10px;
+  width: 270px;
+  background: transparent !important;
 }
 
 /* Card */
@@ -36,7 +34,7 @@ body {
   background: var(--card-bg);
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  border: px solid var(--border-light);
+  border: 1px solid var(--border-light);
   overflow: hidden;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   animation: slideIn 0.3s ease-out;
@@ -56,7 +54,6 @@ body {
 }
 
 .header .logo {
-  width: auto;
   height: 50px;
   margin-bottom: 8px;
 }
@@ -125,6 +122,39 @@ input:checked + .slider:before {
 .toggle-text {
   font-size: 14px;
   font-weight: 500;
+}
+
+/* Theme Select Dropdown */
+.theme-select-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-select-wrapper label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.theme-select-wrapper label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.theme-select-wrapper select {
+  padding: 5px;
+  border: 1px solid var(--border-light);
+  /* background-color: var(--primary-blue); */
+  color: var(--text-dark);
+  border-radius: 15px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.theme-select-wrapper select:focus {
+  outline: none;
+  background-color: var(--accent);
+  color: var(--card-bg);
 }
 
 /* Time Display */
@@ -224,4 +254,45 @@ body.dark-mode .author-link {
 
 body.dark-mode .author-link:hover {
   color: #ffffff;
+}
+
+/* Light New Mode Styles */
+body.light-new-mode {
+  background: var(--light-gray);
+}
+
+body.light-new-mode .card {
+  background: var(--card-bg);
+  border-color: var(--border-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+body.light-new-mode .header {
+  background: var(--primary-blue);
+  color: #ffffff;
+}
+
+body.light-new-mode .content {
+  color: var(--text-dark);
+}
+
+body.light-new-mode .time-display {
+  background: var(--card-bg);
+}
+
+body.light-new-mode .current-time,
+body.light-new-mode .current-user {
+  color: var(--primary-blue);
+}
+
+body.light-new-mode .footer {
+  background: var(--footer-bg);
+}
+
+body.light-new-mode .author-link {
+  color: var(--primary-blue);
+}
+
+body.light-new-mode .author-link:hover {
+  color: #000000;
 }
