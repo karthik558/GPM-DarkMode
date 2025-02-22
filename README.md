@@ -23,16 +23,12 @@
 
 - <b> Extension Preview </b>
 ![GPM Dark Mode Preview](src/video/dark-enable.gif)
-  </br>
 - <b> Theme Preview Light Mode (Official one)</b>
 ![Light Theme](src/picture/light-mode.png)
-  </br>
 - <b> Theme Preview Material Dark Mode (Customized)</b>
 ![Dark Theme](src/picture/dark-mode.png)
-</br>
 - <b> Theme Preview Material Light Mode (Customized)</b>
 ![Light Theme](src/picture/light-mode-v2.png)
-<br>
 
 ## 🌟 Features
 
