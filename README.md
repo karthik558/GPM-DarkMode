@@ -27,17 +27,18 @@
 - <b> Theme Preview Light Mode (Official one)</b>
 ![Light Theme](src/picture/light-mode.png)
   </br>
-- <b> Theme Preview Dark Mode (Customized one by me)</b>
+- <b> Theme Preview Material Dark Mode (Customized)</b>
 ![Dark Theme](src/picture/dark-mode.png)
-
+</br>
+- <b> Theme Preview Material Light Mode (Customized)</b>
+![Light Theme](src/picture/light-mode-v2.png)
 ## 🌟 Features
 
-- **Multiple Dark Themes (Coming Soon)**
+- **Multiple Theme Support**
 
-  - Theme 0 (#1e1e1e)
-  - Theme 1 (#2a2a2a) (Default Theme)
-  - Theme 2 (#1b1c1d)
-  - Theme 3 (#282a2c)
+  - Theme 0 (Default)
+  - Theme 1 (Material Dark)
+  - Theme 2 (Material Light)
 
 - **Smart Color Management**
 
@@ -47,9 +48,7 @@
 
 - **User-Friendly Interface**
   - One-click dark mode toggle
-  - Easy theme switching (Coming Soon)
-  - Real-time UTC time display
-  - User login information
+  - Easy theme switching
 
 ## 📥 Installation
 
