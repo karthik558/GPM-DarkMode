@@ -194,7 +194,7 @@ const darkModeCSS = `
   }
 
   ul#tabmenu li a:hover {
-    background-color:rgb(106, 165, 237) !important;
+    background-color:#6aa5ed !important;
   }
 
   .header {
@@ -218,7 +218,7 @@ const darkModeCSS = `
   }
 
   .header .btn-warning:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
 
   .c-no-item-wrapper {
@@ -228,11 +228,6 @@ const darkModeCSS = `
 
   .c-table td a {
     font-weight: 600 !important;
-  }
-
-  .navbar-static-top .c-dropdown-menu li a {
-    font-weight: 400 !important;
-    color: #4c78ae !important;
   }
 
   .k-button {
@@ -288,7 +283,7 @@ const darkModeCSS = `
   }
 
   a.closebtn:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
 
   .progress-bar {
@@ -296,7 +291,7 @@ const darkModeCSS = `
   }
 
   .label-info, .badge-info {
-    background-color:rgb(198, 0, 0) !important;
+    background-color:#c60000 !important;
   }
 
   .popup .popuptext {
@@ -306,7 +301,7 @@ const darkModeCSS = `
 
   .c-ibox-value span {
     // border-radius: 15px;
-    background-color: #f80000 !important;
+    background-color: #c60000 !important;
   }
 
   .calendar tbody .day {
@@ -318,24 +313,24 @@ const darkModeCSS = `
   }
 
   .button:hover, .btn:hover, .button:hover {
-  background-color: rgb(106, 165, 237) !important;
+  background-color: #6aa5ed !important;
   }
 
   .btn-info {
   color: #fff;
   background-color: #4c78ae;
-  border-color: rgb(106, 165, 237);
+  border-color: #6aa5ed;
   border-radius: 15px;
   }
 
   .btn-info:hover {
-  background-color: rgb(106, 165, 237);
+  background-color: #6aa5ed;
   }
 
   .btn-success {
   color: #fff;
   background-color: #1c84c6;
-  border-color: rgb(106, 165, 237);
+  border-color: #6aa5ed;
   border-radius: 15px;
   padding: 4px 13px !important;
 }
@@ -354,13 +349,13 @@ const darkModeCSS = `
   }
 
   .fixed-dimensions-btn:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
 
   .pagination > li > a, .pagination > li > span {
   border-radius: 15px;
   margin-left: 5px;
-  background-color: rgb(106, 165, 237) !important;
+  background-color: #6aa5ed !important;
   }
   
   .pagination > li > a, .pagination > li > span:hover {
@@ -372,7 +367,7 @@ const darkModeCSS = `
   }
 
   .c-lowerlink-item:hover {
-    color: rgb(106, 165, 237) !important;
+    color: #6aa5ed !important;
   }
 
   .c-dropdown-toggle {
@@ -380,7 +375,7 @@ const darkModeCSS = `
   }
 
   .c-dropdown-toggle:hover {
-    color: rgb(106, 165, 237) !important;
+    color: #6aa5ed !important;
   }
 
   .table {
@@ -430,6 +425,41 @@ const darkModeCSS = `
   .c-form .form-group input, .c-form .form-group select {
    border-radius: 15px;
   }
+
+
+  .navbar-static-top .c-dropdown-menu li a {
+    font-weight: 400 !important;
+    background-color: #292a2d !important;
+  }
+
+  .dropdown-menu > li > a {
+  color:#ffffff !important;
+  }
+
+  .dropdown-menu>li>a:hover {
+  background-color: #4c78ae !important;
+  color:#ffffff !important;
+  }
+
+  .dropdown-menu, .dropdown-content, .select-menu, select option, [role="menu"], [role="listbox"], .dropdown-item, .select-option {
+  // background-color: #345f92 !important;
+  }
+
+  #leftMenu {
+  color: #ffffff !important;
+  }
+
+  #leftMenu:hover {
+  colo: #4c78ae !important;
+  }
+
+   #favoriteBtn {
+   color: #ffffff !important;
+   }
+
+    #favoriteBtn:hover {
+    color: #4c78ae !important;
+    }
 `;
 
 // Light New Mode CSS (variant of dark theme with white backgrounds and dark text)
@@ -601,7 +631,7 @@ const lightNewCSS = `
     background-color: rgb(33, 74, 123) !important;
   }
   ul#tabmenu li a:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
   .header {
     background-color: #4c78ae !important;
@@ -616,10 +646,10 @@ const lightNewCSS = `
     border-width: 0.4px !important;
   }
   .header .btn-warning {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
   .header .btn-warning:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
   .c-no-item-wrapper {
     border: 0.5px solid #e7eaec;
@@ -627,10 +657,6 @@ const lightNewCSS = `
   }
   .c-table td a {
     font-weight: 600 !important;
-  }
-  .navbar-static-top .c-dropdown-menu li a {
-    font-weight: 400 !important;
-    color:rgb(0, 0, 0) !important;
   }
   .k-button {
     background-color: #4c78ae !important;
@@ -660,7 +686,7 @@ const lightNewCSS = `
   }
   .alert-success {
     color: #2fc150 !important;
-    background-color: rgb(193, 254, 207) !important;
+    background-color: #c1fecf !important;
   }
   .ui-datepicker .ui-datepicker-title {
     color: #000000 !important;
@@ -669,20 +695,20 @@ const lightNewCSS = `
     background-color: #4c78ae !important;
   }
   a.closebtn:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
   .progress-bar { 
     background-color: #2fc150 !important;
   }
   .label-info, .badge-info {
-    background-color: rgb(198, 0, 0) !important;
+    background-color: #c60000 !important;
   }
   .popup .popuptext {
     background-color: #4c78ae !important;
     color: #ffffff !important;
   }
   .c-ibox-value span {
-    background-color: #f80000 !important;
+    background-color: #c60000 !important;
     color: #ffffff !important;
   }
   .calendar tbody .day {
@@ -693,21 +719,21 @@ const lightNewCSS = `
     color: #ffffff !important;
   }
   .button:hover, .btn:hover, .button:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
   .btn-info {
     color: #fff;
     background-color: #4c78ae;
-    border-color: rgb(106, 165, 237);
+    border-color: #6aa5ed;
     border-radius: 15px;
   }
   .btn-info:hover {
-    background-color: rgb(106, 165, 237);
+    background-color: #6aa5ed;
   }
   .btn-success {
     color: #fff;
     background-color: #1c84c6;
-    border-color: rgb(106, 165, 237);
+    border-color: #6aa5ed;
     border-radius: 15px;
     padding: 4px 13px !important;
   }
@@ -722,12 +748,12 @@ const lightNewCSS = `
     border-radius: 15px;
   }
   .fixed-dimensions-btn:hover {
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
   }
   .pagination > li > a, .pagination > li > span {
     border-radius: 15px;
     margin-left: 5px;
-    background-color: rgb(106, 165, 237) !important;
+    background-color: #6aa5ed !important;
     color: #ffffff !important;  
   }
 
@@ -744,21 +770,58 @@ const lightNewCSS = `
   }
 
   .c-dropdown-toggle:hover {
-    color: rgb(106, 165, 237) !important;
+    color: #6aa5ed !important;
   }
 
+  .c-dropdown-toggle:selected {
+  color:#ff0000 !important;
+  }
+  
   .c-lowerlink-item {
   color: #000000;
   }
 
   .c-lowerlink-item:hover {
-    color: rgb(106, 165, 237) !important;
+    color: #6aa5ed !important;
   }
   
   .c-form .form-group input, .c-form .form-group select {
    border-radius: 15px;
    border: 5px;
   }
+
+  .navbar-static-top .c-dropdown-menu li a {
+    font-weight: 400 !important;
+    background-color: #ffffff !important;
+  }
+
+  .dropdown-menu > li > a {
+  color: #000000 !important;
+  }
+
+  .dropdown-menu>li>a:hover {
+  color: #345f92 !important;
+  }
+
+  .dropdown-menu, .dropdown-content, .select-menu, select option, [role="menu"], [role="listbox"], .dropdown-item, .select-option { 
+  // background-color: #345f92 !important;
+  }
+
+  #leftMenu {
+  color: #ffffff !important;
+  }
+
+  #leftMenu:hover {
+  colo: #000000 !important;
+  }
+
+   #favoriteBtn { 
+   color: #ffffff !important;
+   }
+
+    #favoriteBtn:hover {
+    color: #000000 !important;
+    }
 `;
 
 // ---------------------------
