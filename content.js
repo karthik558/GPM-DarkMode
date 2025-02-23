@@ -262,11 +262,16 @@ const darkModeCSS = `
   }
 
   .c-breadcrumb {
-    background-color: #4c78ae !important;
+    background-color: #2a2a2a !important;
+  }
+
+  .c-breadcrumb .breadcrumb-item a {
+    color:rgb(80, 139, 211) !important;
+    text-decoration: none;
   }
 
   .c-breadcrumb .breadcrumb {
-    // background-color: #4c78ae !important;
+    // background-color: #335f95 !important;
   }
 
   .alert-success {
@@ -280,12 +285,24 @@ const darkModeCSS = `
 
   a.closebtn {
     background-color: #4c78ae !important;
+    border-radius: 15px;
+    color: #ffffff !important;
   }
 
   a.closebtn:hover {
-    background-color: #6aa5ed !important;
+    background-color:#335f95 !important;
   }
 
+  .mod_cancel {
+    background-color: #bb0000 !important;
+    border-radius: 15px;
+    margin: 6px;
+  }
+
+  .mod_cancel:hover {
+    background-color: #880303 !important;
+  }
+    
   .progress-bar {
     background-color: #2fc150 !important;
   }
@@ -294,6 +311,10 @@ const darkModeCSS = `
     background-color:#c60000 !important;
   }
 
+  .box {
+    border: 0px !important;
+  }
+  
   .popup .popuptext {
     background-color: #3084c6 !important;
     color: #ffffff !important;
@@ -460,6 +481,36 @@ const darkModeCSS = `
     #favoriteBtn:hover {
     color: #4c78ae !important;
     }
+
+  .c-link {
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px 15px;
+  background-color: #345f92;
+}
+
+.c-link:hover {
+  text-decoration: none;
+  background-color: #6aa5ed;
+  transition: background-color 0.2s ease-in-out;
+}
+.c-link-color {
+  // color: #346198;
+  text-decoration: none;
+}
+
+.c-seperator {
+  color: transparent;
+  padding: 0 5px;
+}
+
+.btn-fixed-height {
+margin-top: 6px;
+}
+
+.titletext {
+color: #ffffff !important;
+}
 `;
 
 // Light New Mode CSS (variant of dark theme with white backgrounds and dark text)
@@ -649,7 +700,7 @@ const lightNewCSS = `
     background-color: #6aa5ed !important;
   }
   .header .btn-warning:hover {
-    background-color: #6aa5ed !important;
+    background-color: #346198 !important;
   }
   .c-no-item-wrapper {
     border: 0.5px solid #e7eaec;
@@ -665,6 +716,11 @@ const lightNewCSS = `
   .redactor-toolbar {
     background-color: #4c78ae !important;
   }
+
+  .redactor-toolbar li a {
+    color: #ffffff !important;
+  }
+
   .navbar-expand-sm .navbar-nav {
     // background-color: #4c78ae !important;
     // padding-bottom: 8px;    
@@ -693,10 +749,28 @@ const lightNewCSS = `
   }
   a.closebtn {
     background-color: #4c78ae !important;
+    border-radius: 15px;
+    color: #ffffff !important;
   }
   a.closebtn:hover {
     background-color: #6aa5ed !important;
   }
+
+  .mod_cancel {
+    background-color: #bb0000 !important;
+    border-radius: 15px;
+    margin: 6px;
+    color: #ffffff !important;
+  }
+
+  .mod_cancel:hover {
+    background-color: #880303 !important;
+  }
+  
+  .box {
+    border: 0px !important;
+  }
+    
   .progress-bar { 
     background-color: #2fc150 !important;
   }
@@ -822,6 +896,33 @@ const lightNewCSS = `
     #favoriteBtn:hover {
     color: #000000 !important;
     }
+
+    .c-link {
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px 15px;
+  background-color: #6aa5ed;
+}
+
+.c-link:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #346198;
+  transition: background-color 0.2s ease-in-out;
+}
+.c-link-color {
+  color: #2f84c6;
+  text-decoration: none;
+}
+
+.c-seperator {
+  color: transparent;
+  padding: 0 5px;
+}
+
+.btn-fixed-height {
+margin-top: 6px;
+}
 `;
 
 // ---------------------------
