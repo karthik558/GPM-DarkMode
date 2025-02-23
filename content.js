@@ -983,6 +983,12 @@ let activeTheme = "light"; // Default is Light Mode
 let themeStyleElement = null;
 let observer = null;
 
+// Immediately apply the stored theme as soon as possible
+chrome.storage.local.get(['themeMode'], (result) => {
+  const mode = result.themeMode || 'light';
+  applyTheme(mode);
+});
+
 // showPage: Ensures the page becomes visible
 function showPage() {
   const preStyle = document.getElementById("pre-dark-mode");
@@ -1049,11 +1055,12 @@ function applyTheme(mode) {
 // Message Listener for Theme Switching
 // ---------------------------
 
-// Expects a message in the form { action: "setTheme", mode: "light" | "dark" | "light-new" }
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "setTheme" && request.mode) {
-    applyTheme(request.mode);
-    sendResponse({ status: "success", mode: request.mode });
+// Listen for runtime messages (theme changes) and update styling accordingly
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg.action === 'setTheme') {
+    // Remove old theme classes before applying the new one
+    document.documentElement.classList.remove('dark-mode', 'light-new-mode');
+    applyTheme(msg.mode);
   }
 });
 
@@ -1063,10 +1070,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 // If needed, you can add your safety timeout pre-style directly into the page via the manifest's content script injection.
 // Here we assume the page starts in a hidden state and then becomes visible once the theme is applied.
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    applyTheme(activeTheme);
-  });
-} else {
-  applyTheme(activeTheme);
-}
+// if (document.readyState === "loading") {
+//   document.addEventListener("DOMContentLoaded", () => {
+//     applyTheme(activeTheme);
+//   });
+// } else {
+//   applyTheme(activeTheme);
+// }
