@@ -288,7 +288,7 @@ ul#tabmenu li a:hover {
 
 /* Alert styles */
 .alert-success {
-  color: #2fc150 !important;
+  color: #155724 !important;
   background-color: rgb(193, 254, 207) !important;
 }
 
@@ -794,7 +794,7 @@ ul#tabmenu li a:hover {
   background-color: #4c78ae !important;
 }
 .alert-success {
-  color: #2fc150 !important;
+  color: #155724 !important;
   background-color: #c1fecf !important;
 }
 .ui-datepicker .ui-datepicker-title {
