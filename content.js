@@ -973,6 +973,10 @@ select option,
 .fade-in {
   animation: fadeIn 0.4s ease-out both;
 }
+
+.header .c-seperator {
+  color: transparent !important;
+}
 `;
 
 // ---------------------------
