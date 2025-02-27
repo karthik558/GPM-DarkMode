@@ -535,6 +535,18 @@ select.form-control:not([size]):not([multiple]) {
   color: transparent !important;
 }
 
+.form-inline .form-control {
+  border-radius: 15px;
+}
+
+.divfilter select {
+  border-radius: 15px;
+}
+
+.table-bordered {
+  border: 0.5px solid #c7c7c7 !important;
+}
+
 `;
 
 // Light New Mode CSS (variant of dark theme with white backgrounds and dark text)
@@ -977,6 +989,15 @@ select option,
 .header .c-seperator {
   color: transparent !important;
 }
+
+.form-inline .form-control {
+  border-radius: 15px;
+}
+
+.divfilter select {
+  border-radius: 15px;
+}
+
 `;
 
 // ---------------------------
