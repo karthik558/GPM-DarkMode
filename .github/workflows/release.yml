@@ -91,7 +91,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
         with:
           tag_name: v${{ env.VERSION }}-${{ env.RELEASE_TAG }}
-          release_name: 🌙 GPM-DarkMode v${{ env.VERSION }} - ${{ env.RELEASE_DATE }}
+          release_name: GPM-DarkMode v${{ env.VERSION }}
           body: ${{ env.CHANGELOG }}
           draft: false
           prerelease: false
