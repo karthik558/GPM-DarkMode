@@ -1,32 +1,63 @@
-name: Create and Upload GPM-DarkMode Release
+name: 🚀 Create and Upload GPM-DarkMode Release
 
 on:
   push:
     branches:
-      - main  # Change this branch if you have a different default branch
+      - main
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - 'LICENSE'
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   build_and_release:
+    name: 📦 Build and Release Extension
     runs-on: ubuntu-latest
+    
     steps:
-      # 1. Check out your repository code
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for changelog generation
 
-      # 2. Set up a timestamp tag for this release
-      - name: Set up date and time
+      - name: 📅 Set up date and time
         id: date
-        run: echo "RELEASE_TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+        run: |
+          echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "RELEASE_TAG=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
-      # 3. Retrieve version from manifest.json (requires jq)
-      - name: Get version from manifest.json
+      - name: 📝 Get version from manifest.json
         id: get_version
         run: |
           VERSION=$(jq -r '.version' manifest.json)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "📊 Current version: $VERSION"
 
-      # 4. Compress files, excluding files and folders you don't want in the final package
-      - name: Compress files
+      - name: 📋 Generate comprehensive changelog
+        id: changelog
+        run: |
+          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+          echo "## 🚀 GPM-DarkMode v${{ env.VERSION }} (${{ env.RELEASE_DATE }})" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "### 🔄 Latest Changes" >> $GITHUB_ENV
+          git log -n 6 --pretty=format:"- %s (%h)" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "### 🙏 Thank you for using GPM-DarkMode!" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: 📦 Compress files
         id: compress_files
         run: |
           ZIP_NAME="GPM-DarkMode-${{ env.VERSION }}.zip"
@@ -34,43 +65,48 @@ jobs:
             ZIP_NAME="GPM-DarkMode.zip"
           fi
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+          
+          # Exclude development files to reduce size
+          zip -r "$ZIP_NAME" . -x ".git/*" -x ".github/*" -x "src/*" -x "*.md" -x "LICENSE" -x ".gitignore" -x "*.log"
+          
+          echo "📊 Generated package: $ZIP_NAME ($(du -h "$ZIP_NAME" | cut -f1))"
 
-          # Exclude .git, .github, and src folders to reduce size
-          zip -r "$ZIP_NAME" . -x ".git/*" -x ".github/*" -x "src/*"
-
-      # 5. Generate a simple changelog with the last 6 commit messages
-      - name: Generate changelog
-        id: changelog
+      - name: 🔍 Validate ZIP file
         run: |
-          CHANGELOG=$(git log -n 6 --pretty=format:"- %s")
-          echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
+          echo "📊 Verifying package contents..."
+          unzip -l "${{ env.ZIP_NAME }}" | tail -n +4 | head -n -2 | awk '{print $4}' | sort
+          
+          # Verify manifest.json is present
+          if unzip -l "${{ env.ZIP_NAME }}" | grep -q manifest.json; then
+            echo "✅ manifest.json found in package"
+          else
+            echo "❌ manifest.json not found in package"
+            exit 1
+          fi
 
-      # 6. Create a release on GitHub
-      - name: Create GitHub Release
+      - name: 📢 Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          # Replace with a token that has permission to create releases
           GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
         with:
-          # Use the timestamp from Step 2 for a unique tag
-          tag_name: ${{ env.RELEASE_TAG }}
-          # Include the current version in the release name (or default text if the version is empty)
-          release_name: GPM-DarkMode-${{ env.VERSION }}
-          body: |
-            Changelog:
-            ${{ env.CHANGELOG }}
+          tag_name: v${{ env.VERSION }}-${{ env.RELEASE_TAG }}
+          release_name: 🌙 GPM-DarkMode v${{ env.VERSION }} - ${{ env.RELEASE_DATE }}
+          body: ${{ env.CHANGELOG }}
           draft: false
           prerelease: false
 
-      # 7. Upload the ZIP file as a release asset
-      - name: Upload Release Asset
+      - name: 📤 Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
-          # Use the same token as above
           GITHUB_TOKEN: ${{ secrets.GPM_DARK_MODE }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./${{ env.ZIP_NAME }}
           asset_name: ${{ env.ZIP_NAME }}
           asset_content_type: application/zip
+
+      - name: 🎉 Release Completion
+        run: |
+          echo "::notice title=✅ Release Created Successfully::GPM-DarkMode v${{ env.VERSION }} has been released!"
+          echo "📊 Download link: https://github.com/${{ github.repository }}/releases/latest/download/${{ env.ZIP_NAME }}"
