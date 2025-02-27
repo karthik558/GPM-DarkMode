@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('darkModeToggle');
   const themeSelect = document.getElementById('themeSelect');
-  // const timeDisplay = document.querySelector('.current-time');
-  // const userDisplay = document.querySelector('.current-user');
 
   // Get the current theme mode from storage (default is "light")
   chrome.storage.local.get(['themeMode'], function (result) {
@@ -15,35 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update popup body styling (optional, as content scripts handle page themes)
     document.body.classList.toggle('dark-mode', mode === 'dark');
   });
-
-  // Update the time and user display elements
-  // function updateTimeAndUser() {
-  //   const now = new Date();
-  //   const timeStr = now.toISOString().replace('T', ' ').substring(0, 19);
-  //   timeDisplay.textContent =
-  //     'Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): ' + timeStr;
-
-  //   // Apply styling to time and user elements
-  //   [timeDisplay, userDisplay].forEach(element => {
-  //     element.style.display = 'block';
-  //     element.style.marginBottom = '5px';
-  //     element.style.color = '#3d79b3';
-  //     element.style.fontFamily = 'Courier New, monospace';
-  //   });
-  // }
-
-  // Get profile user info using chrome.identity (requires "identity" permission)
-  // chrome.identity.getProfileUserInfo(function (userInfo) {
-  //   if (userInfo.email) {
-  //     userDisplay.textContent = "Current User's Login: " + userInfo.email;
-  //   } else {
-  //     userDisplay.textContent = "Current User's Login: Unknown";
-  //   }
-  // });
-
-  // Initial update of time and user displays
-  // updateTimeAndUser();
-  // setInterval(updateTimeAndUser, 1000);
 
   // Function to send theme mode update to managed tabs
   function updateManagedTabs(newMode) {
