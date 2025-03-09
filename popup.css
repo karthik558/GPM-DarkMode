@@ -1,7 +1,7 @@
 /* Variables for Color Reuse - iOS Inspired */
 :root {
-  --ios-blue: #74c0ec; /* Standard iOS Blue */
-  --ios-blue-dark: #7498ec; /* Darker Blue (Hover/Active) */
+  --ios-blue: #5677aa; /* Standard iOS Blue */
+  --ios-blue-dark: #3d69ac; /* Darker Blue (Hover/Active) */
   --ios-light-gray: #f2f2f7; /* Light Background */
   --ios-gray: #8e8e93; /* Medium Gray (Text/Borders) */
   --ios-dark-gray: #1c1c1e; /* Dark Background (Dark Mode) */

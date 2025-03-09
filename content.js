@@ -547,6 +547,12 @@ select.form-control:not([size]):not([multiple]) {
   border: 0.5px solid #c7c7c7 !important;
 }
 
+.card-body {
+  background-color: #4c78ae !important;
+  border-radius: 15px !important;
+  padding: 10px !important;
+}
+  
 `;
 
 // Light New Mode CSS (variant of dark theme with white backgrounds and dark text)
@@ -996,6 +1002,12 @@ select option,
 
 .divfilter select {
   border-radius: 15px;
+}
+
+.card-body {
+  background-color: #4c78ae !important;
+  border-radius: 15px !important;
+  padding: 10px !important;
 }
 
 `;
