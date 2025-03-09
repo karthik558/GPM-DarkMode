@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get the current theme mode from storage
   chrome.storage.local.get(['themeMode'], function (result) {
     const mode = result.themeMode || 'light';
-    // Update toggle state for both material modes
+    // Set the toggle state based on the stored theme mode (toggle checked when dark-mode or light-new)
     toggle.checked = (mode === 'dark' || mode === 'light-new');
     if (themeSelect) {
       themeSelect.value = mode;
@@ -27,13 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Handle dark mode toggle changes
+  // Handle toggle changes: check the toggle state to decide the mode.
   toggle.addEventListener('change', function () {
-    // When toggle is checked, use the currently selected theme
-    // When unchecked, use default light mode
-    const selectedTheme = themeSelect.value;
-    const newMode = toggle.checked ? selectedTheme : 'light';
-    
+    // When toggle is checked, use "light-new", otherwise use default "light".
+    const newMode = toggle.checked ? 'light-new' : 'light';
+    // Remove dark-mode class if present (assuming dark-mode applies only when newMode is dark)
+    document.body.classList.toggle('dark-mode', newMode === 'dark');
     if (themeSelect) {
       themeSelect.value = newMode;
     }
@@ -42,12 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Handle theme selection from dropdown
+  // Handle theme selection from dropdown.
+  // When the user explicitly selects a theme, update the toggle to reflect material themed modes.
   if (themeSelect) {
     themeSelect.addEventListener('change', function () {
       const selectedMode = themeSelect.value;
-      // Keep toggle enabled for both material modes
+      // Update toggle checked state if "dark" or "light-new" is selected.
       toggle.checked = (selectedMode === 'dark' || selectedMode === 'light-new');
+      // Apply the selected theme immediately
+      document.body.classList.toggle('dark-mode', selectedMode === 'dark');
       chrome.storage.local.set({ themeMode: selectedMode }, function () {
         updateManagedTabs(selectedMode);
       });
