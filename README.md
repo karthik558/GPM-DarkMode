@@ -33,20 +33,20 @@
 ## 🌟 Features
 
 - **Multiple Theme Support**
-
-  - Theme 0 (Default)
-  - Theme 1 (Material Dark)
-  - Theme 2 (Material Light)
+  - Theme 1 (Material Dark Mode)
+  - Theme 2 (Material Light Mode) - Default
+  - Theme 3 (Solarized Dark Mode) - (Upcoming)
+  - Theme 4 (Solarized Light Mode) - (Upcoming)
 
 - **Smart Color Management**
-
-  - Intelligent color conversion
   - Preserves important UI elements
   - Dynamic content adaptation
+  - Customizable color palette (Implemented in code)
 
 - **User-Friendly Interface**
-  - One-click dark mode toggle
-  - Easy theme switching
+  - One-click material theme switching
+  - Easy-to-use toggle switch
+  - iOS-like design for toggle box
 
 ## 📥 Installation
 
@@ -78,12 +78,11 @@ chrome://extensions/
 2. Toggle dark mode on/off using the switch
 3. Settings are automatically saved and persist between sessions
 
-### Built With
+## 🧱 Built With
 
-- JavaScript (ES6+)
 - Chrome Extension Manifest V3
 - CSS3 Custom Properties
-- HTML5
+- HTML5, CSS3, and JavaScript
 
 ## 🤝 Contributing
 
