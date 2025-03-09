@@ -1,84 +1,94 @@
-/* Variables for color reuse */
+/* Variables for Color Reuse - iOS Inspired */
 :root {
-  --primary-blue: #4c78ae;
-  --light-gray: #f0f0f0;
-  --card-bg: #ffffff;
-  --border-light: #e0e0e0;
-  --dark-bg: #292a2d;
-  --text-dark: #333333;
-  --accent: #4c78ae;
-  --footer-bg: #f9f9f9;
+  --ios-blue: #74c0ec; /* Standard iOS Blue */
+  --ios-blue-dark: #7498ec; /* Darker Blue (Hover/Active) */
+  --ios-light-gray: #f2f2f7; /* Light Background */
+  --ios-gray: #8e8e93; /* Medium Gray (Text/Borders) */
+  --ios-dark-gray: #1c1c1e; /* Dark Background (Dark Mode) */
+  --ios-white: #ffffff; /* White */
+  --ios-shadow: rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+  --ios-border-color: rgba(0, 0, 0, 0.15); /* Light Border */
 }
 
 /* Global Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  background: var(--light-gray);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; /* iOS system font stack */
+  background-color: var(--ios-light-gray);
+  color: #000000; /* Default text color to black for better contrast on iOS */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  transition: background 0.3s ease;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.4;
 }
 
 /* Container */
 .container {
-  width: 270px;
+  width: 280px; /* Reduced width */
   background: transparent !important;
+  padding: 12px; /* Reduced padding significantly */
 }
 
 /* Card */
 .card {
-  background: var(--card-bg);
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--border-light);
+  background-color: var(--ios-white);
+  border-radius: 16px; /* More rounded corners */
+  box-shadow: 0 2px 4px var(--ios-shadow);
+  border: 1px solid var(--ios-border-color);
   overflow: hidden;
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  animation: slideIn 0.3s ease-out;
+  transition: box-shadow 0.3s ease;
+  animation: fadeIn 0.4s ease-out;
 }
 
 .card:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Header */
 .header {
-  background: var(--primary-blue);
-  padding: 18px 16px;
+  background: linear-gradient(to bottom, var(--ios-blue), var(--ios-blue)); /* Subtle Gradient - corrected var name */
+  padding: 16px;
   text-align: center;
-  color: #ffffff;
+  color: #000000;  /* Black Text in the Header */
   position: relative;
+    border-bottom: 1px solid var(--ios-border-color);
 }
 
 .header .logo {
-  height: 50px;
+  height: 40px; /* Smaller logo */
   margin-bottom: 8px;
+  filter: brightness(1); /* Reset brightness */
+}
+
+.header h1{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0;
 }
 
 /* Content */
 .content {
-  padding: 22px 20px;
-  color: var(--text-dark);
-  line-height: 1.6;
-  font-size: 14px;
+  padding: 20px;
+  color: var(--ios-gray);
+  font-size: 13px; /* Smaller font size */
 }
 
-/* Toggle Switch */
+/* Toggle Switch - iOS Style */
 .toggle-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 26px;
-  margin-right: 12px;
+  width: 51px;  /* iOS toggle switch size */
+  height: 31px;
+  margin-right: 10px;
 }
 
 .switch input {
@@ -88,107 +98,116 @@ body {
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #cccccc;
-  transition: 0.4s;
-  border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
-  background-color: #ffffff;
-  transition: 0.4s;
-  border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 27px; /* Adjusted size */
+    width: 27px; /* Adjusted size */
+    left: 2px;    /* Adjusted Position */
+    bottom: 2px;  /* Adjusted Position */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: var(--primary-blue);
+  background-color: var(--ios-blue);
 }
-
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--ios-blue); /* Add focus */
+}
 input:checked + .slider:before {
-  transform: translateX(24px);
+    -webkit-transform: translateX(20px); /* Adjusted Translate */
+    -ms-transform: translateX(20px);    /* Adjusted Translate */
+    transform: translateX(20px);         /* Adjusted Translate */
 }
-
 .toggle-text {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ios-gray);
 }
 
-/* Theme Select Dropdown */
+/* Theme Select Dropdown - iOS Style */
 .theme-select-wrapper {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
 }
 
 .theme-select-wrapper label {
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 4px;
-}
-
-.theme-select-wrapper label {
-  font-size: 14px;
-  margin-bottom: 4px;
+  color: var(--ios-gray);
 }
 
 .theme-select-wrapper select {
-  padding: 5px;
-  border: 1px solid var(--border-light);
-  /* background-color: var(--primary-blue); */
-  color: var(--text-dark);
-  border-radius: 15px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
+    font-size: 13px; /* Make the font size same as the toggle-text */
+    padding: 8px 10px; /* Adjusted padding */
+    border: 1px solid var(--ios-border-color);
+    border-radius: 8px; /* Rounded corners */
+    background-color: var(--ios-white);
+    color: #000; /* Black color for text */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238e8e93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); /* Custom Arrow (iOS Style) */
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    padding-right: 28px; /* Space for the arrow */
 }
+
 
 .theme-select-wrapper select:focus {
   outline: none;
-  background-color: var(--accent);
-  color: var(--card-bg);
+  border-color: var(--ios-blue);
 }
 
 /* Time Display */
 .time-display {
-  background: var(--footer-bg);
+  background-color: var(--ios-white);
   border-radius: 8px;
-  padding: 14px;
-  margin-top: 16px;
-  font-family: "Courier New", monospace;
-  font-size: 13px;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  margin-top: 12px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;  /* Monospace Font Stack */
+  font-size: 12px;
+  border: 1px solid var(--ios-border-color);
 }
 
 .current-time,
 .current-user {
-  font-size: 12px;
-  color: var(--primary-blue);
+  font-size: 11px;
+  color: var(--ios-blue);
   margin: 4px 0;
 }
 
 /* Footer */
 .footer {
-  padding: 10px 20px;
-  border-top: 1px solid var(--border-light);
+  padding: 12px 20px;
+  border-top: 1px solid var(--ios-border-color);
   text-align: center;
-  background: var(--footer-bg);
-  font-size: 12px;
+  background-color: var(--ios-white);
+  font-size: 11px;
+  color: var(--ios-gray);
 }
 
-/* Author link styling */
+/* Author Link Styling */
 .author-link {
-  color: var(--primary-blue);
+  color: var(--ios-blue);
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -196,18 +215,20 @@ input:checked + .slider:before {
 }
 
 .author-link:hover {
-  color: #000000;
+  color: var(--ios-blue-dark);
 }
 
 .external-link {
   opacity: 0.7;
+  width: 14px;
+  height: 14px;
 }
 
-/* Animation for card appearance */
-@keyframes slideIn {
+/* Animation for Card Appearance */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-4px); /* Smaller translation */
   }
   to {
     opacity: 1;
@@ -217,82 +238,100 @@ input:checked + .slider:before {
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background: var(--dark-bg);
+  background-color: var(--ios-dark-gray);
+  color: var(--ios-white);
 }
 
 body.dark-mode .card {
-  background: var(--dark-bg);
-  border-color: var(--dark-bg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: var(--ios-dark-gray);
+  border-color: rgba(255, 255, 255, 0.1); /* Lighter border in dark mode */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .header {
-  background: var(--primary-blue);
-  color: #ffffff;
+    background: linear-gradient(to bottom, #28282e, #1c1c1e);  /* Darker Gradient */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: var(--ios-white);
 }
 
 body.dark-mode .content {
-  color: #ffffff;
+  color: var(--ios-light-gray);
 }
 
 body.dark-mode .time-display {
-  background: var(--dark-bg);
+  background-color: var(--ios-dark-gray);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--ios-light-gray);
 }
 
 body.dark-mode .current-time,
 body.dark-mode .current-user {
-  color: var(--primary-blue);
+  color: var(--ios-blue); /* Keep the blue accent */
 }
 
 body.dark-mode .footer {
-  background: var(--dark-bg);
+  background-color: var(--ios-dark-gray);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--ios-gray);
 }
 
 body.dark-mode .author-link {
-  color: var(--primary-blue);
+  color: var(--ios-blue);
 }
 
 body.dark-mode .author-link:hover {
-  color: #ffffff;
+  color: var(--ios-white);
 }
-
+body.dark-mode .theme-select-wrapper select {
+    background-color: #333; /* Slightly lighter than the background */
+    color: #fff;           /* White text */
+    border-color: rgba(255,255,255,0.2);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); /* White arrow for dark mode */
+}
 /* Light New Mode Styles */
 body.light-new-mode {
-  background: var(--light-gray);
+  background: var(--ios-light-gray);
 }
 
 body.light-new-mode .card {
-  background: var(--card-bg);
-  border-color: var(--border-light);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background: var(--ios-white);
+    box-shadow: 0 2px 4px var(--ios-shadow);
+    border: 1px solid var(--ios-border-color);
 }
 
 body.light-new-mode .header {
-  background: var(--primary-blue);
-  color: #ffffff;
+  background: linear-gradient(to bottom, #f7f7f8, #e8e8ed);
+    color: #000;
 }
 
 body.light-new-mode .content {
-  color: var(--text-dark);
+    color: var(--ios-gray);
 }
 
 body.light-new-mode .time-display {
-  background: var(--card-bg);
+  background: var(--ios-white);
+  border: 1px solid var(--ios-border-color);
 }
 
 body.light-new-mode .current-time,
 body.light-new-mode .current-user {
-  color: var(--primary-blue);
+    color: var(--ios-blue);
 }
 
 body.light-new-mode .footer {
-  background: var(--footer-bg);
+    background: var(--ios-white);
+    color: var(--ios-gray);
 }
 
 body.light-new-mode .author-link {
-  color: var(--primary-blue);
+    color: var(--ios-blue);
 }
 
 body.light-new-mode .author-link:hover {
-  color: #000000;
+    color: var(--ios-blue-dark);
+}
+
+/* Header Font Family */
+.header{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }

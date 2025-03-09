@@ -2,15 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('darkModeToggle');
   const themeSelect = document.getElementById('themeSelect');
 
-  // Get the current theme mode from storage (default is "light")
+  // Get the current theme mode from storage
   chrome.storage.local.get(['themeMode'], function (result) {
     const mode = result.themeMode || 'light';
-    // For backward compatibility, set the toggle state
-    toggle.checked = (mode === 'dark');
+    // Update toggle state for both material modes
+    toggle.checked = (mode === 'dark' || mode === 'light-new');
     if (themeSelect) {
       themeSelect.value = mode;
     }
-    // Update popup body styling (optional, as content scripts handle page themes)
     document.body.classList.toggle('dark-mode', mode === 'dark');
   });
 
@@ -28,9 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Handle dark mode toggle changes; sets mode to "dark" if checked, "light" otherwise.
+  // Handle dark mode toggle changes
   toggle.addEventListener('change', function () {
-    const newMode = toggle.checked ? 'dark' : 'light';
+    // When toggle is checked, use the currently selected theme
+    // When unchecked, use default light mode
+    const selectedTheme = themeSelect.value;
+    const newMode = toggle.checked ? selectedTheme : 'light';
+    
     if (themeSelect) {
       themeSelect.value = newMode;
     }
@@ -39,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Handle theme selection from dropdown for mode switching ("light", "dark", "light-new")
+  // Handle theme selection from dropdown
   if (themeSelect) {
     themeSelect.addEventListener('change', function () {
       const selectedMode = themeSelect.value;
-      // Update the toggle for backward compatibility if "dark" is selected
-      toggle.checked = (selectedMode === 'dark');
+      // Keep toggle enabled for both material modes
+      toggle.checked = (selectedMode === 'dark' || selectedMode === 'light-new');
       chrome.storage.local.set({ themeMode: selectedMode }, function () {
         updateManagedTabs(selectedMode);
       });
