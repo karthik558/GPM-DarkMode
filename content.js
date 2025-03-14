@@ -4,17 +4,51 @@
 
 // Dark Mode CSS (your tuned version)
 const darkModeCSS = `
-  /* Base styles */
+  :root {
+  --primary-color: #4c78ae;
+  --primary-color-hover: #6aa5ed;
+  --secondary-color: #3d79b3;
+  --message-date-color: #77aae8;
+  --text-color-dark: #000000;
+  --text-color-light: #ffffff;
+  --background-color-dark: #292a2d;
+  --background-color-darker: #2d2d2d;
+  --background-color-dark-alt: #2a2a2a;  /* For navbar */
+  --background-color-gray: #3d3d3d; /* for buttons */
+  --border-color-light: #5f6368;
+  --border-color-dark: #ffffff;  /* For inputs */
+    --border-color-table: #c7c7c7;
+  --button-padding: 4px 13px;
+  --border-radius: 15px;
+  --font-family-sans: sans-serif;
+  --font-family-mono: monospace;
+  --font-size-base: 0.9rem;
+  --success-color: #155724;
+  --success-background: rgb(193, 254, 207);
+  --danger-color: #bb0000;
+  --danger-color-hover: #880303;
+  --progress-bar-color: #2fc150;
+  --label-info-background: #c60000;
+  --popup-background: #3084c6;
+  --dropdown-background: #2d2d2d;
+  --form-control-height: 2.5rem;
+  --chat-message-background: #4c78ae;
+  --breadcrumb-link-color: rgb(80, 139, 211);
+   --k-button-text-color: #2a2a2a;
+
+}
+
+/* Base styles */
 html {
   color-scheme: dark !important;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #292a2d !important;
-  color: #ffffff;
-  font-family: sans-serif !important;
-  font-size: 0.9rem !important;
+  background-color: var(--background-color-dark) !important;
+  color: var(--text-color-light);
+  font-family: var(--font-family-sans) !important;
+  font-size: var(--font-size-base) !important;
   line-height: 1.5;
   /* Apply a fade-in effect on page load */
   animation: fadeIn 0.4s ease-out both;
@@ -32,7 +66,7 @@ body {
 
 /* Background colors */
 div, section, article, aside, nav, main, header, footer {
-  background-color: #292a2d !important;
+  background-color: var(--background-color-dark) !important;
 }
 
 /* Remove white background from .heading */
@@ -42,15 +76,15 @@ div, section, article, aside, nav, main, header, footer {
 
 /* Make h1 white */
 h1, .heading h1 {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Reset pagination background */
 .pagination > li > a,
 .pagination > li > span {
   background-color: transparent !important;
-  border-color: #5f6368 !important;
-  color: #ffffff !important;
+  border-color: var(--border-color-light) !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Reset breadcrumbs background */
@@ -68,9 +102,9 @@ nav[aria-label="breadcrumb"] {
 *:has(> :contains("Current User's Login:")),
 .datetime-display,
 .user-login-display {
-  color: #3d79b3 !important;
+  color: var(--secondary-color) !important;
   background-color: transparent !important;
-  font-family: monospace !important;
+  font-family: var(--font-family-mono) !important;
 }
 
 /* Enhanced dropdown styles */
@@ -82,8 +116,8 @@ select option,
 [role="listbox"],
 .dropdown-item,
 .select-option {
-  background-color: #2d2d2d !important;
-  color: #ffffff !important;
+  background-color: var(--dropdown-background) !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Preserve custom colors */
@@ -97,7 +131,7 @@ select option,
 [style*="color: #e5e7e9"],
 [style*="color:#e5e7e9"],
 [style*="color: rgb(229, 231, 233)"] {
-  color: #2d2d2d !important;
+  color: var(--background-color-darker) !important; /* Use a darker background variable */
 }
 
 /* Target specific text colors for white conversion */
@@ -126,7 +160,7 @@ select option,
 [style*="color: #2e2e2e"],
 [style*="color:#2e2e2e"],
 [style*="color: rgb(46, 46, 46)"] {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Handle icons */
@@ -138,29 +172,29 @@ svg[style*="color: #000000"],
 svg[style*="color:#000000"],
 svg[style*="color: rgb(0, 0, 0)"],
 svg[style*="color: black"] {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+  color: var(--text-color-light) !important;
+  fill: var(--text-color-light) !important;
 }
 
 /* Forms and inputs */
 input, textarea, select {
-  background-color: #292a2d !important;
-  border-color: #ffff !important;
-  color: #ffffff !important;
+  background-color: var(--background-color-dark) !important;
+  border-color: var(--border-color-dark) !important;
+  color: var(--text-color-light) !important;
   margin: 0px 5px 0px 10px;
-  border-radius: 15px;
+  border-radius: var(--border-radius);
 }
 
 /* Tables */
 table, th, td {
-  background-color: #292a2d !important;
-  border-color: #5f6368 !important;
+  background-color: var(--background-color-dark) !important;
+  border-color: var(--border-color-light) !important;
 }
 
 /* Override white backgrounds */
 [class*="bg-white"],
 [class*="bg-light"] {
-  background-color: #292a2d !important;
+  background-color: var(--background-color-dark) !important;
 }
 
 /* Preserve images */
@@ -172,31 +206,31 @@ img {
 button,
 .btn,
 .button {
-  background-color: #3d3d3d !important;
-  color: #ffffff !important;
-  border: 1px solid #4c78ae !important;
-  padding: 4px 13px !important;
-  border-radius: 15px;
-  font-size: 0.9rem;
+  background-color: var(--background-color-gray) !important;
+  color: var(--text-color-light) !important;
+  border: 1px solid var(--primary-color) !important;
+  padding: var(--button-padding) !important;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 button:hover,
 .btn:hover,
 .button:hover {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
   transform: translateY(-2px);
 }
 
 /* Tabmenu styles */
 ul#tabmenu li a {
-  font-size: 0.9rem !important;
+  font-size: var(--font-size-base) !important;
   padding: 8px 14px !important;
-  background-color: #4c78ae !important;
-  color: #ffffff !important;
-  border: 0.1px solid #4c78ae !important;
-  border-right: 0.1px solid #4c78ae !important;
-  border-radius: 15px !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
+  border: 0.1px solid var(--primary-color) !important;
+  border-right: 0.1px solid var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
   transition: background-color 0.2s ease-in-out !important;
 }
 
@@ -205,24 +239,24 @@ ul#tabmenu li {
 }
 
 ul#tabmenu li a.selected {
-  background-color: rgb(33, 74, 123) !important;
+  background-color: rgb(33, 74, 123) !important;  /* Specific, keep as is */
 }
 
 ul#tabmenu li a:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 
 /* Header and content */
 .header {
-  background-color: #292a2d !important;
+  background-color: var(--background-color-dark) !important;
 }
 
 .content th {
-  color: #4c78ae !important;
+  color: var(--primary-color) !important;
 }
 
 .message-date {
-  color: #77aae8 !important;
+  color: var(--message-date-color) !important;
 }
 
 .ibox-content {
@@ -230,16 +264,16 @@ ul#tabmenu li a:hover {
 }
 
 .header .btn-warning {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 
 .header .btn-warning:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 
 .c-no-item-wrapper {
-  border: 0.5px solid #e7eaec;
-  border-radius: 15px;
+  border: 0.5px solid #e7eaec;  /* Specific, keep as is */
+  border-radius: var(--border-radius);
 }
 
 .c-table td a {
@@ -247,16 +281,16 @@ ul#tabmenu li a:hover {
 }
 
 .k-button {
-  background-color: #4c78ae !important;
-  color: #2a2a2a !important;
+  background-color: var(--primary-color) !important;
+  color: var(--k-button-text-color) !important;
 }
 
 .redactor-toolbar {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 
 .navbar-expand-sm .navbar-nav {
-  background-color: #2a2a2a !important;
+  background-color: var(--background-color-dark-alt) !important;
   padding-bottom: 8px;
 }
 
@@ -265,62 +299,62 @@ ul#tabmenu li a:hover {
 }
 
 .c-icon-style {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 
 .top-navigation .navbar-nav .c-dropdown-menu {
-  border-color: #4c78ae !important;
+  border-color: var(--primary-color) !important;
 }
 
 .message td {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
   padding: 5px;
 }
 
 .c-breadcrumb {
-  background-color: #2a2a2a !important;
+  background-color: var(--background-color-dark-alt) !important;
 }
 
 .c-breadcrumb .breadcrumb-item a {
-  color: rgb(80, 139, 211) !important;
+  color: var(--breadcrumb-link-color) !important;
   text-decoration: none;
 }
 
 /* Alert styles */
 .alert-success {
-  color: #155724 !important;
-  background-color: rgb(193, 254, 207) !important;
+  color: var(--success-color) !important;
+  background-color: var(--success-background) !important;
 }
 
 .ui-datepicker .ui-datepicker-title {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Close button */
 a.closebtn {
-  background-color: #4c78ae !important;
-  border-radius: 15px;
-  color: #ffffff !important;
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius);
+  color: var(--text-color-light) !important;
 }
 a.closebtn:hover {
-  background-color: #335f95 !important;
+   background-color: #335f95 !important; /* specific color*/
 }
 
 .mod_cancel {
-  background-color: #bb0000 !important;
-  border-radius: 15px;
+  background-color: var(--danger-color) !important;
+  border-radius: var(--border-radius);
   margin: 6px;
 }
 .mod_cancel:hover {
-  background-color: #880303 !important;
+  background-color: var(--danger-color-hover) !important;
 }
 
 .progress-bar {
-  background-color: #2fc150 !important;
+  background-color: var(--progress-bar-color) !important;
 }
 
 .label-info, .badge-info {
-  background-color: #c60000 !important;
+  background-color: var(--label-info-background) !important;
 }
 
 .box {
@@ -328,185 +362,186 @@ a.closebtn:hover {
 }
 
 .popup .popuptext {
-  background-color: #3084c6 !important;
-  color: #ffffff !important;
+  background-color: var(--popup-background) !important;
+  color: var(--text-color-light) !important;
 }
 
 .c-ibox-value span {
-  background-color: #c60000 !important;
+  background-color: var(--label-info-background) !important;
 }
 
 .calendar tbody .day {
-  color: #fff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Button variations */
 .button,
 .btn,
 .button {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 .button:hover,
 .btn:hover,
 .button:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 
 .btn-info {
-  color: #fff;
-  background-color: #4c78ae;
-  border-color: #6aa5ed;
-  border-radius: 15px;
+  color: #fff;  /* Specific, keep */
+  background-color: var(--primary-color);
+  border-color: var(--primary-color-hover);
+  border-radius: var(--border-radius);
 }
 .btn-info:hover {
-  background-color: #6aa5ed;
+  background-color: var(--primary-color-hover);
 }
 
 .btn-success {
-  color: #fff;
-  background-color: #1c84c6;
-  border-color: #6aa5ed;
-  border-radius: 15px;
-  padding: 4px 13px !important;
+  color: #fff; /* specific, keep*/
+  background-color: #1c84c6;  /* specific, keep*/
+  border-color: var(--primary-color-hover);
+  border-radius: var(--border-radius);
+  padding: var(--button-padding) !important;
 }
 
 .uidisp {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 
 .delete-icon {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(255, 255, 255) !important;  /* Specific, keep for contrast */
 }
 
 .fixed-dimensions-btn {
-  background-color: #4c78ae !important;
-  border-radius: 15px;
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius);
 }
 .fixed-dimensions-btn:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 
 .pagination > li > a,
 .pagination > li > span {
-  border-radius: 15px;
+  border-radius: var(--border-radius);
   margin-left: 5px;
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
+  color: var(--text-color-light) !important; /* Added for consistency */
 }
 .pagination > li > a:hover,
 .pagination > li > span:hover {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 
 /* Lower link and dropdown styles */
 .c-lowerlink-item {
-  color: #fff;
+  color: var(--text-color-light);
 }
 .c-lowerlink-item:hover {
-  color: #6aa5ed !important;
+  color: var(--primary-color-hover) !important;
 }
 
 .c-dropdown-toggle {
-  color: #fff;
+  color: var(--text-color-light);
 }
 .c-dropdown-toggle:hover {
-  color: #6aa5ed !important;
+  color: var(--primary-color-hover) !important;
 }
 
 /* Table text */
 .table {
-  color: #fff;
+  color: var(--text-color-light);
 }
 .c-no-item {
-  color: #fff;
+  color: var(--text-color-light);
 }
 .table > tfoot > tr > th {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Anchor links */
 a {
-  color: #fff;
+  color: var(--text-color-light);
 }
 
 /* Calendar styles */
 .calendar thead .title {
-  color: #fff !important;
+  color: var(--text-color-light) !important;
 }
 .calendar thead .name {
-  color: #fff !important;
+  color: var(--text-color-light) !important;
 }
 .calendar tfoot .ttip {
-  color: #fff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Ibox label */
 .c-ibox-label {
-  color: #fff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Panel heading */
 .panel-default > .panel-heading {
-  color: #fff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Form select height */
 select.form-control:not([size]):not([multiple]) {
-  height: 2.5rem;
+  height: var(--form-control-height);
 }
 
 /* Chat message avatar */
 .chat-message .c-message-avatar {
-  background-color: #4c78ae !important;
+  background-color: var(--chat-message-background) !important;
 }
 
 /* Form inputs in specialized form styles */
 .c-form .form-group input,
 .c-form .form-group select {
-  border-radius: 15px;
+  border-radius: var(--border-radius);
 }
 
 /* Navbar dropdown menu */
 .navbar-static-top .c-dropdown-menu li a {
   font-weight: 400 !important;
-  background-color: #292a2d !important;
+  background-color: var(--background-color-dark) !important;
 }
 
 /* Dropdown menu links */
 .dropdown-menu > li > a {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 .dropdown-menu > li > a:hover {
-  background-color: #4c78ae !important;
-  color: #ffffff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Specific element overrides */
 #leftMenu {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 #leftMenu:hover {
-  color: #4c78ae !important;
+   color: var(--primary-color) !important;  /* Changed to primary for hover */
 }
 
 #favoriteBtn {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 #favoriteBtn:hover {
-  color: #4c78ae !important;
+  color: var(--primary-color) !important;  /* Changed to primary for hover */
 }
 
 /* Link styling */
 .c-link {
-  color: #fff;
-  border-radius: 15px;
+  color: var(--text-color-light);
+  border-radius: var(--border-radius);
   padding: 5px 15px;
-  background-color: #345f92;
+  background-color: #345f92;  /* Specific, keep */
   transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
   display: inline-block;
 }
 .c-link:hover {
   text-decoration: none;
-  background-color: #6aa5ed;
+  background-color: var(--primary-color-hover);
 }
 .c-link-color {
   text-decoration: none;
@@ -523,7 +558,7 @@ select.form-control:not([size]):not([multiple]) {
 
 /* Title text styling */
 .titletext {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 
 /* Utility class for fade-in animation */
@@ -536,43 +571,69 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .form-inline .form-control {
-  border-radius: 15px;
+  border-radius: var(--border-radius);
 }
 
 .divfilter select {
-  border-radius: 15px;
+  border-radius: var(--border-radius);
 }
 
 .table-bordered {
-  border: 0.5px solid #c7c7c7 !important;
+  border: 0.5px solid var(--border-color-table) !important;
 }
 
 .card-body {
-  background-color: #4c78ae !important;
-  border-radius: 15px !important;
-  padding: 10px !important;
+   background-color: var(--primary-color) !important;
+   border-radius: var(--border-radius) !important;
+   padding: 10px !important;
 }
   
 `;
 
-// Light New Mode CSS (variant of dark theme with white backgrounds and dark text)
-// This CSS retains a similar structure but:
-// - Uses a light color scheme
-// - Sets structural backgrounds to white (#ffffff)
-// - Ensures text is dark and adjusts controls accordingly
+// Light Mode CSS (your tuned version)
 const lightNewCSS = `
   /* Base styles */
+:root {
+  --primary-color: #4c78ae;
+  --primary-color-hover: #6aa5ed;
+  --secondary-color: #3d79b3;
+  --text-color-dark: #000000;
+  --text-color-light: #ffffff;
+  --background-color-light: #ffffff;
+  --background-color-dark: #2d2d2d;
+  --background-color-gray: #e0e0e0;
+  --background-color-gray-hover: #c0c0c0;
+  --dropdown-background: #f0f0f0;
+  --border-color-light: #5f6368;
+  --border-color-dark: #000000;
+  --button-padding: 4px 13px;
+  --border-radius: 15px;
+  --font-family-sans: sans-serif;
+  --font-family-mono: monospace;
+  --font-size-base: 0.9rem;
+  --success-color: #155724;
+  --success-background: #c1fecf;
+  --danger-color: #bb0000;
+    --danger-color-hover: #880303;
+  --progress-bar-color: #2fc150;
+    --label-info-background: #c60000;
+    --popup-background:#4c78ae;
+    --chat-message-background: #4c78ae;
+  --form-control-border-radius: 15px;
+    --navbar-static-top-background: #ffffff;
+}
+
 html {
   color-scheme: light !important;
   /* Smooth scrolling for in-page navigation */
   scroll-behavior: smooth;
 }
 body {
-  background-color: #ffffff !important;
-  font-family: sans-serif !important;
-  font-size: 0.9rem !important;
+  background-color: var(--background-color-light) !important;
+  font-family: var(--font-family-sans) !important;
+  font-size: var(--font-size-base) !important;
   line-height: 1.5;
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
   /* Fade-in effect for page load */
   animation: fadeIn 0.4s ease-out both;
 }
@@ -587,22 +648,21 @@ body {
   }
 }
 
-/* Background colors for structural elements */
-div, section, article, aside, nav, main, header, footer {
-  /* background-color: #ffffff !important; */
-}
+/* Background colors for structural elements - removed for cleaner look */
+/* div, section, article, aside, nav, main, header, footer {
+} */
 
 /* Headings */
 h1, .heading h1 {
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
 
 /* Reset pagination background */
 .pagination > li > a,
 .pagination > li > span {
   background-color: transparent !important;
-  border-color: #5f6368 !important;
-  color: #000000 !important;
+  border-color: var(--border-color-light) !important;
+  color: var(--text-color-dark) !important;
 }
 
 /* Reset breadcrumbs background */
@@ -618,9 +678,9 @@ nav[aria-label="breadcrumb"] {
 [data-content*="Current User's Login:"]::before,
 .datetime-display,
 .user-login-display {
-  color: #3d79b3 !important;
+  color: var(--secondary-color) !important;
   background-color: transparent !important;
-  font-family: monospace !important;
+  font-family: var(--font-family-mono) !important;
 }
 
 /* Enhanced dropdown styles */
@@ -632,11 +692,11 @@ select option,
 [role="listbox"],
 .dropdown-item,
 .select-option {
-  background-color: #f0f0f0 !important;
-  color: #000000 !important;
+  background-color: var(--dropdown-background) !important;
+  color: var(--text-color-dark) !important;
 }
 
-/* Preserve custom colors */
+/* Preserve custom colors - No change needed, handled by variables now */
 [style*="color: rgb(202, 218, 231)"],
 [style*="color: #555555"],
 [style*="color:#555555"] {
@@ -647,10 +707,10 @@ select option,
 [style*="color: #e5e7e9"],
 [style*="color:#e5e7e9"],
 [style*="color: rgb(229, 231, 233)"] {
-  color: #2d2d2d !important;
+  color: var(--background-color-dark) !important;
 }
 
-/* Adjust text colors for readability */
+/* Adjust text colors for readability - Simplified using variables */
 [style*="color: #212529"],
 [style*="color:#212529"],
 [style*="color: rgb(33, 37, 41)"],
@@ -676,10 +736,10 @@ select option,
 [style*="color: #2e2e2e"],
 [style*="color:#2e2e2e"],
 [style*="color: rgb(46, 46, 46)"] {
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
 
-/* Handle icons */
+/* Handle icons - Simplified using variables */
 i[style*="color: #000000"],
 i[style*="color:#000000"],
 i[style*="color: rgb(0, 0, 0)"],
@@ -688,29 +748,29 @@ svg[style*="color: #000000"],
 svg[style*="color:#000000"],
 svg[style*="color: rgb(0, 0, 0)"],
 svg[style*="color: black"] {
-  color: #000000 !important;
-  fill: #000000 !important;
+  color: var(--text-color-dark) !important;
+  fill: var(--text-color-dark) !important;
 }
 
 /* Forms and inputs */
 input, textarea, select {
-  background-color: #ffffff !important;
-  border-color: #000000 !important;
-  color: #000000 !important;
+  background-color: var(--background-color-light) !important;
+  border-color: var(--border-color-dark) !important;
+  color: var(--text-color-dark) !important;
   margin: 0px 5px 0px 10px;
-  border-radius: 15px;
+  border-radius: var(--border-radius);
 }
 
 /* Tables */
 table, th, td {
-  background-color: #ffffff !important;
-  border-color: #5f6368 !important;
+  background-color: var(--background-color-light) !important;
+  border-color: var(--border-color-light) !important;
 }
 
 /* Override light backgrounds */
 [class*="bg-white"],
 [class*="bg-light"] {
-  background-color: #ffffff !important;
+  background-color: var(--background-color-light) !important;
 }
 
 /* Preserve images */
@@ -722,216 +782,225 @@ img {
 button,
 .btn,
 .button {
-  background-color: #e0e0e0 !important;
-  color: #000000 !important;
-  border: 1px solid #4c78ae !important;
-  padding: 4px 13px !important;
-  border-radius: 15px;
-  font-size: 0.9rem;
+  background-color: var(--background-color-gray) !important;
+  color: var(--text-color-dark) !important;
+  border: 1px solid var(--primary-color) !important;
+  padding: var(--button-padding) !important;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 button:hover,
 .btn:hover,
 .button:hover {
-  background-color: #c0c0c0 !important;
+  background-color: var(--background-color-gray-hover) !important;
   transform: translateY(-2px);
 }
 
 ul#tabmenu li a {
-  font-size: 0.9rem !important;
+  font-size: var(--font-size-base) !important;
   padding: 8px 14px !important;
-  background-color: #4c78ae !important;
-  color: #ffffff !important;
-  border: 0.1px solid #4c78ae !important;
-  border-right: 0.1px solid #4c78ae !important;
-  border-radius: 15px !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
+  border: 0.1px solid var(--primary-color) !important;
+  border-right: 0.1px solid var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
   transition: background-color 0.2s ease-in-out !important;
 }
 ul#tabmenu li {
   padding: 3px !important;
 }
 ul#tabmenu li a.selected {
-  background-color: rgb(33, 74, 123) !important;
+  background-color: rgb(33, 74, 123) !important; /* kept as specific color */
 }
 ul#tabmenu li a:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .header {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 .content th {
-  color: #4c78ae !important;
+  color: var(--primary-color) !important;
 }
 .message-date {
-  color: #3d79b3 !important;
+  color: var(--secondary-color) !important;
 }
 .ibox-content {
   border-width: 0.4px !important;
 }
 .header .btn-warning {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .header .btn-warning:hover {
-  background-color: #346198 !important;
+  background-color: #346198 !important;  /* kept as specific color */
 }
 .c-no-item-wrapper {
-  border: 0.5px solid #e7eaec;
-  border-radius: 15px;
+  border: 0.5px solid #e7eaec; /* kept as specific color */
+  border-radius: var(--border-radius);
 }
 .c-table td a {
   font-weight: 600 !important;
 }
 .k-button {
-  background-color: #4c78ae !important;
-  color: #2a2a2a !important;
+  background-color: var(--primary-color) !important;
+  color: #2a2a2a !important; /* kept as specific color */
 }
 .redactor-toolbar {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 .redactor-toolbar li a {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 .navbar-expand-sm .navbar-nav {
-  /* background-color: #4c78ae !important; */
+  /* background-color: var(--primary-color) !important; */
   /* padding-bottom: 8px; */
 }
 .c-remove-text {
   padding: 8px 15px 0px 0px !important;
 }
 .c-icon-style {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 .top-navigation .navbar-nav .c-dropdown-menu {
-  border-color: #4c78ae !important;
+  border-color: var(--primary-color) !important;
 }
 .c-breadcrumb {
-  background-color: #4c78ae !important;
+   background-color: var(--primary-color) !important;
 }
 .c-breadcrumb .breadcrumb {
-  background-color: #4c78ae !important;
+ background-color: var(--primary-color) !important;
 }
+
 .alert-success {
-  color: #155724 !important;
-  background-color: #c1fecf !important;
+  color: var(--success-color) !important;
+  background-color: var(--success-background) !important;
 }
 .ui-datepicker .ui-datepicker-title {
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
 a.closebtn {
-  background-color: #4c78ae !important;
-  border-radius: 15px;
-  color: #ffffff !important;
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius);
+  color: var(--text-color-light) !important;
 }
 a.closebtn:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .mod_cancel {
-  background-color: #bb0000 !important;
-  border-radius: 15px;
+  background-color: var(--danger-color) !important;
+  border-radius: var(--border-radius);
   margin: 6px;
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 .mod_cancel:hover {
-  background-color: #880303 !important;
+  background-color: var(--danger-color-hover) !important;
 }
 .box {
   border: 0px !important;
 }
 .progress-bar {
-  background-color: #2fc150 !important;
+  background-color: var(--progress-bar-color) !important;
 }
 .label-info, .badge-info {
-  background-color: #c60000 !important;
+  background-color: var(--label-info-background) !important;
 }
 .popup .popuptext {
-  background-color: #4c78ae !important;
-  color: #ffffff !important;
+  background-color: var(--popup-background) !important;
+  color: var(--text-color-light) !important;
 }
 .c-ibox-value span {
-  background-color: #c60000 !important;
-  color: #ffffff !important;
+  background-color: var(--label-info-background) !important;
+  color: var(--text-color-light) !important;
 }
 .calendar tbody .day {
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
+
+/* Buttons - reusing variables */
 .button, .btn, .button {
-  background-color: #4c78ae !important;
-  color: #ffffff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
 }
 .button:hover, .btn:hover, .button:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .btn-info {
-  color: #fff;
-  background-color: #4c78ae;
-  border-color: #6aa5ed;
-  border-radius: 15px;
+  color: #fff; /* kept as specific color*/
+  background-color: var(--primary-color);
+  border-color: var(--primary-color-hover);
+  border-radius: var(--border-radius);
 }
 .btn-info:hover {
-  background-color: #6aa5ed;
+  background-color: var(--primary-color-hover);
 }
 .btn-success {
-  color: #fff;
-  background-color: #1c84c6;
-  border-color: #6aa5ed;
-  border-radius: 15px;
-  padding: 4px 13px !important;
+  color: #fff; /* kept as specific color */
+  background-color: #1c84c6; /* kept as specific color */
+  border-color: var(--primary-color-hover);
+  border-radius: var(--border-radius);
+  padding: var(--button-padding) !important;
 }
+
 .uidisp {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 .delete-icon {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(255, 255, 255) !important;  /* kept specific for contrast */
 }
 .fixed-dimensions-btn {
-  background-color: #4c78ae !important;
-  border-radius: 15px;
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius);
 }
 .fixed-dimensions-btn:hover {
-  background-color: #6aa5ed !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .pagination > li > a, .pagination > li > span {
-  border-radius: 15px;
+  border-radius: var(--border-radius);
   margin-left: 5px;
-  background-color: #6aa5ed !important;
-  color: #ffffff !important;
+  background-color: var(--primary-color-hover) !important;
+  color: var(--text-color-light) !important;
 }
 .pagination > li > a, .pagination > li > span:hover {
-  background-color: #4c78ae !important;
+  background-color: var(--primary-color) !important;
 }
 .chat-message .c-message-avatar {
-  background-color: #4c78ae !important;
+  background-color: var(--chat-message-background) !important;
 }
+
 .c-dropdown-toggle {
-  color: #000000;
+  color: var(--text-color-dark);
 }
 .c-dropdown-toggle:hover {
-  color: #6aa5ed !important;
+  color: var(--primary-color-hover) !important;
 }
-.c-dropdown-toggle:selected {
-  color:#ff0000 !important;
+/* .c-dropdown-toggle:selected{
+  // color:#ff0000 !important;
 }
+*/
 .c-lowerlink-item {
-  color: #000000;
+  color: var(--text-color-dark);
 }
 .c-lowerlink-item:hover {
-  color: #6aa5ed !important;
+  color: var(--primary-color-hover) !important;
 }
 .c-form .form-group input, .c-form .form-group select {
-  border-radius: 15px;
-  border: 5px;
+  border-radius: var(--form-control-border-radius);
+  border: 5px; /* kept specific value */
 }
+
+/*  */
 .navbar-static-top .c-dropdown-menu li a {
   font-weight: 400 !important;
-  background-color: #ffffff !important;
+  background-color: var(--navbar-static-top-background) !important;
 }
 .dropdown-menu > li > a {
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
 .dropdown-menu>li>a:hover {
-  color: #345f92 !important;
+  color: #345f92 !important; /* Kept as a more specific hover color */
 }
+
 /*
 .dropdown-menu,
 .dropdown-content,
@@ -944,38 +1013,38 @@ select option,
   // background-color: #345f92 !important;
 }
 */
+
 #leftMenu {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 #leftMenu:hover {
-  /* Fixed typo: 'colo' changed to 'color' */
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
 #favoriteBtn {
-  color: #ffffff !important;
+  color: var(--text-color-light) !important;
 }
 #favoriteBtn:hover {
-  color: #000000 !important;
+  color: var(--text-color-dark) !important;
 }
 
 /* Updated .c-link styling with smooth transitions and responsive adjustments */
 .c-link {
-  color: #fff;
-  border-radius: 15px;
+  color: var(--text-color-light);
+  border-radius: var(--border-radius);
   padding: 5px 15px;
-  background-color: #6aa5ed;
+  background-color: var(--primary-color-hover);
   transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
   display: inline-block;
 }
 
 .c-link:hover {
-  color: #fff;
+  color: var(--text-color-light);
   text-decoration: none;
-  background-color: #346198;
+  background-color: #346198; /* kept as specific color */
 }
 
 .c-link-color {
-  color: #2f84c6;
+  color: #2f84c6; /* kept as specific color */
   text-decoration: none;
 }
 
@@ -988,7 +1057,7 @@ select option,
   margin-top: 6px;
 }
 
-.fade-in {
+.fade-in {  /* Re-added fade-in class - good practice */
   animation: fadeIn 0.4s ease-out both;
 }
 
@@ -997,16 +1066,16 @@ select option,
 }
 
 .form-inline .form-control {
-  border-radius: 15px;
+  border-radius: var(--form-control-border-radius);
 }
 
 .divfilter select {
-  border-radius: 15px;
+  border-radius: var(--form-control-border-radius);
 }
 
 .card-body {
-  background-color: #4c78ae !important;
-  border-radius: 15px !important;
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
   padding: 10px !important;
 }
 
