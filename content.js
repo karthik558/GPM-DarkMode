@@ -67,7 +67,7 @@ body {
 /* Global Transitions */
 *, *::before, *::after {
     transition: background-color var(--transition-speed) ease-in-out,
-                color var(--transition-speed) ease-in-out,
+                // color var(--transition-speed) ease-in-out,
                 border-color var(--transition-speed) ease-in-out,
                 box-shadow var(--transition-speed) ease-in-out,
                 transform var(--transition-speed) ease-in-out;
@@ -747,7 +747,7 @@ body {
 /* Global Transitions */
 *, *::before, *::after {
     transition: background-color var(--transition-speed) ease-in-out,
-                color var(--transition-speed) ease-in-out,
+                // color var(--transition-speed) ease-in-out,
                 border-color var(--transition-speed) ease-in-out,
                 box-shadow var(--transition-speed) ease-in-out,
                 transform var(--transition-speed) ease-in-out;
