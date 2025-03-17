@@ -220,7 +220,9 @@ input, textarea, select {
   color: var(--text-color-light) !important;
   margin: 0px 5px 0px 10px;
   border-radius: var(--form-control-border-radius);
-    box-shadow: var(--box-shadow);
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none !important;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -889,7 +891,9 @@ input, textarea, select {
   color: var(--text-color-dark) !important;
   margin: 0px 5px 0px 10px;
   border-radius: var(--form-control-border-radius);
-    box-shadow: var(--box-shadow);
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none !important;
 }
 
 input:focus, textarea:focus, select:focus {
