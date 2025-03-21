@@ -1,17 +1,12 @@
 name: 🚀 Create and Upload GPM-DarkMode Release
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-      - '.gitignore'
-      - 'LICENSE'
+  # Removing automatic trigger on push
+  # Only using workflow_dispatch for manual triggering
   workflow_dispatch:
     inputs:
       release_type:
-        description: 'Release type'
+        description: 'Release type (patch: 0.0.X, minor: 0.X.0, major: X.0.0)'
         required: true
         default: 'patch'
         type: choice
@@ -19,6 +14,15 @@ on:
           - patch
           - minor
           - major
+      custom_version:
+        description: 'Custom version (leave blank to use release_type)'
+        required: false
+        type: string
+      pre_release:
+        description: 'Mark as pre-release'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   build_and_release:
