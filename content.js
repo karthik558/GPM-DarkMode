@@ -1360,25 +1360,14 @@ function applyTheme(mode) {
 // Message Listener for Theme Switching
 // ---------------------------
 
-// Listen for runtime messages (theme changes) and update styling accordingly
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-  if (msg.action === 'setTheme') {
-    // Remove old theme classes before applying the new one
-    document.documentElement.classList.remove('dark-mode', 'light-new-mode');
-    applyTheme(msg.mode);
+// Get the browser API
+const browser = typeof chrome !== 'undefined' ? chrome : browser;
+
+// Listen for messages from the background script
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === 'setTheme') {
+    applyTheme(message.mode);
+    sendResponse({ success: true });
   }
+  return true; // Keep the message channel open for async response
 });
-
-// ---------------------------
-// Initial Setup
-// ---------------------------
-
-// If needed, you can add your safety timeout pre-style directly into the page via the manifest's content script injection.
-// Here we assume the page starts in a hidden state and then becomes visible once the theme is applied.
-// if (document.readyState === "loading") {
-//   document.addEventListener("DOMContentLoaded", () => {
-//     applyTheme(activeTheme);
-//   });
-// } else {
-//   applyTheme(activeTheme);
-// }

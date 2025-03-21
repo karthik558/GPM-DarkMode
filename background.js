@@ -2,9 +2,12 @@ const MANAGED_DOMAINS = ['mgntproject.com', 'iimwin.com'];
 // Allowed theme modes
 const MODES = ["light", "dark", "light-new"];
 
+// Get the browser API
+const browser = typeof chrome !== 'undefined' ? chrome : browser;
+
 // Initialize default theme mode on installation (default is Light Mode)
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.local.set({ themeMode: "light" });
+browser.runtime.onInstalled.addListener(() => {
+  browser.storage.local.set({ themeMode: "light" });
 });
 
 // Utility function to cycle to the next theme mode
@@ -17,18 +20,21 @@ function getNextThemeMode(currentMode) {
 }
 
 // Listen for extension icon clicks to cycle through themes
-chrome.action.onClicked.addListener(() => {
-  chrome.storage.local.get(['themeMode'], (result) => {
+browser.action.onClicked.addListener(() => {
+  browser.storage.local.get(['themeMode'], (result) => {
     const currentMode = result.themeMode || "light";
     const newMode = getNextThemeMode(currentMode);
-    chrome.storage.local.set({ themeMode: newMode }, () => {
+    browser.storage.local.set({ themeMode: newMode }, () => {
       // Send updated theme to all managed tabs
-      chrome.tabs.query({}, (tabs) => {
+      browser.tabs.query({}, (tabs) => {
         tabs.forEach(tab => {
           if (MANAGED_DOMAINS.some(domain => tab.url.includes(domain))) {
-            chrome.tabs.sendMessage(tab.id, {
+            browser.tabs.sendMessage(tab.id, {
               action: 'setTheme',
               mode: newMode
+            }).catch(error => {
+              // Handle potential messaging errors
+              console.error('Failed to send message to tab:', error);
             });
           }
         });
@@ -38,14 +44,17 @@ chrome.action.onClicked.addListener(() => {
 });
 
 // Ensure new tabs or refreshed tabs using managed domains get the current theme
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' &&
     MANAGED_DOMAINS.some(domain => tab.url.includes(domain))) {
-    chrome.storage.local.get(['themeMode'], (result) => {
+    browser.storage.local.get(['themeMode'], (result) => {
       const currentMode = result.themeMode || "light";
-      chrome.tabs.sendMessage(tabId, {
+      browser.tabs.sendMessage(tabId, {
         action: 'setTheme',
         mode: currentMode
+      }).catch(error => {
+        // Handle potential messaging errors
+        console.error('Failed to send message to tab:', error);
       });
     });
   }

@@ -5,8 +5,8 @@
 ![GPM Dark Mode Logo](icons/logo1.png)
 
 ![Chrome Web Store](https://img.shields.io/badge/chrome-extension-orange.svg)
+![Firefox Add-on](https://img.shields.io/badge/firefox-addon-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![Releases](https://img.shields.io/github/release/karthik558/GPM-DarkMode?)
 
 </div>
 
@@ -32,6 +32,11 @@
 
 ## 🌟 Features
 
+- **Browser Compatibility**
+  - Works on Chrome, Edge, and other Chromium-based browsers
+  - Firefox
+  - Safari support (Upcoming)
+
 - **Multiple Theme Support**
   - Theme 1 (Material Dark Mode)
   - Theme 2 (Material Light Mode) - Default
@@ -48,7 +53,7 @@
   - Easy-to-use toggle switch
   - iOS-like design for toggle box
 
-## 📥 Installation
+## 📥 Installation (Chrome)
 
 1. Clone the repository: <b> (Optional) </b>
 
@@ -72,17 +77,39 @@ chrome://extensions/
 
 7. Pin the extension to your browser toolbar for easy access
 
+## 📥 Installation (Firefox
+1. Clone the repository: <b> (Optional) </b>
+
+```bash
+git clone https://github.com/karthik558/GPM-DarkMode.git
+```
+2. Download the xpi file from this link: [GPM-DarkMode.xpi](https://addons.mozilla.org/firefox/downloads/file/4459342/97e73e7413e743b68deb-3.2.1.xpi) <b> (Recommended) </b>
+3. Open Firefox and navigate to:
+
+```
+about:debugging#/runtime/this-firefox
+```
+4. Click on "Load Temporary Add-on" and select the xpi file
+5. Pin the extension to your browser toolbar for easy access
+
+<b>(Note: Soon to be available on Firefox Add-ons store</b>
+
 ## 🛠️ Usage
 
 1. Click the extension icon in your browser toolbar
 2. Toggle dark mode on/off using the switch
 3. Settings are automatically saved and persist between sessions
+4. To switch themes, click the extension icon and select your desired theme from the dropdown menu
+5. To reset to default settings, toggle the switch off and on again
+6. To uninstall the extension, right-click the extension icon and select "Remove from Chrome" or "Remove from Firefox"
 
 ## 🧱 Built With
 
-- Chrome Extension Manifest V3
-- CSS3 Custom Properties
-- HTML5, CSS3, and JavaScript
+- [HTML5](https://www.w3.org/TR/html52/) - The markup language for the web
+- [CSS3](https://www.w3.org/Style/CSS/) - The style sheet language for the web
+- [JavaScript](https://www.javascript.com/) - The programming language for the web
+- [WebExtensions API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions) - The standard for browser extensions
+- [Material Design](https://material.io/) - The design system for the web
 
 ## 🤝 Contributing
 

@@ -5,9 +5,9 @@
   "description": "Unofficial Materialized dark mode for GPM Software",
   "version": "3.2.1",
   "icons": {
-    "16": "icons/logo1.png",
-    "48": "icons/logo1.png",
-    "128": "icons/logo1.png"
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   },
   "permissions": [
     "storage",
@@ -19,7 +19,7 @@
     "*://*.iimwin.com/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   "content_scripts": [
     {
@@ -34,9 +34,15 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/logo1.png",
-      "48": "icons/logo1.png",
-      "128": "icons/logo1.png"
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "gpm-dark-mode@karthiklal.in",
+      "strict_min_version": "109.0"
     }
   }
-} 
+}
