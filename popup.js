@@ -101,3 +101,74 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+async function checkForUpdates() {
+    const updateButton = document.getElementById('updateButton');
+    updateButton.classList.add('checking');
+    updateButton.disabled = true;
+
+    try {
+        // Get current version from manifest
+        const manifest = chrome.runtime.getManifest();
+        const currentVersion = manifest.version;
+
+        // Fetch latest release from GitHub
+        const response = await fetch('https://api.github.com/repos/karthik558/GPM-DarkMode/releases/latest');
+        const data = await response.json();
+        const latestVersion = data.tag_name.replace('v', '');
+
+        if (compareVersions(latestVersion, currentVersion) > 0) {
+            // New version available
+            const confirmUpdate = confirm(`New version ${latestVersion} is available! Current version: ${currentVersion}\nWould you like to download the update?`);
+            
+            if (confirmUpdate) {
+                // Get the zip download URL
+                const zipUrl = data.assets.find(asset => asset.name.endsWith('.zip')).browser_download_url;
+                
+                // Open the download URL in a new tab
+                chrome.tabs.create({ url: zipUrl });
+                
+                // Show instructions
+                alert('After downloading:\n1. Extract the zip file\n2. Go to chrome://extensions/\n3. Enable Developer Mode\n4. Click "Load unpacked"\n5. Select the extracted folder');
+            }
+        } else {
+            alert('You have the latest version installed!');
+        }
+    } catch (error) {
+        console.error('Error checking for updates:', error);
+        alert('Error checking for updates. Please try again later.');
+    } finally {
+        updateButton.classList.remove('checking');
+        updateButton.disabled = false;
+    }
+}
+
+function compareVersions(v1, v2) {
+    const v1parts = v1.split('.').map(Number);
+    const v2parts = v2.split('.').map(Number);
+    
+    for (let i = 0; i < v1parts.length; ++i) {
+        if (v2parts.length === i) {
+            return 1;
+        }
+        if (v1parts[i] === v2parts[i]) {
+            continue;
+        }
+        if (v1parts[i] > v2parts[i]) {
+            return 1;
+        }
+        return -1;
+    }
+    
+    if (v1parts.length !== v2parts.length) {
+        return -1;
+    }
+    
+    return 0;
+}
+
+// Add event listener for update button
+document.addEventListener('DOMContentLoaded', () => {
+    const updateButton = document.getElementById('updateButton');
+    updateButton.addEventListener('click', checkForUpdates);
+});

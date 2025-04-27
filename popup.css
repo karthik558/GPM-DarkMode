@@ -485,3 +485,66 @@ body.dark-mode .sepia-reset:hover {
 body.dark-mode .sepia-reset:active {
   background: rgba(255, 255, 255, 0.38);
 }
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.update-button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(60, 60, 67, 0.18);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.update-button:hover {
+  background: rgba(60, 60, 67, 0.28);
+  transform: rotate(180deg);
+}
+
+.update-button:active {
+  background: rgba(60, 60, 67, 0.38);
+}
+
+.update-button.checking {
+  cursor: wait;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#updateStatus {
+  font-size: 12px;
+  margin-top: 8px;
+  text-align: center;
+  color: var(--ios-gray);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
