@@ -1256,11 +1256,11 @@ select option,
 }
 
 .form-inline .form-control {
-  border-radius: var(--form-control-border-radius);
+  border-radius: var(--border-radius);
 }
 
 .divfilter select {
-  border-radius: var(--form-control-border-radius);
+  border-radius: var(--border-radius);
 }
 
 .card-body {
@@ -1356,43 +1356,56 @@ function setupObserver() {
   });
 }
 
-// applyTheme: Applies the provided theme based on the mode string
+// Function to apply sepia filter
+function applySepiaFilter(intensity) {
+  const sepiaValue = intensity / 100;
+  document.documentElement.style.filter = `sepia(${sepiaValue})`;
+}
+
+// Update the applyTheme function to handle sepia
 function applyTheme(mode) {
   // Remove any existing theme styles
   removeCurrentTheme();
+
+  // Remove any existing filter
+  document.documentElement.style.filter = '';
 
   if (mode === "dark") {
     themeStyleElement = document.createElement("style");
     themeStyleElement.id = "extension-dark-theme";
     themeStyleElement.textContent = darkModeCSS;
-    document.documentElement.appendChild(themeStyleElement);
+    document.head.appendChild(themeStyleElement);
     setupObserver();
   } else if (mode === "light-new") {
     themeStyleElement = document.createElement("style");
     themeStyleElement.id = "extension-light-new-theme";
     themeStyleElement.textContent = lightNewCSS;
-    document.documentElement.appendChild(themeStyleElement);
+    document.head.appendChild(themeStyleElement);
     setupObserver();
   } else {
-    // Light mode (default): no extra stylesheet is injected.
-    // Any previously injected rules are removed.
+    // Light mode (default) - remove all custom styles
+    document.documentElement.style.filter = '';
   }
+  
   activeTheme = mode;
   showPage();
+
+  // Restore sepia filter if it was set
+  chrome.storage.local.get(['sepiaIntensity'], (result) => {
+    if (result.sepiaIntensity) {
+      applySepiaFilter(parseInt(result.sepiaIntensity));
+    }
+  });
 }
 
-// ---------------------------
-// Message Listener for Theme Switching
-// ---------------------------
-
-// Get the browser API
-const browser = typeof chrome !== 'undefined' ? chrome : browser;
-
-// Listen for messages from the background script
-browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+// Update message listener to handle sepia
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'setTheme') {
     applyTheme(message.mode);
+    if (message.sepiaIntensity !== undefined) {
+      applySepiaFilter(message.sepiaIntensity);
+    }
     sendResponse({ success: true });
   }
-  return true; // Keep the message channel open for async response
+  return true;
 });
