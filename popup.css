@@ -431,3 +431,57 @@ body.light-new-mode .author-link:hover {
 }
 
 /* Dark mode styles for sepia control are in body.dark-mode section */
+
+.sepia-slider-container {
+  position: relative;
+  margin: 10px 0;
+}
+
+.sepia-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.sepia-reset {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(60, 60, 67, 0.18);
+  border: none;
+  border-radius: 50%;
+  color: var(--ios-dark-gray);
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sepia-reset:hover {
+  background: rgba(60, 60, 67, 0.28);
+}
+
+.sepia-reset:active {
+  background: rgba(60, 60, 67, 0.38);
+  transform: scale(0.95);
+}
+
+/* Update dark mode styles for reset button */
+body.dark-mode .sepia-reset {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--ios-white);
+}
+
+body.dark-mode .sepia-reset:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+body.dark-mode .sepia-reset:active {
+  background: rgba(255, 255, 255, 0.38);
+}

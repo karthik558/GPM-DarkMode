@@ -30,8 +30,13 @@
           </div>
           <div class="sepia-control-wrapper">
             <label for="sepiaSlider">Eye Protection (Sepia):</label>
-            <input type="range" id="sepiaSlider" min="0" max="100" value="0" class="sepia-slider">
-            <span class="sepia-value">0%</span>
+            <div class="sepia-slider-container">
+              <input type="range" id="sepiaSlider" min="0" max="100" value="0" class="sepia-slider">
+              <div class="sepia-controls">
+                <span class="sepia-value">0%</span>
+                <button class="sepia-reset" title="Reset sepia filter">×</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="footer">

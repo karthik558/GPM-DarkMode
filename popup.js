@@ -88,4 +88,16 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  // Add reset button functionality
+  const resetButton = document.querySelector('.sepia-reset');
+  resetButton.addEventListener('click', function() {
+    sepiaSlider.value = 0;
+    sepiaValue.textContent = '0%';
+    
+    // Store the reset sepia intensity and update tabs
+    chrome.storage.local.set({ sepiaIntensity: 0 }, function() {
+      updateManagedTabs(themeSelect.value, 0);
+    });
+  });
 });
