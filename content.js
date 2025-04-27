@@ -354,6 +354,18 @@ ul#tabmenu li a:hover {
 
 .c-icon-style {
   background-color: var(--primary-color) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-light);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+}
+
+.c-icon-style:hover {
+  transform: scale(1.1);
+  box-shadow: var(--box-shadow-hover);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .top-navigation .navbar-nav .c-dropdown-menu {
@@ -1013,7 +1025,20 @@ ul#tabmenu li a:hover {
 }
 .c-icon-style {
   background-color: var(--primary-color) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-light);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
 }
+
+.c-icon-style:hover {
+  transform: scale(1.1);
+  box-shadow: var(--box-shadow-hover);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
 .top-navigation .navbar-nav .c-dropdown-menu {
   border-color: var(--primary-color) !important;
 }
