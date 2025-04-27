@@ -47,6 +47,7 @@
   - Preserves important UI elements
   - Dynamic content adaptation
   - Customizable color palette (Implemented in code)
+  - Sepia Filter for better readability
 
 - **User-Friendly Interface**
   - One-click material theme switching
