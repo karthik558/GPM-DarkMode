@@ -11,50 +11,55 @@
 }
 
 /* Global Styles */
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; /* iOS system font stack */
-  background-color: var(--ios-light-gray);
+  background-color: transparent; /* Changed to transparent */
   color: #000000; /* Default text color to black for better contrast on iOS */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  display: block; /* Changed from flex to block */
+  height: auto; /* Changed from min-height 100vh to auto */
   transition: background-color 0.3s ease, color 0.3s ease;
   line-height: 1.4;
+  overflow: hidden; /* Prevent scrollbars */
 }
 
 /* Container */
 .container {
   width: 280px; /* Reduced width */
   background: transparent !important;
-  padding: 12px; /* Reduced padding significantly */
+  padding: 0; /* Removed padding completely */
+  margin: 0; /* No margin */
+  height: auto; /* Adjust height to content */
+  border-radius: 0; /* Removed rounded corners */
+  overflow: hidden; /* Hide overflow */
 }
 
 /* Card */
 .card {
-  background-color: var(--ios-white);
-  border-radius: 16px; /* More rounded corners */
-  box-shadow: 0 2px 4px var(--ios-shadow);
-  border: 1px solid var(--ios-border-color);
+  background-color: transparent; /* Changed to transparent */
+  border-radius: 0; /* Removed rounded corners */
+  box-shadow: none; /* Removed shadow */
+  border: none; /* Removed border */
   overflow: hidden;
   transition: box-shadow 0.3s ease;
   animation: fadeIn 0.4s ease-out;
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: none; /* Removed hover shadow */
 }
 
 /* Header */
 .header {
   background: linear-gradient(to bottom, var(--ios-blue), var(--ios-blue)); /* Subtle Gradient - corrected var name */
-  padding: 16px;
+  padding: 12px 16px; /* Reduced top/bottom padding */
   text-align: center;
   color: #000000;  /* Black Text in the Header */
   position: relative;
-    border-bottom: 1px solid var(--ios-border-color);
+  border-bottom: none; /* Removed border */
+  border-top-left-radius: 0; /* Removed rounded corners */
+  border-top-right-radius: 0; /* Removed rounded corners */
 }
 
 .header .logo {
@@ -71,9 +76,10 @@ body {
 
 /* Content */
 .content {
-  padding: 20px;
+  padding: 15px 20px; /* Reduced top/bottom padding */
   color: var(--ios-gray);
   font-size: 13px; /* Smaller font size */
+  background-color: var(--ios-white); /* Added explicit background */
 }
 
 /* Toggle Switch - iOS Style */
@@ -195,12 +201,14 @@ input:checked + .slider:before {
 
 /* Footer */
 .footer {
-  padding: 12px 20px;
-  border-top: 1px solid var(--ios-border-color);
+  padding: 8px 20px; /* Reduced top/bottom padding */
+  border-top: none; /* Removed border */
   text-align: center;
   background-color: var(--ios-white);
   font-size: 11px;
   color: var(--ios-gray);
+  border-bottom-left-radius: 0; /* Removed rounded corners */
+  border-bottom-right-radius: 0; /* Removed rounded corners */
 }
 
 /* Author Link Styling */
@@ -228,7 +236,7 @@ input:checked + .slider:before {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-4px); /* Smaller translation */
+    transform: translateY(-2px); /* Smaller translation */
   }
   to {
     opacity: 1;
@@ -238,24 +246,25 @@ input:checked + .slider:before {
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background-color: var(--ios-dark-gray);
+  background-color: transparent; /* Changed to transparent */
   color: var(--ios-white);
 }
 
 body.dark-mode .card {
-  background-color: var(--ios-dark-gray);
-  border-color: rgba(255, 255, 255, 0.1); /* Lighter border in dark mode */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: transparent; /* Changed to transparent */
+  border: none; /* Removed border */
+  box-shadow: none; /* Removed shadow */
 }
 
 body.dark-mode .header {
     background: linear-gradient(to bottom, #28282e, #1c1c1e);  /* Darker Gradient */
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: none; /* Removed border */
     color: var(--ios-white);
 }
 
 body.dark-mode .content {
   color: var(--ios-light-gray);
+  background-color: var(--ios-dark-gray); /* Added background color */
 }
 
 body.dark-mode .time-display {
@@ -271,8 +280,10 @@ body.dark-mode .current-user {
 
 body.dark-mode .footer {
   background-color: var(--ios-dark-gray);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-top: none; /* Removed border */
   color: var(--ios-gray);
+  border-bottom-left-radius: 0; /* Removed rounded corners */
+  border-bottom-right-radius: 0; /* Removed rounded corners */
 }
 
 body.dark-mode .author-link {
@@ -290,13 +301,13 @@ body.dark-mode .theme-select-wrapper select {
 }
 /* Light New Mode Styles */
 body.light-new-mode {
-  background: var(--ios-light-gray);
+  background: transparent; /* Changed to transparent */
 }
 
 body.light-new-mode .card {
-    background: var(--ios-white);
-    box-shadow: 0 2px 4px var(--ios-shadow);
-    border: 1px solid var(--ios-border-color);
+    background: transparent; /* Changed to transparent */
+    box-shadow: none; /* Removed shadow */
+    border: none; /* Removed border */
 }
 
 body.light-new-mode .header {
@@ -306,6 +317,7 @@ body.light-new-mode .header {
 
 body.light-new-mode .content {
     color: var(--ios-gray);
+    background-color: var(--ios-white); /* Added explicit background color */
 }
 
 body.light-new-mode .time-display {
@@ -321,6 +333,8 @@ body.light-new-mode .current-user {
 body.light-new-mode .footer {
     background: var(--ios-white);
     color: var(--ios-gray);
+    border-bottom-left-radius: 0; /* Removed rounded corners */
+    border-bottom-right-radius: 0; /* Removed rounded corners */
 }
 
 body.light-new-mode .author-link {
