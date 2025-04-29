@@ -20,7 +20,7 @@ const darkModeCSS = `
   --background-color-dark: #252526; /* Darker background */
   --background-color-darker: #0a0a0a; /* Even darker, almost black */
   --background-color-dark-alt: #252526;  /* Slightly lighter than background-color-dark */
-  --background-color-gray: #333333; /* For buttons (slightly lighter) */
+  --background-color-gray: #2c2c2c; /* For buttons (slightly lighter) */
   --background-color-gray-hover: #444444; /* Hover state for gray elements */
 
   /* Borders & Shadows */
@@ -317,13 +317,19 @@ ul#tabmenu li a:hover {
   color: var(--primary-color) !important;
 }
 .message-date {
-  color: var(--message-date-color) !important;
+  color: var(--text-color-light) !important;
 }
 .ibox-content {
   border-width: 0.4px !important;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  background-color: #2c2c2d !important;
 }
+
+.ibox-title {
+  border-width: 0.1px !important;
+}
+
 .header .btn-warning {
   background-color: var(--primary-color) !important;
 }
@@ -375,6 +381,11 @@ ul#tabmenu li a:hover {
 
 .top-navigation .navbar-nav .c-dropdown-menu {
   border-color: var(--primary-color) !important;
+}
+
+.message {
+background-color: #3779c836 !important;
+border-radius: var(--border-radius);
 }
 
 .message td {
@@ -620,6 +631,8 @@ select.form-control:not([size]):not([multiple]) {
   color: var(--text-color-light);
   text-decoration: none;
   background-color: var(--primary-color-hover) !important;
+  outline: 1px solid var(--primary-color) !important;
+  transform: translateY(-2px);
 }
 .c-link-color {
   color: var(--primary-color) !important;
@@ -687,7 +700,7 @@ select.form-control:not([size]):not([multiple]) {
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
-} 
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -949,10 +962,15 @@ ul#tabmenu li a:hover {
   color: var(--secondary-color) !important;
 }
 .ibox-content {
-  border-width: 0.4px !important;
+  border-width: 0.1px !important;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
+
+.ibox-title {
+  border-width: 0.1px !important;
+}
+
 .header .btn-warning {
   background-color: var(--primary-color-hover) !important;
 }
@@ -1151,12 +1169,14 @@ a.closebtn:hover {
   padding: 5px 15px;
   background-color: var(--primary-color-hover);
   display: inline-block;
-  transition: background-color 0.2s ease-in-out;
 }
 .c-link:hover {
   color: var(--text-color-light);
   text-decoration: none;
-  background-color: #346198;
+  background-color: #346198 !important;
+  outline: 1px solid rgb(33, 74, 123) !important;
+  transition: background-color 0.2s ease-in-out;
+  transform: translateY(-2px);
 }
 .c-link-color {
   color: #2f84c6;
@@ -1218,6 +1238,10 @@ html {
 }
 .listing .active a {
   color: var(--text-color-dark) !important;
+}
+
+.message {
+border-radius: var(--border-radius);
 }
 `;
 
