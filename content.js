@@ -4,7 +4,10 @@
 
 // Dark Mode CSS (your tuned version)
 const darkModeCSS = `
-  :root {
+  /* Updated Awesome Dark Mode UI Styles */
+
+/* Root variables for dark mode */
+:root {
   --primary-color: #3679c8; /* Lighter blue for dark mode */
   --primary-color-hover: #214a7b;  /* Even lighter on hover */
   --secondary-color: #295d9a; /* Lighter secondary */
@@ -12,20 +15,33 @@ const darkModeCSS = `
   --text-color-dark: #f0f0f0; /* Very light text (almost white) */
   --text-color-light: #ffffff; /* Pure white for contrast */
   --text-color-muted: #aaaaaa;  /* Lighter muted text */
+
+  /* Backgrounds */
   --background-color-dark: #252526; /* Darker background */
   --background-color-darker: #0a0a0a; /* Even darker, almost black */
   --background-color-dark-alt: #252526;  /* Slightly lighter than background-color-dark */
-  --background-color-gray: #333333; /* for buttons (slightly lighter)*/
-  --background-color-gray-hover: #444444; /* Hover state for gray elements*/
+  --background-color-gray: #333333; /* For buttons (slightly lighter) */
+  --background-color-gray-hover: #444444; /* Hover state for gray elements */
+
+  /* Borders & Shadows */
   --border-color-light: #444444; /* Darker border, but still visible */
   --border-color-dark: #666666;  /* For inputs, slightly lighter than border-color-light */
   --border-color-table: #444444;  /* Darker table borders */
-  --button-padding: 4px 13px;
   --border-radius: 15px;
-  --border-radius-small: 15px;
+  --border-radius-small: 15px; /* For small elements like pagination */
+  --box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+  --box-shadow-hover: 0 4px 8px rgba(255, 255, 255, 0.2); /* Stronger white shadow */
+
+  /* Spacing & Transitions */
+  --button-padding: 4px 13px;
+  --transition-speed: 0.2s;
+
+  /* Fonts */
   --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-family-mono: 'Courier New', Courier, monospace;
   --font-size-base: 1rem;
+
+  /* Success & Danger */
   --success-color: #5cb85c; /* Lighter green */
   --success-background: #222222; /* Darker success background */
   --danger-color: #d9534f;  /* Lighter red */
@@ -34,19 +50,23 @@ const darkModeCSS = `
   --label-info-background: #42a5bb; /* Lighter info */
   --popup-background: #326fb9;  /* Lighter popup */
   --dropdown-background: #222222; /* Darker dropdown */
+
+  /* Form controls */
   --form-control-border-radius: 15px; /* Smaller radius */
   --form-control-height: 2.5rem;
-  --chat-message-background: #326fb9; /* Lighter chat background*/
-  --breadcrumb-link-color: #326fb9; /* Lighter blue */
-    --k-button-text-color:#252526 ;
-  --navbar-static-top-background: var(--background-color-dark-alt); /* Use the alt dark background */
-  --box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle *white* shadow */
-  --box-shadow-hover: 0 4px 8px rgba(255, 255, 255, 0.2); /* Stronger white shadow */
-  --transition-speed: 0.2s;
-    --scrollbar-track-color: #222; /* Darker track */
-	--scrollbar-thumb-color: #555; /* Lighter thumb */
-	--scrollbar-thumb-hover-color: #777; /* Even lighter on hover */
 
+  /* Chat and other backgrounds */
+  --chat-message-background: #326fb9; /* Lighter chat background*/
+  --breadcrumb-link-color: #326fb9; /* Lighter blue for breadcrumbs */
+  --k-button-text-color: #252526;
+
+  /* Navbar background */
+  --navbar-static-top-background: var(--background-color-dark-alt);
+
+  /* Scrollbar styling */
+  --scrollbar-track-color: #222; /* Darker track */
+  --scrollbar-thumb-color: #555; /* Lighter thumb */
+  --scrollbar-thumb-hover-color: #777; /* Even lighter on hover */
 }
 
 /* Base styles */
@@ -66,53 +86,47 @@ body {
 
 /* Global Transitions */
 *, *::before, *::after {
-    transition: background-color var(--transition-speed) ease-in-out,
-                // color var(--transition-speed) ease-in-out,
-                border-color var(--transition-speed) ease-in-out,
-                box-shadow var(--transition-speed) ease-in-out,
-                transform var(--transition-speed) ease-in-out;
+  transition: background-color var(--transition-speed) ease-in-out,
+              border-color var(--transition-speed) ease-in-out,
+              box-shadow var(--transition-speed) ease-in-out,
+              transform var(--transition-speed) ease-in-out;
 }
 
-/* Fade-in keyframes */
+/* Fade-in Keyframes */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Background colors */
+/* Apply dark background to structural elements */
 div, section, article, aside, nav, main, header, footer {
   background-color: var(--background-color-dark) !important;
 }
 
-/* Remove white background from .heading */
+/* Heading adjustments */
 .heading {
   background-color: transparent !important;
 }
 
-/* Make h1 white */
 h1, .heading h1 {
   color: var(--text-color-light) !important;
 }
 
-/* Pagination */
+/* Pagination styles */
 .pagination > li > a,
 .pagination > li > span {
   background-color: transparent !important;
   border-color: var(--border-color-light) !important;
   color: var(--text-color-dark) !important;
-    border-radius: var(--border-radius-small);  /* Smaller radius */
-    margin-left: 4px; /* Reduce margin for tighter spacing */
-    padding: 4px 8px; /* Adjust padding */
+  border-radius: var(--border-radius-small);
+  margin-left: 4px;
+  padding: 4px 8px;
 }
 .pagination > li > a:hover,
 .pagination > li > span:hover {
-    background-color: var(--primary-color) !important; /* Highlight on hover */
-    color: var(--text-color-light) !important; /* White text on hover */
-    border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
+  border-color: var(--primary-color) !important;
 }
 
 /* Breadcrumbs */
@@ -133,7 +147,7 @@ nav[aria-label="breadcrumb"] {
   font-family: var(--font-family-mono) !important;
 }
 
-/* Enhanced dropdown styles */
+/* Enhanced Dropdown Styles */
 .dropdown-menu,
 .dropdown-content,
 .select-menu,
@@ -144,34 +158,33 @@ select option,
 .select-option {
   background-color: var(--dropdown-background) !important;
   color: var(--text-color-light) !important;
-    border: 1px solid var(--border-color-light);
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius-small); /*Smaller radius*/
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-small);
 }
-
 .dropdown-item:hover,
 .select-option:hover {
-  background-color: var(--primary-color) !important; /* Highlight on hover */
-  color: var(--text-color-light) !important; /* White text on hover */
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
   border-color: var(--primary-color) !important;
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Preserve custom colors */
+/* Preserve custom color styles */
 [style*="color: rgb(202, 218, 231)"],
 [style*="color: #555555"],
 [style*="color:#555555"] {
   /* Leave intact */
 }
 
-/* Convert #e5e7e9 to darker color */
+/* Convert light colors to darker shades */
 [style*="color: #e5e7e9"],
 [style*="color:#e5e7e9"],
 [style*="color: rgb(229, 231, 233)"] {
-  color: var(--background-color-darker) !important; /* Use a darker background variable */
+  color: var(--background-color-darker) !important;
 }
 
-/* Target specific text colors for white conversion */
+/* Force specific text colors to use light text */
 [style*="color: #212529"],
 [style*="color:#212529"],
 [style*="color: rgb(33, 37, 41)"],
@@ -200,7 +213,7 @@ select option,
   color: var(--text-color-light) !important;
 }
 
-/* Handle icons */
+/* Icon adjustments */
 i[style*="color: #000000"],
 i[style*="color:#000000"],
 i[style*="color: rgb(0, 0, 0)"],
@@ -213,7 +226,7 @@ svg[style*="color: black"] {
   fill: var(--text-color-light) !important;
 }
 
-/* Forms and inputs */
+/* Forms and Inputs */
 input, textarea, select {
   background-color: var(--background-color-dark) !important;
   border-color: var(--border-color-dark) !important;
@@ -223,12 +236,13 @@ input, textarea, select {
   border-style: solid;
   border-width: 1px;
   box-shadow: none !important;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
 }
-
 input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 5px rgba(76, 120, 174, 0.7); /* Focus glow */
+  outline: none;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 5px rgba(76, 120, 174, 0.7);
 }
 
 /* Tables */
@@ -236,12 +250,11 @@ table, th, td {
   background-color: var(--background-color-dark) !important;
   border-color: var(--border-color-light) !important;
 }
-
 th {
-    font-weight: var(--font-weight-bold); /* Bolder table headers */
+  font-weight: var(--font-weight-bold);
 }
 
-/* Override white backgrounds */
+/* Override white/light backgrounds */
 [class*="bg-white"],
 [class*="bg-light"] {
   background-color: var(--background-color-dark) !important;
@@ -252,7 +265,7 @@ img {
   filter: brightness(0.9);
 }
 
-/* Improved button styling */
+/* Improved Button Styling */
 button,
 .btn,
 .button {
@@ -264,8 +277,9 @@ button,
   font-size: var(--font-size-base);
   cursor: pointer;
   box-shadow: var(--box-shadow);
-  transition: background-color var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out, box-shadow var (--transition-speed) ease-in-out; /* Added box-shadow */
-  // transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: background-color var(--transition-speed) ease-in-out,
+              transform var(--transition-speed) ease-in-out,
+              box-shadow var(--transition-speed) ease-in-out;
 }
 button:hover,
 .btn:hover,
@@ -275,7 +289,7 @@ button:hover,
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Tabmenu styles */
+/* Tabmenu Styles */
 ul#tabmenu li a {
   font-size: var(--font-size-base) !important;
   padding: 8px 14px !important;
@@ -285,48 +299,40 @@ ul#tabmenu li a {
   border-right: 0.1px solid var(--primary-color) !important;
   border-radius: var(--border-radius) !important;
 }
-
 ul#tabmenu li {
   padding: 3px !important;
 }
-
 ul#tabmenu li a.selected {
-  background-color: var(--primary-color-hover) !important;  /* Specific, keep as is */
+  background-color: var(--primary-color-hover) !important;
 }
-
 ul#tabmenu li a:hover {
   background-color: var(--primary-color-hover) !important;
 }
 
-/* Header and content */
+/* Header and Content */
 .header {
   background-color: var(--background-color-dark) !important;
 }
-
 .content th {
   color: var(--primary-color) !important;
 }
-
 .message-date {
   color: var(--message-date-color) !important;
 }
-
 .ibox-content {
   border-width: 0.4px !important;
   border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow); /* Add shadow */
+  box-shadow: var(--box-shadow);
 }
-
 .header .btn-warning {
   background-color: var(--primary-color) !important;
 }
-
 .header .btn-warning:hover {
   background-color: var(--primary-color-hover) !important;
 }
 
 .c-no-item-wrapper {
-  border: 0.5px solid #e7eaec;  /* Specific, keep as is */
+  border: 0.5px solid #e7eaec;
   border-radius: var(--border-radius);
 }
 
@@ -360,12 +366,11 @@ ul#tabmenu li a:hover {
   color: var(--text-color-light);
   border-radius: 50%;
   box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-
 .c-icon-style:hover {
   transform: scale(1.1);
   box-shadow: var(--box-shadow-hover);
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .top-navigation .navbar-nav .c-dropdown-menu {
@@ -386,29 +391,30 @@ ul#tabmenu li a:hover {
   text-decoration: none;
 }
 
-/* Alert styles */
+/* Alert Styles */
 .alert-success {
   color: var(--success-color) !important;
   background-color: var(--success-background) !important;
-  border-color: var(--success-color); /* Add border color */
-  border-radius: var(--border-radius-small); /* Smaller radius */
+  border-color: var(--success-color);
+  border-radius: var(--border-radius-small);
 }
 
-/* Datepicker */
+/* Datepicker Title */
 .ui-datepicker .ui-datepicker-title {
   color: var(--text-color-light) !important;
 }
 
-/* Close button */
+/* Close Button */
 a.closebtn {
   background-color: var(--primary-color) !important;
   border-radius: var(--border-radius);
   color: var(--text-color-light) !important;
 }
 a.closebtn:hover {
-   background-color: #335f95 !important; /* specific color*/
+  background-color: #335f95 !important;
 }
 
+/* Cancel Button */
 .mod_cancel {
   background-color: var(--danger-color) !important;
   border-radius: var(--border-radius);
@@ -418,32 +424,34 @@ a.closebtn:hover {
   background-color: var(--danger-color-hover) !important;
 }
 
+/* Progress Bar */
 .progress-bar {
   background-color: var(--progress-bar-color) !important;
 }
 
-.label-info, .badge-info {
+/* Label / Badge */
+.label-info,
+.badge-info {
   background-color: var(--label-info-background) !important;
 }
 
-.box {
-  border: 0px !important;
-}
-
+/* Popup */
 .popup .popuptext {
   background-color: var(--popup-background) !important;
   color: var(--text-color-light) !important;
 }
 
+/* Ibox Value */
 .c-ibox-value span {
   background-color: var(--danger-color) !important;
 }
 
+/* Calendar Day */
 .calendar tbody .day {
   color: var(--text-color-light) !important;
 }
 
-/* Button variations */
+/* Button Variations */
 .button,
 .btn,
 .button {
@@ -458,7 +466,7 @@ a.closebtn:hover {
 }
 
 .btn-info {
-  color: #fff;  /* Specific, keep */
+  color: #fff;
   background-color: var(--primary-color);
   border-color: var(--primary-color-hover);
   border-radius: var(--border-radius);
@@ -469,8 +477,8 @@ a.closebtn:hover {
 }
 
 .btn-success {
-  color: #fff; /* specific, keep*/
-  background-color: #1c84c6;  /* specific, keep*/
+  color: #fff;
+  background-color: #1c84c6;
   border-color: var(--primary-color-hover);
   border-radius: var(--border-radius);
   padding: var(--button-padding) !important;
@@ -481,7 +489,7 @@ a.closebtn:hover {
 }
 
 .delete-icon {
-  color: rgb(255, 255, 255) !important;  /* Specific, keep for contrast */
+  color: rgb(255, 255, 255) !important;
 }
 
 .fixed-dimensions-btn {
@@ -492,19 +500,20 @@ a.closebtn:hover {
   background-color: var(--primary-color-hover) !important;
 }
 
+/* Pagination Revisited */
 .pagination > li > a,
 .pagination > li > span {
   border-radius: var(--border-radius);
   margin-left: 5px;
   background-color: var(--primary-color) !important;
-  color: var(--text-color-light) !important; /* Added for consistency */
+  color: var(--text-color-light) !important;
 }
 .pagination > li > a:hover,
 .pagination > li > span:hover {
   background-color: var(--primary-color-hover) !important;
 }
 
-/* Lower link and dropdown styles */
+/* Lower Link and Dropdown */
 .c-lowerlink-item {
   color: var(--text-color-light);
 }
@@ -519,7 +528,7 @@ a.closebtn:hover {
   color: var(--primary-color-hover) !important;
 }
 
-/* Table text */
+/* Table Text */
 .table {
   color: var(--text-color-light);
 }
@@ -530,56 +539,52 @@ a.closebtn:hover {
   color: var(--text-color-light) !important;
 }
 
-/* Anchor links */
+/* Anchor Links */
 a {
   color: var(--text-color-light);
 }
 
-/* Calendar styles */
-.calendar thead .title {
-  color: var(--text-color-light) !important;
-}
-.calendar thead .name {
-  color: var(--text-color-light) !important;
-}
+/* Calendar Header */
+.calendar thead .title,
+.calendar thead .name,
 .calendar tfoot .ttip {
   color: var(--text-color-light) !important;
 }
 
-/* Ibox label */
+/* Ibox Label */
 .c-ibox-label {
   color: var(--text-color-light) !important;
 }
 
-/* Panel heading */
+/* Panel Heading */
 .panel-default > .panel-heading {
   color: var(--text-color-light) !important;
 }
 
-/* Form select height */
+/* Form Select Height */
 select.form-control:not([size]):not([multiple]) {
   height: var(--form-control-height);
 }
 
-/* Chat message avatar */
+/* Chat Message Avatar */
 .chat-message .c-message-avatar {
   background-color: var(--chat-message-background) !important;
 }
 
-/* Form inputs in specialized form styles */
+/* Specialized Form Group Inputs */
 .c-form .form-group input,
 .c-form .form-group select {
-  border-radius: var(--form-control-border-radius);
-  border: 1px solid var(--border-color-light); /* Lighter border */
+  border-radius: var(--form-control-border-radius) !important;
+  border: 1px solid var(--border-color-light);
 }
 
-/* Navbar dropdown menu */
+/* Navbar Dropdown Menu */
 .navbar-static-top .c-dropdown-menu li a {
-  font-weight: var(--font-weight-normal) !important; /* Use variable */
+  font-weight: var(--font-weight-normal) !important;
   background-color: var(--navbar-static-top-background) !important;
 }
 
-/* Dropdown menu links */
+/* Dropdown Menu Links */
 .dropdown-menu > li > a {
   color: var(--text-color-light) !important;
 }
@@ -588,22 +593,22 @@ select.form-control:not([size]):not([multiple]) {
   color: var(--text-color-light) !important;
 }
 
-/* Specific element overrides */
+/* Specific Element Overrides */
 #leftMenu {
   color: var(--text-color-light) !important;
 }
 #leftMenu:hover {
-   color: var(--primary-color) !important;  /* Changed to primary for hover */
+  color: var(--primary-color) !important;
 }
 
 #favoriteBtn {
   color: var(--text-color-light) !important;
 }
 #favoriteBtn:hover {
-  color: var(--primary-color) !important;  /* Changed to primary for hover */
+  color: var(--primary-color) !important;
 }
 
-/* Link styling */
+/* Link Styling */
 .c-link {
   color: var(--text-color-light);
   border-radius: var(--border-radius);
@@ -614,7 +619,7 @@ select.form-control:not([size]):not([multiple]) {
 .c-link:hover {
   color: var(--text-color-light);
   text-decoration: none;
-  background-color: var(--primary-color-hover); !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .c-link-color {
   color: var(--primary-color) !important;
@@ -625,17 +630,17 @@ select.form-control:not([size]):not([multiple]) {
   padding: 0 5px;
 }
 
-/* Fixed height button margin */
+/* Fixed Height Button Margin */
 .btn-fixed-height {
   margin-top: 6px;
 }
 
-/* Title text styling */
+/* Title Text Styling */
 .titletext {
   color: var(--text-color-light) !important;
 }
 
-/* Utility class for fade-in animation */
+/* Fade-In Utility */
 .fade-in {
   animation: fadeIn 0.4s ease-out both;
 }
@@ -644,107 +649,113 @@ select.form-control:not([size]):not([multiple]) {
   color: transparent !important;
 }
 
-.form-inline .form-control {
-  border-radius: var(--border-radius);
-}
-
+.form-inline .form-control,
 .divfilter select {
   border-radius: var(--border-radius);
 }
 
+/* Table Border */
 .table-bordered {
   border: 0.5px solid var(--border-color-table) !important;
 }
 
+/* Card Body Styling */
 .card-body {
-   background-color: var(--primary-color) !important;
-   border-radius: var(--border-radius) !important;
-    padding: 15px !important;
-   box-shadow: var(--box-shadow) !important;
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
+  padding: 15px !important;
+  box-shadow: var(--box-shadow) !important;
 }
 
-/* Scrollbar Styling (Webkit - Chrome, Safari) */
+/* Scrollbar Styling (Webkit) */
 ::-webkit-scrollbar {
-    width: 10px;  /* Width of the scrollbar */
+  width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-color); /* Track color */
-	border-radius: var(--border-radius);
+  background: var(--scrollbar-track-color);
+  border-radius: var(--border-radius);
 }
-
 ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-color); /* Handle color */
-    border-radius: var(--border-radius); /* Rounded corners */
+  background: var(--scrollbar-thumb-color);
+  border-radius: var(--border-radius);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover-color); /* Handle color on hover */
+  background: var(--scrollbar-thumb-hover-color);
 }
-
 
 /* Firefox Scrollbar Styling */
 html {
-    scrollbar-width: thin;  /* "auto" or "thin" */
-    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color); /* thumb and track */
-}
-
-.table-bordered {
-	border: 0.5px solid var(--border-color-light) !important;
-}
-
-/* Form Group */
-.c-form .form-group input, .c-form .form-group select {
-  border-radius: var(--form-control-border-radius) !important;
-  border: 1px solid var(--border-color-light); /* Lighter border */
-}
-  
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+} 
 `;
 
 // Light Mode CSS (your tuned version)
 const lightNewCSS = `
   /* Base styles */
+/* Updated Awesome UI Styles */
+
+/* Base styles */
 :root {
+  /* Colors */
   --primary-color: #4c78ae;
   --primary-color-hover: #6aa5ed;
   --secondary-color: #3d79b3;
   --text-color-dark: #333333; /* Darker text for better readability */
   --text-color-light: #f8f8f8; /* Off-white for light theme */
   --text-color-muted: #777777; /* For less important text */
-  // --background-color-light: #f5f5f5; /* Light gray background */
-  --background-color-light: #f1f5f9; /* Dropdown menu bg color */
+
+  /* Backgrounds */
+  --background-color-light: #f1f5f9; /* Dropdown menu and light background */
   --background-color-dark: #2d2d2d;
   --background-color-gray: #e0e0e0;
   --background-color-gray-hover: #c0c0c0;
   --dropdown-background: #ffffff; /* White dropdowns */
+
+  /* Borders & Shadows */
   --border-color-light: #cccccc; /* Lighter borders */
   --border-color-dark: #333333;
-  --button-padding: 4px 13px; /* Slightly more padding */
-  --border-radius: 15px; /* Smaller border-radius */
+  --border-radius: 15px;
   --border-radius-small: 15px; /* For small elements like pagination */
-  --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern font */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* Spacing & Transitions */
+  --button-padding: 4px 13px; /* Slightly more padding for buttons */
+  --transition-speed: 0.2s; /* Consistent transition speed */
+
+  /* Fonts */
+  --font-family-sans: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-family-mono: 'Courier New', Courier, monospace;
-  --font-size-base: 1rem; /* Slightly larger base font size */
+  --font-size-base: 1rem;
   --font-weight-normal: 400;
   --font-weight-bold: 600;
-  --success-color: #28a745; /* Bootstrap success green */
-  --success-background: #d4edda; /* Bootstrap success background */
-  --danger-color: #dc3545; /* Bootstrap danger red */
-  --danger-color-hover: #c82333; /* Bootstrap danger hover */
-  --progress-bar-color: #28a745; /* Use success color */
-  --label-info-background: #17a2b8; /* Bootstrap info color */
+
+  /* Success & Danger */
+  --success-color: #28a745;
+  --success-background: #d4edda;
+  --danger-color: #dc3545;
+  --danger-color-hover: #c82333;
+  --progress-bar-color: #28a745;
+  --label-info-background: #17a2b8;
   --popup-background: #4c78ae;
   --chat-message-background: #4c78ae;
-  --form-control-border-radius: var(--border-radius-small); /* Smaller radius */
+  --form-control-border-radius: var(--border-radius-small);
   --navbar-static-top-background: #ffffff;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-  --transition-speed: 0.2s; /* Consistent transition speed */
-	--scrollbar-track-color: #f1f1f1;
-	--scrollbar-thumb-color: #888;
-	--scrollbar-thumb-hover-color: #555;
+
+  /* Scrollbar */
+  --scrollbar-track-color: #f1f1f1;
+  --scrollbar-thumb-color: #888;
+  --scrollbar-thumb-hover-color: #555;
+
+  /* Additional Modern Enhancements */
+  --card-padding: 2rem;
+  --card-margin-bottom: 2rem;
+  --input-bg: #f9fafb;
+  --input-focus-shadow: rgba(76, 120, 174, 0.09);
 }
 
+/* Global Settings */
 html {
   color-scheme: light !important;
   scroll-behavior: smooth;
@@ -760,21 +771,16 @@ body {
 
 /* Global Transitions */
 *, *::before, *::after {
-    transition: background-color var(--transition-speed) ease-in-out,
-                // color var(--transition-speed) ease-in-out,
-                border-color var(--transition-speed) ease-in-out,
-                box-shadow var(--transition-speed) ease-in-out,
-                transform var(--transition-speed) ease-in-out;
+  transition: background-color var(--transition-speed) ease-in-out,
+              border-color var(--transition-speed) ease-in-out,
+              box-shadow var(--transition-speed) ease-in-out,
+              transform var(--transition-speed) ease-in-out;
 }
 
-/* Fade-in keyframes */
+/* Fade-in Keyframes */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Headings */
@@ -787,20 +793,20 @@ h1, .heading h1 {
 .pagination > li > a,
 .pagination > li > span {
   background-color: transparent !important;
-  border-color: var(--border-color-light) !important;
+  border: 1px solid var(--border-color-light) !important;
   color: var(--text-color-dark) !important;
-    border-radius: var(--border-radius-small);  /* Smaller radius */
-    margin-left: 4px; /* Reduce margin for tighter spacing */
-    padding: 4px 8px; /* Adjust padding */
+  border-radius: var(--border-radius-small);
+  margin-left: 4px;
+  padding: 4px 8px;
 }
 .pagination > li > a:hover,
 .pagination > li > span:hover {
-    background-color: var(--primary-color) !important; /* Highlight on hover */
-    color: var(--text-color-light) !important; /* White text on hover */
-    border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
+  border-color: var(--primary-color) !important;
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs & Navigation */
 .breadcrumbs,
 .breadcrumb,
 .breadcrumb-item,
@@ -809,7 +815,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* UTC/Login Display */
-[data-content*="Current Date and Time (UTC"]::before,
+[data-content="Current Date and Time (UTC"]::before,
 [data-content*="Current User's Login:"]::before,
 .datetime-display,
 .user-login-display {
@@ -818,7 +824,7 @@ nav[aria-label="breadcrumb"] {
   font-family: var(--font-family-mono) !important;
 }
 
-/* Enhanced dropdown styles */
+/* Dropdowns & Menus */
 .dropdown-menu,
 .dropdown-content,
 .select-menu,
@@ -829,62 +835,19 @@ select option,
 .select-option {
   background-color: var(--dropdown-background) !important;
   color: var(--text-color-dark) !important;
-    border: 1px solid var(--border-color-light);
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius-small); /*Smaller radius*/
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-small);
 }
 .dropdown-item:hover,
-.select-option:hover{
-	background-color: var(--primary-color) !important; /* Highlight on hover */
-    color: var(--text-color-light) !important; /* White text on hover */
-    border-color: var(--primary-color) !important;
+.select-option:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
+  border-color: var(--primary-color) !important;
 }
 
-/* Preserve custom colors - No change needed, handled by variables now */
-[style*="color: rgb(202, 218, 231)"],
-[style*="color: #555555"],
-[style*="color:#555555"] {
-  /* Leave intact */
-}
-
-/* Convert light colors to darker shades */
-[style*="color: #e5e7e9"],
-[style*="color:#e5e7e9"],
-[style*="color: rgb(229, 231, 233)"] {
-  color: var(--background-color-dark) !important;
-}
-
-/* Adjust text colors for readability - Simplified using variables */
-[style*="color: #212529"],
-[style*="color:#212529"],
-[style*="color: rgb(33, 37, 41)"],
-[style*="color:#354A55"],
-[style*="color: #354A55"],
-[style*="color: rgb(53, 74, 85)"],
-[style*="color: #52616B"],
-[style*="color:#52616B"],
-[style*="color: rgb(82, 97, 107)"],
-[style*="color: #000000"],
-[style*="color:#000000"],
-[style*="color: rgb(0, 0, 0)"],
-[style*="color: black"],
-[style*="color: #686a6c"],
-[style*="color:#686a6c"],
-[style*="color: rgb(104, 106, 108)"],
-[style*="color: #333333"],
-[style*="color:#333333"],
-[style*="color: rgb(51, 51, 51)"],
-[style*="color: #676a6c"],
-[style*="color:#676a6c"],
-[style*="color: rgb(103, 106, 108)"],
-[style*="color: #2e2e2e"],
-[style*="color:#2e2e2e"],
-[style*="color: rgb(46, 46, 46)"] {
-  color: var(--text-color-dark) !important;
-}
-
-/* Icon Color Handling */
-i[style*="color: #000000"],
+/* Icon & Image Adjustments */
+i[style="color: #000000"],
 i[style*="color:#000000"],
 i[style*="color: rgb(0, 0, 0)"],
 i[style*="color: black"],
@@ -895,23 +858,25 @@ svg[style*="color: black"] {
   color: var(--text-color-dark) !important;
   fill: var(--text-color-dark) !important;
 }
+img {
+  filter: brightness(1);
+}
 
 /* Forms and Inputs */
 input, textarea, select {
   background-color: var(--background-color-light) !important;
-  border-color: var(--border-color-light) !important;
+  border: 1px solid var(--border-color-light) !important;
   color: var(--text-color-dark) !important;
   margin: 0px 5px 0px 10px;
   border-radius: var(--form-control-border-radius);
-  border-style: solid;
-  border-width: 1px;
   box-shadow: none !important;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
 }
-
 input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 5px rgba(76, 120, 174, 0.7); /* Focus glow */
+  outline: none;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 5px rgba(76, 120, 174, 0.7);
 }
 
 /* Tables */
@@ -919,20 +884,14 @@ table, th, td {
   background-color: var(--background-color-light) !important;
   border-color: var(--border-color-light) !important;
 }
-
 th {
-    font-weight: var(--font-weight-bold); /* Bolder table headers */
+  font-weight: var(--font-weight-bold);
 }
 
-/* Override light backgrounds */
-[class*="bg-white"],
+/* Background Overrides */
+[class="bg-white"],
 [class*="bg-light"] {
   background-color: var(--background-color-light) !important;
-}
-
-/* Preserve images */
-img {
-  filter: brightness(1);
 }
 
 /* Button Styling */
@@ -943,11 +902,13 @@ button,
   color: var(--text-color-dark) !important;
   border: 1px solid var(--primary-color) !important;
   padding: var(--button-padding) !important;
-  border-radius: var(--border-radius); /* Use variable */
+  border-radius: var(--border-radius);
   font-size: var(--font-size-base);
   cursor: pointer;
   box-shadow: var(--box-shadow);
-  transition: background-color var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out, box-shadow var (--transition-speed) ease-in-out; /* Added box-shadow */
+  transition: background-color var(--transition-speed) ease-in-out,
+              transform var(--transition-speed) ease-in-out,
+              box-shadow var(--transition-speed) ease-in-out;
 }
 button:hover,
 .btn:hover,
@@ -989,8 +950,8 @@ ul#tabmenu li a:hover {
 }
 .ibox-content {
   border-width: 0.4px !important;
-  border-radius: var(--border-radius); /* Add border-radius */
-    box-shadow: var(--box-shadow); /* Add shadow */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 .header .btn-warning {
   background-color: var(--primary-color-hover) !important;
@@ -999,8 +960,9 @@ ul#tabmenu li a:hover {
   background-color: #346198 !important;
 }
 
+/* Additional Element Styling */
 .c-no-item-wrapper {
-  border: 0.5px solid #e7eaec; /* kept as specific color */
+  border: 0.5px solid #e7eaec;
   border-radius: var(--border-radius);
 }
 .c-table td a {
@@ -1008,17 +970,13 @@ ul#tabmenu li a:hover {
 }
 .k-button {
   background-color: var(--primary-color) !important;
-  color: #2a2a2a !important; /* kept as specific color */
+  color: #2a2a2a !important;
 }
 .redactor-toolbar {
   background-color: var(--primary-color) !important;
 }
 .redactor-toolbar li a {
   color: var(--text-color-light) !important;
-}
-.navbar-expand-sm .navbar-nav {
-  /* background-color: var(--primary-color) !important; */
-  /* padding-bottom: 8px; */
 }
 .c-remove-text {
   padding: 8px 15px 0px 0px !important;
@@ -1031,30 +989,20 @@ ul#tabmenu li a:hover {
   color: var(--text-color-light);
   border-radius: 50%;
   box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-
 .c-icon-style:hover {
   transform: scale(1.1);
   box-shadow: var(--box-shadow-hover);
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
-
 .top-navigation .navbar-nav .c-dropdown-menu {
   border-color: var(--primary-color) !important;
 }
 .c-breadcrumb {
-   background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
 .c-breadcrumb .breadcrumb {
- background-color: var(--primary-color) !important;
-}
-
-/* Alerts */
-.alert-success {
-  color: var(--success-color) !important;
-  background-color: var(--success-background) !important;
-    border-color: var(--success-color); /* Add border color */
-    border-radius: var(--border-radius-small); /* Smaller radius */
+  background-color: var(--primary-color) !important;
 }
 
 /* Datepicker */
@@ -1083,13 +1031,15 @@ a.closebtn:hover {
   background-color: var(--danger-color-hover) !important;
 }
 
+/* Box & Progress Bar */
 .box {
   border: 0px !important;
 }
 .progress-bar {
   background-color: var(--progress-bar-color) !important;
 }
-.label-info, .badge-info {
+.label-info,
+.badge-info {
   background-color: var(--label-info-background) !important;
 }
 .popup .popuptext {
@@ -1104,17 +1054,21 @@ a.closebtn:hover {
   color: var(--text-color-dark) !important;
 }
 
-/* Buttons - reusing variables */
-.button, .btn, .button {
+/* Updated Button & Link Styles */
+.button,
+.btn,
+.button {
   background-color: var(--primary-color) !important;
   color: var(--text-color-light) !important;
 }
-.button:hover, .btn:hover, .button:hover {
+.button:hover,
+.btn:hover,
+.button:hover {
   background-color: var(--primary-color-hover) !important;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 .btn-info {
-  color: #fff; /* kept as specific color*/
+  color: #fff;
   background-color: var(--primary-color);
   border-color: var(--primary-color-hover);
   border-radius: var(--border-radius);
@@ -1123,18 +1077,18 @@ a.closebtn:hover {
   background-color: var(--primary-color-hover);
 }
 .btn-success {
-  color: #fff; /* kept as specific color */
-  background-color: #1c84c6; /* kept as specific color */
+  color: #fff;
   border-color: var(--primary-color-hover);
   border-radius: var(--border-radius);
   padding: var(--button-padding) !important;
 }
 
+/* Miscellaneous Adjustments */
 .uidisp {
   background-color: var(--primary-color) !important;
 }
 .delete-icon {
-  color: rgb(255, 255, 255) !important;  /* kept specific for contrast */
+  color: rgb(255, 255, 255) !important;
 }
 .fixed-dimensions-btn {
   background-color: var(--primary-color) !important;
@@ -1143,29 +1097,26 @@ a.closebtn:hover {
 .fixed-dimensions-btn:hover {
   background-color: var(--primary-color-hover) !important;
 }
-.pagination > li > a, .pagination > li > span {
+.pagination > li > a,
+.pagination > li > span {
   border-radius: var(--border-radius);
   margin-left: 5px;
   background-color: var(--primary-color) !important;
   color: var(--text-color-light) !important;
 }
-.pagination > li > a, .pagination > li > span:hover {
-  background-color: #346198 !important; /* kept as specific color */
+.pagination > li > a:hover,
+.pagination > li > span:hover {
+  background-color: #346198 !important;
 }
 .chat-message .c-message-avatar {
   background-color: var(--chat-message-background) !important;
 }
-
 .c-dropdown-toggle {
   color: var(--text-color-dark);
 }
 .c-dropdown-toggle:hover {
   color: var(--primary-color-hover) !important;
 }
-/* .c-dropdown-toggle:selected{
-  // color:#ff0000 !important;
-}
-*/
 .c-lowerlink-item {
   color: var(--text-color-dark);
 }
@@ -1173,133 +1124,98 @@ a.closebtn:hover {
   color: var(--primary-color-hover) !important;
 }
 
-/* Form Group */
-.c-form .form-group input, .c-form .form-group select {
+/* Form Group Input */
+.c-form .form-group input,
+.c-form .form-group select {
   border-radius: var(--form-control-border-radius);
-  border: 1px solid var(--border-color-light); /* Lighter border */
+  border: 1px solid var(--border-color-light);
 }
 
 /* Navbar Dropdown */
 .navbar-static-top .c-dropdown-menu li a {
-  font-weight: var(--font-weight-normal) !important; /* Use variable */
+  font-weight: var(--font-weight-normal) !important;
   background-color: var(--navbar-static-top-background) !important;
 }
 .dropdown-menu > li > a {
   color: var(--text-color-dark) !important;
 }
-.dropdown-menu>li>a:hover {
-  color: var(--text-color-light) !important; /* Light text on hover */
-    background-color: var(--primary-color) !important;
-}
-
-/*
-.dropdown-menu,
-.dropdown-content,
-.select-menu,
-select option,
-[role="menu"],
-[role="listbox"],
-.dropdown-item,
-.select-option {
-  // background-color: #345f92 !important;
-}
-*/
-
-#leftMenu {
+.dropdown-menu > li > a:hover {
   color: var(--text-color-light) !important;
-}
-#leftMenu:hover {
-  color: var(--text-color-dark) !important;
-}
-#favoriteBtn {
-  color: var(--text-color-light) !important;
-}
-#favoriteBtn:hover {
-  color: var(--text-color-dark) !important;
+  background-color: var(--primary-color) !important;
 }
 
-/* Updated .c-link styling with smooth transitions and responsive adjustments */
+/* Updated Link Styling */
 .c-link {
   color: var(--text-color-light);
   border-radius: var(--border-radius);
   padding: 5px 15px;
   background-color: var(--primary-color-hover);
   display: inline-block;
+  transition: background-color 0.2s ease-in-out;
 }
-
 .c-link:hover {
   color: var(--text-color-light);
   text-decoration: none;
-  background-color: #346198; /* kept as specific color */
+  background-color: #346198;
 }
-
 .c-link-color {
-  color: #2f84c6; /* kept as specific color */
+  color: #2f84c6;
   text-decoration: none;
 }
-
 .c-seperator {
   color: transparent;
   padding: 0 5px;
 }
 
+/* Additional Components */
 .btn-fixed-height {
   margin-top: 6px;
 }
-
-.fade-in {  /* Re-added fade-in class - good practice */
+.fade-in {
   animation: fadeIn 0.4s ease-out both;
 }
-
 .header .c-seperator {
   color: transparent !important;
 }
-
 .form-inline .form-control {
   border-radius: var(--border-radius);
 }
-
 .divfilter select {
   border-radius: var(--border-radius);
 }
-
 .card-body {
   background-color: var(--primary-color) !important;
   border-radius: var(--border-radius) !important;
-  padding: 15px !important; /* More padding */
+  padding: 15px !important;
   box-shadow: var(--box-shadow);
 }
 
-/* Scrollbar Styling (Webkit - Chrome, Safari) */
+/* Scrollbar Styling for Webkit */
 ::-webkit-scrollbar {
-    width: 10px;  /* Width of the scrollbar */
+  width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-color); /* Track color */
-	border-radius: var(--border-radius);
+  background: var(--scrollbar-track-color);
+  border-radius: var(--border-radius);
 }
-
 ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-color); /* Handle color */
-    border-radius: var(--border-radius); /* Rounded corners */
+  background: var(--scrollbar-thumb-color);
+  border-radius: var(--border-radius);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover-color); /* Handle color on hover */
+  background: var(--scrollbar-thumb-hover-color);
 }
-
 
 /* Firefox Scrollbar Styling */
 html {
-    scrollbar-width: thin;  /* "auto" or "thin" */
-    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color); /* thumb and track */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
 
+/* Table Border */
 .table-bordered {
-	border: 0.5px solid var(--border-color-light) !important;
+  border: 0.5px solid var(--border-color-light) !important;
 }
-
 .listing .active a {
   color: var(--text-color-dark) !important;
 }
