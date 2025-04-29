@@ -71,7 +71,7 @@ jobs:
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
           
           # Exclude development files to reduce size
-          zip -r "$ZIP_NAME" . -x ".git/*" -x ".github/*" -x "src/*" -x "*.md" -x "LICENSE" -x ".gitignore" -x "*.log"
+          zip -r "$ZIP_NAME" . -x ".git/*" -x ".github/*" -x "src/*" -x "*.md" -x ".gitignore" -x "*.log" -x "manifest.chrome.json" -x "manifest.firefox.json" -x "logo.png" -x "build.sh"
           
           echo "📊 Generated package: $ZIP_NAME ($(du -h "$ZIP_NAME" | cut -f1))"
 
