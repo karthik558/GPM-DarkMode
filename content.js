@@ -1367,24 +1367,21 @@ function applyTheme(mode) {
   // Remove any existing theme styles
   removeCurrentTheme();
 
-  // Remove any existing filter
-  document.documentElement.style.filter = '';
-
   if (mode === "dark") {
     themeStyleElement = document.createElement("style");
     themeStyleElement.id = "extension-dark-theme";
     themeStyleElement.textContent = darkModeCSS;
-    document.head.appendChild(themeStyleElement);
+    document.documentElement.appendChild(themeStyleElement);
     setupObserver();
   } else if (mode === "light-new") {
     themeStyleElement = document.createElement("style");
     themeStyleElement.id = "extension-light-new-theme";
     themeStyleElement.textContent = lightNewCSS;
-    document.head.appendChild(themeStyleElement);
+    document.documentElement.appendChild(themeStyleElement);
     setupObserver();
   } else {
     // Light mode (default) - remove all custom styles
-    document.documentElement.style.filter = '';
+    // document.documentElement.style.filter = '';
   }
   
   activeTheme = mode;
