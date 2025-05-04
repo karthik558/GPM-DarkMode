@@ -1841,6 +1841,7 @@ border-radius: var(--border-radius);
 
 .navbar-expand-sm .navbar-nav {
   background-color: var(--background-color-light) !important;
+  padding-bottom: 8px;
 }
 
 .c-dropdown-left {
