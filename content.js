@@ -328,6 +328,8 @@ ul#tabmenu li a:hover {
 
 .ibox-title {
   border-width: 0.1px !important;
+  background-color: transparent !important;
+  border-style: none !important;
 }
 
 .header .btn-warning {
@@ -986,6 +988,8 @@ ul#tabmenu li a:hover {
 
 .ibox-title {
   border-width: 0.1px !important;
+  background-color: transparent !important;
+  border-style: none !important;
 }
 
 .header .btn-warning {
@@ -1585,6 +1589,8 @@ ul#tabmenu li a:hover {
 
 .ibox-title {
   border-width: 0.1px !important;
+  background-color: transparent !important;
+  border-style: none !important;
 }
 
 .header .btn-warning {
