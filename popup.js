@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sepiaIntensity = result.sepiaIntensity || 0;
     
     // Set the toggle state based on the stored theme mode
-    toggle.checked = (mode === 'dark' || mode === 'light-new');
+    toggle.checked = (mode === 'dark' || mode === 'light-new' || mode === 'light-dark');
     if (themeSelect) {
       themeSelect.value = mode;
     }
@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (themeSelect) {
     themeSelect.addEventListener('change', function () {
       const selectedMode = themeSelect.value;
-      // Update toggle checked state if "dark" or "light-new" is selected.
-      toggle.checked = (selectedMode === 'dark' || selectedMode === 'light-new');
+      // Update toggle checked state for all material themes
+      toggle.checked = (selectedMode === 'dark' || selectedMode === 'light-new' || selectedMode === 'light-dark');
       // Apply the selected theme immediately
-      document.body.classList.toggle('dark-mode', selectedMode === 'dark');
+      document.body.classList.toggle('dark-mode', selectedMode === 'dark' || selectedMode === 'light-dark');
       
       // Get current sepia value before updating
       chrome.storage.local.get(['sepiaIntensity'], function(result) {
