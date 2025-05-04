@@ -1303,6 +1303,39 @@ function applySepiaFilter(intensity) {
 }
 
 // Update the applyTheme function to handle sepia
+// Store original favicon URL
+let originalFavicon = null;
+
+// Function to change the website favicon
+function changeFavicon(iconPath) {
+  // Find any existing favicons
+  const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+  
+  // Store the original favicon if not already stored
+  if (!originalFavicon && existingFavicons.length > 0) {
+    originalFavicon = existingFavicons[0].href;
+  }
+  
+  // Remove any existing favicons
+  existingFavicons.forEach(favicon => {
+    favicon.remove();
+  });
+
+  // Create new favicon link
+  const newFavicon = document.createElement('link');
+  newFavicon.rel = 'shortcut icon';
+  newFavicon.type = 'image/png';
+  newFavicon.href = iconPath;
+  document.head.appendChild(newFavicon);
+}
+
+// Function to restore the original favicon
+function restoreOriginalFavicon() {
+  if (originalFavicon) {
+    changeFavicon(originalFavicon);
+  }
+}
+
 function applyTheme(mode) {
   // Remove any existing theme styles
   removeCurrentTheme();
@@ -1313,15 +1346,24 @@ function applyTheme(mode) {
     themeStyleElement.textContent = darkModeCSS;
     document.documentElement.appendChild(themeStyleElement);
     setupObserver();
+    
+    // Change favicon to dark mode icon using the extension's icon
+    changeFavicon(chrome.runtime.getURL("icons/favicon.png"));
   } else if (mode === "light-new") {
     themeStyleElement = document.createElement("style");
     themeStyleElement.id = "extension-light-new-theme";
     themeStyleElement.textContent = lightNewCSS;
     document.documentElement.appendChild(themeStyleElement);
     setupObserver();
+    
+    // Change favicon to light-new mode icon using the extension's icon
+    changeFavicon(chrome.runtime.getURL("icons/favicon.png"));
   } else {
     // Light mode (default) - remove all custom styles
     // document.documentElement.style.filter = '';
+    
+    // Restore original favicon
+    restoreOriginalFavicon();
   }
   
   activeTheme = mode;

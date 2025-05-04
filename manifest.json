@@ -3,7 +3,7 @@
   "name": "GPM Dark Mode",
   "author": "KARTHIK LAL",
   "description": "Unofficial Materialized dark mode for GPM Software",
-  "version": "3.3.5",
+  "version": "3.4.0",
   "icons": {
     "16": "icons/logo1.png",
     "48": "icons/logo1.png",
@@ -39,5 +39,9 @@
       "48": "icons/logo1.png",
       "128": "icons/logo1.png"
     }
-  }
+  },
+  "web_accessible_resources": [{
+    "resources": ["icons/*.png"],
+    "matches": ["*://*.mgntproject.com/*", "*://*.iimwin.com/*"]
+  }]
 } 
