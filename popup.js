@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     sepiaSlider.value = sepiaIntensity;
     sepiaValue.textContent = `${sepiaIntensity}%`;
     
-    document.body.classList.toggle('dark-mode', mode === 'dark');
+    // Update the dark-mode class for both dark and light-dark themes
+    document.body.classList.toggle('dark-mode', mode === 'dark' || mode === 'light-dark');
   });
 
   // Function to send theme mode update to managed tabs
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (themeSelect) {
       themeSelect.value = newMode;
     }
-    document.body.classList.toggle('dark-mode', newMode === 'dark');
+    document.body.classList.toggle('dark-mode', newMode === 'dark' || newMode === 'light-dark');
     
     // Get current sepia value before updating
     chrome.storage.local.get(['sepiaIntensity'], function(result) {
