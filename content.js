@@ -1252,6 +1252,26 @@ border-radius: var(--border-radius);
   background-color: var(--background-color-light) !important;
   padding-bottom: 8px;
 }
+
+.bi-zoom-in::before {
+  color: var(--text-color-light) !important;
+}
+
+.bi-zoom-out::before {
+  color: var(--text-color-light) !important;
+}
+
+.bi-bookmark-check::before {
+  color: var(--text-color-light) !important;
+}
+
+.fa-refresh:before {
+  color: var(--primary-color) !important;
+}
+
+.fa-info-circle:before {
+  color: var(--primary-color) !important;
+}
 `;
 
 // Light Dark Mode (your tuned version)
@@ -1825,9 +1845,11 @@ border-radius: var(--border-radius);
 .bi-zoom-in::before {
   color: var(--text-color-light) !important;
 }
+
 .bi-zoom-out::before {
   color: var(--text-color-light) !important;
 }
+
 .bi-bookmark-check::before {
   color: var(--text-color-light) !important;
 }
@@ -1835,6 +1857,7 @@ border-radius: var(--border-radius);
 .fa-refresh:before {
   color: var(--primary-color) !important;
 }
+
 .fa-info-circle:before {
   color: var(--primary-color) !important;
 }
