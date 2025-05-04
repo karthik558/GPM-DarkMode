@@ -2,12 +2,12 @@
   "manifest_version": 3,
   "name": "GPM Dark Mode",
   "author": "KARTHIK LAL",
-  "description": "Unofficial Materialized dark mode for GPM Software",
-  "version": "3.4.0",
+  "description": "Unofficial Customized theme for GPM Software [Dark Mode, Light Mode, Materialized]",
+  "version": "3.4.5",
   "icons": {
-    "16": "logo.png",
-    "48": "logo.png",
-    "128": "logo.png"
+    "16": "logo-blue.png",
+    "48": "logo-blue.png",
+    "128": "logo-blue.png"
   },
   "permissions": [
     "storage",
@@ -35,9 +35,9 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "logo.png",
-      "48": "logo.png",
-      "128": "logo.png"
+      "16": "logo-blue.png",
+      "48": "logo-blue.png",
+      "128": "logo-blue.png"
     }
   },
   "browser_specific_settings": {
@@ -45,5 +45,9 @@
       "id": "gpm-dark-mode@karthiklal.in",
       "strict_min_version": "109.0"
     }
-  }
+  },
+  "web_accessible_resources": [{
+    "resources": ["icons/*.png"],
+    "matches": ["*://*.mgntproject.com/*", "*://*.iimwin.com/*"]
+  }]
 }

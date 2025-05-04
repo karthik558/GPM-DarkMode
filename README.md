@@ -1,8 +1,6 @@
-# Unofficial GPM Dark Mode Extension 🌙
-
 <div align="center">
 
-![GPM Dark Mode Logo](icons/logo1.png)
+![GPM Dark Mode Logo](icons/favicon-bak.png)
 
 ![Chrome Web Store](https://img.shields.io/badge/chrome-extension-orange.svg)
 ![Firefox Add-on](https://img.shields.io/badge/firefox-addon-blue.svg)
@@ -25,10 +23,23 @@
 ![GPM Dark Mode Preview](src/video/dark-enable.gif)
 - <b> Theme Preview Light Mode (Official one)</b>
 ![Light Theme](src/picture/light-mode.png)
-- <b> Theme Preview Material Dark Mode (Customized)</b>
+- <b> Theme Preview Material Dark Mode</b>
 ![Dark Theme](src/picture/dark-mode.png)
-- <b> Theme Preview Material Light Mode (Customized)</b>
+- <b> Theme Preview Material Light Mode</b>
 ![Light Theme](src/picture/light-mode-v2.png)
+
+- <b> Theme Preview Light Dark Mode</b>
+![Light Dark Mode](src/picture/light-dark-mode.png)
+- <div style="display: flex; gap: 10px;">
+  <div style="flex: 1;">
+    <b>Extension Preview (Light)</b><br>
+    <img src="src/picture/extension-light.png" alt="Extension Light" width="300">
+  </div>
+  <div style="flex: 1;">
+    <b>Extension Preview (Dark)</b><br>
+    <img src="src/picture/extension-dark.png" alt="Extension Dark" width="300">
+  </div>
+</div>
 
 ## 🌟 Features
 
