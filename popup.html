@@ -31,12 +31,30 @@
             <span class="toggle-text">Enable Material Mode</span>
           </div>
           <div class="theme-select-wrapper">
-            <label for="themeSelect">Choose Theme:</label>
-            <select id="themeSelect">
-              <option value="dark">Material Dark</option>
-              <option value="light-new">Material Light</option>
-              <option value="light-dark">Material Light (Dark)</option>
-            </select>
+            <div class="theme-select-title">Choose Theme:</div>
+            <div class="theme-cards">
+              <label class="theme-card">
+                <input type="radio" name="theme" value="dark" class="theme-radio">
+                <div class="theme-card-content">
+                  <img src="icons/images/dark-mode.png" alt="Material Dark" class="theme-icon">
+                  <span class="theme-name">Material Dark</span>
+                </div>
+              </label>
+              <label class="theme-card">
+                <input type="radio" name="theme" value="light-new" class="theme-radio">
+                <div class="theme-card-content">
+                  <img src="icons/images/light-mode-v2.png" alt="Material Light" class="theme-icon">
+                  <span class="theme-name">Material Light</span>
+                </div>
+              </label>
+              <label class="theme-card">
+                <input type="radio" name="theme" value="light-dark" class="theme-radio">
+                <div class="theme-card-content">
+                  <img src="icons/images/light-dark-mode.png" alt="Material Light (Dark)" class="theme-icon">
+                  <span class="theme-name">Material Mix</span>
+                </div>
+              </label>
+            </div>
           </div>
           <div class="sepia-control-wrapper">
             <label for="sepiaSlider">Eye Protection (Sepia):</label>

@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('darkModeToggle');
-  const themeSelect = document.getElementById('themeSelect');
   const sepiaSlider = document.getElementById('sepiaSlider');
   const sepiaValue = document.querySelector('.sepia-value');
+  const themeRadios = document.querySelectorAll('.theme-radio');
+
+  function getCurrentTheme() {
+    const selectedRadio = document.querySelector('.theme-radio:checked');
+    return selectedRadio ? selectedRadio.value : 'light';
+  }
 
   // Get the current theme mode and sepia value from storage
   chrome.storage.local.get(['themeMode', 'sepiaIntensity'], function (result) {
@@ -11,8 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Set the toggle state based on the stored theme mode
     toggle.checked = (mode === 'dark' || mode === 'light-new' || mode === 'light-dark');
-    if (themeSelect) {
-      themeSelect.value = mode;
+    
+    // Set the selected theme radio button
+    const themeRadio = document.querySelector(`.theme-radio[value="${mode}"]`);
+    if (themeRadio) {
+      themeRadio.checked = true;
     }
     
     // Set the sepia slider value
@@ -45,22 +53,21 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Store the sepia intensity
     chrome.storage.local.set({ sepiaIntensity: intensity }, function() {
-      updateManagedTabs(themeSelect.value, intensity);
+      updateManagedTabs(getCurrentTheme(), intensity);
     });
   });
 
   // Handle toggle changes: check the toggle state to decide the mode.
   toggle.addEventListener('change', function () {
-    const selectedMode = themeSelect.value;
+    const selectedMode = getCurrentTheme();
     if (toggle.checked) {
       // When enabling, apply the currently selected theme
-      const newMode = selectedMode || 'light-new'; // Default to light-new if no selection
-      document.body.classList.toggle('dark-mode', newMode === 'dark' || newMode === 'light-dark');
+      document.body.classList.toggle('dark-mode', selectedMode === 'dark' || selectedMode === 'light-dark');
       
       chrome.storage.local.get(['sepiaIntensity'], function(result) {
         const intensity = result.sepiaIntensity || 0;
-        chrome.storage.local.set({ themeMode: newMode }, function () {
-          updateManagedTabs(newMode, intensity);
+        chrome.storage.local.set({ themeMode: selectedMode }, function () {
+          updateManagedTabs(selectedMode, intensity);
         });
       });
     } else {
@@ -76,11 +83,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Handle theme selection from dropdown.
-  if (themeSelect) {
-    themeSelect.addEventListener('change', function () {
-      const selectedMode = themeSelect.value;
+  // Handle theme selection from radio buttons
+  themeRadios.forEach(radio => {
+    radio.addEventListener('change', function () {
       if (toggle.checked) {
+        const selectedMode = this.value;
         // Only apply theme if toggle is enabled
         document.body.classList.toggle('dark-mode', selectedMode === 'dark' || selectedMode === 'light-dark');
         
@@ -93,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     });
-  }
+  });
 
   // Add reset button functionality
   const resetButton = document.querySelector('.sepia-reset');
@@ -103,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Store the reset sepia intensity and update tabs
     chrome.storage.local.set({ sepiaIntensity: 0 }, function() {
-      updateManagedTabs(themeSelect.value, 0);
+      updateManagedTabs(getCurrentTheme(), 0);
     });
   });
 
