@@ -681,6 +681,11 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 /* Card Body Styling */
+.card {
+ background-color: var(--background-color-light) !important;
+ border: none !important;
+}
+
 .card-body {
   background-color: var(--primary-color) !important;
   border-radius: var(--border-radius) !important;
@@ -736,6 +741,22 @@ html {
 .top-navigation .navbar-nav .dropdown-menu {
   border: none !important;
 }
+
+.c-logo img {
+  filter: brightness(1) !important;
+  transition: filter 0.2s ease-in-out;
+}
+
+.c-logo img:hover {
+  filter: brightness(0.8) !important;
+  cursor: pointer;
+}
+
+.graph-cell {
+border-radius: var(--border-radius) !important;
+box-shadow: var(--box-shadow) !important;
+}
+
 `;
 
 // Light Mode CSS (your tuned version)
@@ -1037,6 +1058,12 @@ ul#tabmenu li a:hover {
 .redactor-toolbar li a {
   color: var(--text-color-light) !important;
 }
+
+.card {
+ background-color: var(--background-color-light) !important;
+ border: none !important;
+}
+
 .c-remove-text {
   padding: 8px 15px 0px 0px !important;
 }
@@ -1356,6 +1383,21 @@ border-radius: var(--border-radius);
 
 .top-navigation .navbar-nav .dropdown-menu {
   border: none !important;
+}
+
+.c-logo img {
+  filter: brightness(1) !important;
+  transition: filter 0.2s ease-in-out;
+}
+
+.c-logo img:hover {
+  filter: brightness(0.8) !important;
+  cursor: pointer;
+}
+
+.graph-cell {
+border-radius: var(--border-radius) !important;
+box-shadow: var(--box-shadow) !important;
 }
 `;
 
@@ -1891,6 +1933,12 @@ a.closebtn:hover {
 .divfilter select {
   border-radius: var(--border-radius);
 }
+
+.card {
+ background-color: var(--background-color-light) !important;
+ border: none !important;
+}
+
 .card-body {
   background-color: var(--primary-color) !important;
   border-radius: var(--border-radius) !important;
@@ -2010,6 +2058,21 @@ border-radius: var(--border-radius);
 
 .top-navigation .navbar-nav .dropdown-menu {
   border: none !important;
+}
+
+.c-logo img {
+  filter: brightness(1) !important;
+  transition: filter 0.2s ease-in-out;
+}
+
+.c-logo img:hover {
+  filter: brightness(0.8) !important;
+  cursor: pointer;
+}
+
+.graph-cell {
+border-radius: var(--border-radius) !important;
+box-shadow: var(--box-shadow) !important;
 }
 `;
 
