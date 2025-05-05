@@ -106,6 +106,32 @@ document.addEventListener('DOMContentLoaded', function () {
       updateManagedTabs(themeSelect.value, 0);
     });
   });
+
+  // Set up extension settings link
+  const extensionSettingsLink = document.getElementById('extensionSettingsLink');
+  if (extensionSettingsLink) {
+    extensionSettingsLink.addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      // Detect browser and get appropriate URL
+      const userAgent = navigator.userAgent.toLowerCase();
+      let extensionsUrl = 'chrome://extensions';
+      
+      if (userAgent.includes('edg/')) {
+        extensionsUrl = 'edge://extensions';
+      } else if (userAgent.includes('brave')) {
+        extensionsUrl = 'brave://extensions';
+      } else if (userAgent.includes('arc')) {
+        extensionsUrl = 'arc://extensions';
+      } else if (userAgent.includes('firefox')) {
+        extensionsUrl = 'about:addons';
+      }
+
+      // Create new tab with extensions page
+      await chrome.tabs.create({ url: extensionsUrl });
+      window.close(); // Close the popup after opening new tab
+    });
+  }
 });
 
 async function checkForUpdates() {
@@ -172,9 +198,10 @@ function compareVersions(v1, v2) {
     
     return 0;
 }
-
 // Add event listener for update button
 document.addEventListener('DOMContentLoaded', () => {
     const updateButton = document.getElementById('updateButton');
-    updateButton.addEventListener('click', checkForUpdates);
+    if (updateButton) {
+        updateButton.addEventListener('click', checkForUpdates);
+    }
 });
