@@ -732,6 +732,10 @@ html {
   margin-bottom: 5px;
   margin-top: 5px;
 }
+
+.top-navigation .navbar-nav .dropdown-menu {
+  border: none !important;
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -1344,6 +1348,10 @@ border-radius: var(--border-radius);
   padding-left: 15px;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.top-navigation .navbar-nav .dropdown-menu {
+  border: none !important;
 }
 `;
 
@@ -1990,6 +1998,10 @@ border-radius: var(--border-radius);
   padding-left: 15px;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.top-navigation .navbar-nav .dropdown-menu {
+  border: none !important;
 }
 `;
 
