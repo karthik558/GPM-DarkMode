@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const sepiaSlider = document.getElementById('sepiaSlider');
   const sepiaValue = document.querySelector('.sepia-value');
   const themeRadios = document.querySelectorAll('.theme-radio');
+  const versionText = document.querySelector('.version-text');
+
+  // Display version number from manifest
+  const manifestData = chrome.runtime.getManifest();
+  if (versionText && manifestData.version) {
+    versionText.textContent = `v${manifestData.version}`;
+  }
 
   function getCurrentTheme() {
     const selectedRadio = document.querySelector('.theme-radio:checked');
