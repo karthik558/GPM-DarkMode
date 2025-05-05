@@ -51,42 +51,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Handle toggle changes: check the toggle state to decide the mode.
   toggle.addEventListener('change', function () {
-    const currentTheme = themeSelect.value;
-    const newMode = toggle.checked ? 
-      (currentTheme === 'dark' ? 'dark' : 'light-new') : 'light';
-    
-    // Update the theme select to match the toggle state
-    if (themeSelect) {
-      themeSelect.value = newMode;
-    }
-    document.body.classList.toggle('dark-mode', newMode === 'dark' || newMode === 'light-dark');
-    
-    // Get current sepia value before updating
-    chrome.storage.local.get(['sepiaIntensity'], function(result) {
-      const intensity = result.sepiaIntensity || 0;
-      chrome.storage.local.set({ themeMode: newMode }, function () {
-        updateManagedTabs(newMode, intensity);
+    const selectedMode = themeSelect.value;
+    if (toggle.checked) {
+      // When enabling, apply the currently selected theme
+      const newMode = selectedMode || 'light-new'; // Default to light-new if no selection
+      document.body.classList.toggle('dark-mode', newMode === 'dark' || newMode === 'light-dark');
+      
+      chrome.storage.local.get(['sepiaIntensity'], function(result) {
+        const intensity = result.sepiaIntensity || 0;
+        chrome.storage.local.set({ themeMode: newMode }, function () {
+          updateManagedTabs(newMode, intensity);
+        });
       });
-    });
+    } else {
+      // When disabling, revert to light theme
+      document.body.classList.remove('dark-mode');
+      
+      chrome.storage.local.get(['sepiaIntensity'], function(result) {
+        const intensity = result.sepiaIntensity || 0;
+        chrome.storage.local.set({ themeMode: 'light' }, function () {
+          updateManagedTabs('light', intensity);
+        });
+      });
+    }
   });
 
   // Handle theme selection from dropdown.
-  // When the user explicitly selects a theme, update the toggle to reflect material themed modes.
   if (themeSelect) {
     themeSelect.addEventListener('change', function () {
       const selectedMode = themeSelect.value;
-      // Update toggle checked state for all material themes
-      toggle.checked = (selectedMode === 'dark' || selectedMode === 'light-new' || selectedMode === 'light-dark');
-      // Apply the selected theme immediately
-      document.body.classList.toggle('dark-mode', selectedMode === 'dark' || selectedMode === 'light-dark');
-      
-      // Get current sepia value before updating
-      chrome.storage.local.get(['sepiaIntensity'], function(result) {
-        const intensity = result.sepiaIntensity || 0;
-        chrome.storage.local.set({ themeMode: selectedMode }, function () {
-          updateManagedTabs(selectedMode, intensity);
+      if (toggle.checked) {
+        // Only apply theme if toggle is enabled
+        document.body.classList.toggle('dark-mode', selectedMode === 'dark' || selectedMode === 'light-dark');
+        
+        // Get current sepia value before updating
+        chrome.storage.local.get(['sepiaIntensity'], function(result) {
+          const intensity = result.sepiaIntensity || 0;
+          chrome.storage.local.set({ themeMode: selectedMode }, function () {
+            updateManagedTabs(selectedMode, intensity);
+          });
         });
-      });
+      }
     });
   }
 
