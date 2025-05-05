@@ -2165,3 +2165,50 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
   return true;
 });
+
+// Add click handler for .c-logo images
+function addLogoClickHandler() {
+  const logoImages = document.querySelectorAll('.c-logo img');
+  logoImages.forEach(img => {
+    if (!img.hasAttribute('data-click-handler')) {
+      img.style.cursor = 'pointer';
+      img.setAttribute('data-click-handler', 'true');
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'http://mgntproject.com/pm/';
+      });
+    }
+  });
+}
+
+// Initial run
+addLogoClickHandler();
+
+// Add click handler for .c-logo images
+function addLogoClickHandler() {
+  const logoImages = document.querySelectorAll('.c-logo img');
+  logoImages.forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'http://mgntproject.com/pm/';
+    });
+  });
+}
+
+// Run when content is loaded
+document.addEventListener('DOMContentLoaded', addLogoClickHandler);
+
+// Also run for dynamic content
+const logoObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.addedNodes.length) {
+      addLogoClickHandler();
+    }
+  });
+});
+
+logoObserver.observe(document.body, {
+  childList: true,
+  subtree: true
+});
