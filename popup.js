@@ -59,9 +59,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Handle toggle changes: check the toggle state to decide the mode.
   toggle.addEventListener('change', function () {
-    const selectedMode = getCurrentTheme();
     if (toggle.checked) {
-      // When enabling, apply the currently selected theme
+      // When enabling, default to light-new (Material Light) theme
+      const lightNewRadio = document.querySelector('.theme-radio[value="light-new"]');
+      if (lightNewRadio) {
+        lightNewRadio.checked = true;
+      }
+      const selectedMode = 'light-new';
       document.body.classList.toggle('dark-mode', selectedMode === 'dark' || selectedMode === 'light-dark');
       
       chrome.storage.local.get(['sepiaIntensity'], function(result) {
