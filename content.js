@@ -758,7 +758,7 @@ const lightNewCSS = `
   --background-color-dark: #2d2d2d;
   --background-color-gray: #e0e0e0;
   --background-color-gray-hover: #c0c0c0;
-  --dropdown-background: #ffffff; /* White dropdowns */
+  --dropdown-background: #f1f5f9; /* White dropdowns */
 
   /* Borders & Shadows */
   --border-color-light: #cccccc; /* Lighter borders */
@@ -1318,6 +1318,10 @@ border-radius: var(--border-radius);
   color: var(--primary-color) !important;
 }
 
+.bi-list::before {
+  color: var(--text-color-light) !important;
+}
+
 .boxhead {
   background-color: var(--primary-color) !important;
   color: var(--text-color-light) !important;
@@ -1504,7 +1508,7 @@ select option,
 [role="listbox"],
 .dropdown-item,
 .select-option {
-  background-color: var(--dropdown-background) !important;
+  background-color: var(--background-color-light) !important;
   color: var(--text-color-dark) !important;
   border: 1px solid var(--border-color-light);
   box-shadow: var(--box-shadow);
@@ -1951,6 +1955,10 @@ border-radius: var(--border-radius);
 
 .fa-info-circle:before {
   color: var(--primary-color) !important;
+}
+
+.bi-list::before {
+  color: var(--text-color-light) !important;
 }
 
 .navbar-expand-sm .navbar-nav {
