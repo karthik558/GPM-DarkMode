@@ -493,39 +493,7 @@ body.dark-mode .sepia-reset:active {
   position: relative;
 }
 
-.update-button {
-  -webkit-appearance: none;
-  appearance: none;
-  background: rgba(60, 60, 67, 0.18);
-  border: none;
-  border-radius: 50%;
-  color: white;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  line-height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 8px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.update-button:hover {
-  background: rgba(60, 60, 67, 0.28);
-  transform: rotate(180deg);
-}
-
-.update-button:active {
-  background: rgba(60, 60, 67, 0.38);
-}
-
-.update-button.checking {
-  cursor: wait;
-  animation: spin 1s linear infinite;
-}
+/* Remove old update button styles as they're now defined in the extension settings section */
 
 @keyframes spin {
   from {
@@ -550,7 +518,7 @@ body.dark-mode .sepia-reset:active {
 
 /* Extension Settings Box */
 .extension-settings {
-  padding: 12px 20px;
+  padding: 12px 16px;
   background-color: var(--ios-white);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -561,28 +529,71 @@ body.dark-mode .extension-settings {
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
+.settings-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
 .settings-link {
+  flex: 0 0 67%;
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #5677aa;
   font-size: 13px;
-  padding: 8px;
+  padding: 8px 12px;
   border-radius: 6px;
-  transition: background-color 0.2s ease;
+  background-color: rgba(86, 119, 170, 0.1);
   font-weight: 500;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.update-button {
+  flex: 0 0 20%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #5677aa;
+  background-color: rgba(86, 119, 170, 0.1);
+  border-radius: 6px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.update-icon {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 body.dark-mode .settings-link {
   color: #7d9ed2;
-}
-
-.settings-link:hover {
-  background-color: rgba(86, 119, 170, 0.1);
-}
-
-body.dark-mode .settings-link:hover {
   background-color: rgba(125, 158, 210, 0.1);
+}
+
+body.dark-mode .update-button {
+  color: #7d9ed2;
+  background-color: rgba(125, 158, 210, 0.1);
+}
+
+.settings-link:hover,
+.update-button:hover {
+  transform: translateY(-1px);
+  background-color: rgba(86, 119, 170, 0.15);
+}
+
+body.dark-mode .settings-link:hover,
+body.dark-mode .update-button:hover {
+  background-color: rgba(125, 158, 210, 0.15);
+}
+
+.settings-link:active,
+.update-button:active {
+  transform: translateY(0);
+  opacity: 0.9;
 }
 
 .settings-icon {
