@@ -2184,31 +2184,47 @@ function addLogoClickHandler() {
 // Initial run
 addLogoClickHandler();
 
-// Add click handler for .c-logo images
-function addLogoClickHandler() {
+// Function to modify logo and add click handler
+function modifyLogo() {
   const logoImages = document.querySelectorAll('.c-logo img');
   logoImages.forEach(img => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.href = 'http://mgntproject.com/pm/';
-    });
+    // Change the image source to the extension's logo
+    const logoURL = chrome.runtime.getURL('icons/logo2.png');
+    if (img.src !== logoURL) {
+      img.src = logoURL;
+    }
+    
+    // Add click functionality if not already added
+    if (!img.hasAttribute('data-click-handler')) {
+      img.style.cursor = 'pointer';
+      img.setAttribute('data-click-handler', 'true');
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'http://mgntproject.com/pm/';
+      });
+    }
   });
 }
 
-// Run when content is loaded
-document.addEventListener('DOMContentLoaded', addLogoClickHandler);
+// Run immediately
+modifyLogo();
 
-// Also run for dynamic content
+// Run when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', modifyLogo);
+
+// Watch for dynamic changes
 const logoObserver = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    if (mutation.addedNodes.length) {
-      addLogoClickHandler();
+  mutations.forEach(mutation => {
+    if (mutation.addedNodes.length || mutation.type === 'attributes') {
+      modifyLogo();
     }
   });
 });
 
+// Observe both DOM changes and attribute changes
 logoObserver.observe(document.body, {
   childList: true,
-  subtree: true
+  subtree: true,
+  attributes: true,
+  attributeFilter: ['src']
 });
