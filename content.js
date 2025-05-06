@@ -2120,11 +2120,24 @@ function setupObserver() {
     // In our themes the CSS should cover new elements.
     // If additional processing is needed, it can be added here.
   });
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true
-  });
+  
+  // Wait for document.body to be available
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true
+    });
+  } else {
+    // If body is not available, wait for it to load
+    document.addEventListener('DOMContentLoaded', () => {
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true
+      });
+    });
+  }
 }
 
 // Function to apply sepia filter
@@ -2284,10 +2297,22 @@ const logoObserver = new MutationObserver((mutations) => {
   });
 });
 
-// Observe both DOM changes and attribute changes
-logoObserver.observe(document.body, {
-  childList: true,
-  subtree: true,
-  attributes: true,
-  attributeFilter: ['src']
-});
+// Start observing when document.body is available
+if (document.body) {
+  logoObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['src']
+  });
+} else {
+  // If body is not available, wait for it to load
+  document.addEventListener('DOMContentLoaded', () => {
+    logoObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['src']
+    });
+  });
+}
