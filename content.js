@@ -20,7 +20,8 @@ const darkModeCSS = `
   --background-color-dark: #252526; /* Darker background */
   --background-color-darker: #0a0a0a; /* Even darker, almost black */
   --background-color-dark-alt: #252526;  /* Slightly lighter than background-color-dark */
-  --background-color-gray: #2c2c2c; /* For buttons (slightly lighter) */
+  --background-color-table: #272727; /* For tables */
+  --background-color-gray: #2e2e2e; /* For buttons (slightly lighter) */
   --background-color-gray-hover: #444444; /* Hover state for gray elements */
   --hover-table: #214a7b; /* Table hover color */
 
@@ -30,7 +31,7 @@ const darkModeCSS = `
   --border-color-table: #444444;  /* Darker table borders */
   --border-radius: 15px;
   --border-radius-small: 15px; /* For small elements like pagination */
-  --box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+  --box-shadow: 0 2px 4px hsla(0, 0.00%, 100.00%, 0.10); /* Subtle white shadow */
   --box-shadow-hover: 0 4px 8px rgba(255, 255, 255, 0.2); /* Stronger white shadow */
 
   /* Spacing & Transitions */
@@ -325,6 +326,7 @@ ul#tabmenu li a:hover {
 .ibox-content {
   border-width: 0.4px !important;
   box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius) !important;
 }
 
 .ibox-title {
@@ -333,6 +335,10 @@ ul#tabmenu li a:hover {
   border-style: none !important;
 }
 
+.row {
+  border-radius: var(--border-radius) !important;
+}
+  
 .header .btn-warning {
   background-color: var(--primary-color) !important;
 }
@@ -775,6 +781,10 @@ tr.gradeX:hover td {
   background-color: var(--hover-table) !important;
   color: var(--text-color-light) !important;
   font-weight: var(--font-weight-bold);
+}
+
+.table, th, td {
+  background-color: var(--background-color-table) !important;
 }
 `;
 
@@ -1433,6 +1443,10 @@ tr.gradeX:hover td {
   color: var(--text-color-light) !important;
   font-weight: var(--font-weight-bold);
 }
+
+.table, th, td {
+  background-color: var(--background-color-light) !important;
+}
 `;
 
 // Light Dark Mode (your tuned version)
@@ -1471,6 +1485,7 @@ const lightDarkCSS = `
   --border-radius-small: 15px; /* For small elements like pagination */
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --table-border-light: #f7f7f7;
 
   /* Spacing & Transitions */
   --button-padding: 4px 13px; /* Slightly more padding for buttons */
@@ -2124,6 +2139,10 @@ tr.gradeX:hover td {
   background-color: var(--hover-table) !important;
   color: var(--text-color-light) !important;
   font-weight: var(--font-weight-bold);
+}
+
+.table, th, td {
+  background-color: var(--background-color-light) !important;
 }
 `;
 
