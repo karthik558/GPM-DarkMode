@@ -152,13 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Function to open the releases page
-function checkForUpdates() {
-    const releasesUrl = 'https://github.com/your-repo/browser-dark-mode/releases';
-    chrome.tabs.create({ url: releasesUrl });
-    window.close(); // Close the popup after opening the releases page
-}
-
 // Add event listener for update button
 document.addEventListener('DOMContentLoaded', () => {
     const updateButton = document.getElementById('updateButton');
