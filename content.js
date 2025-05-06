@@ -22,6 +22,7 @@ const darkModeCSS = `
   --background-color-dark-alt: #252526;  /* Slightly lighter than background-color-dark */
   --background-color-gray: #2c2c2c; /* For buttons (slightly lighter) */
   --background-color-gray-hover: #444444; /* Hover state for gray elements */
+  --hover-table: #214a7b; /* Table hover color */
 
   /* Borders & Shadows */
   --border-color-light: #444444; /* Darker border, but still visible */
@@ -40,6 +41,8 @@ const darkModeCSS = `
   --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-family-mono: 'Courier New', Courier, monospace;
   --font-size-base: 1rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
 
   /* Success & Danger */
   --success-color: #5cb85c; /* Lighter green */
@@ -684,6 +687,7 @@ select.form-control:not([size]):not([multiple]) {
 .card {
  background-color: var(--background-color-light) !important;
  border: none !important;
+ border-radius: var(--border-radius) !important;
 }
 
 .card-body {
@@ -757,6 +761,21 @@ border-radius: var(--border-radius) !important;
 box-shadow: var(--box-shadow) !important;
 }
 
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+  color: var(--text-color-light) !important;
+}
+
+.c-navbar-toggler {
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
+  color: var(--text-color-light) !important;
+}
+
+tr.gradeX:hover td {
+  background-color: var(--hover-table) !important;
+  color: var(--text-color-light) !important;
+  font-weight: var(--font-weight-bold);
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -780,6 +799,7 @@ const lightNewCSS = `
   --background-color-gray: #e0e0e0;
   --background-color-gray-hover: #c0c0c0;
   --dropdown-background: #f1f5f9; /* White dropdowns */
+  --hover-table: #4c78aead;
 
   /* Borders & Shadows */
   --border-color-light: #cccccc; /* Lighter borders */
@@ -1059,11 +1079,6 @@ ul#tabmenu li a:hover {
   color: var(--text-color-light) !important;
 }
 
-.card {
- background-color: var(--background-color-light) !important;
- border: none !important;
-}
-
 .c-remove-text {
   padding: 8px 15px 0px 0px !important;
 }
@@ -1279,6 +1294,13 @@ a.closebtn:hover {
 .divfilter select {
   border-radius: var(--border-radius);
 }
+
+.card {
+ background-color: var(--background-color-light) !important;
+ border: none !important;
+ border-radius: var(--border-radius) !important;
+}
+
 .card-body {
   background-color: var(--primary-color) !important;
   border-radius: var(--border-radius) !important;
@@ -1399,6 +1421,18 @@ border-radius: var(--border-radius);
 border-radius: var(--border-radius) !important;
 box-shadow: var(--box-shadow) !important;
 }
+
+.c-navbar-toggler {
+  background-color: var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
+  color: var(--text-color-light) !important;
+}
+
+tr.gradeX:hover td {
+  background-color: var(--hover-table) !important;
+  color: var(--text-color-light) !important;
+  font-weight: var(--font-weight-bold);
+}
 `;
 
 // Light Dark Mode (your tuned version)
@@ -1428,6 +1462,7 @@ const lightDarkCSS = `
   --background-color-gray: #353535;
   --background-color-gray-hover: #404040;
   --dropdown-background: transparent;
+  --hover-table: #292929cf;
 
   /* Borders & Shadows */
   --border-color-light: #cccccc; /* Lighter borders */
@@ -1937,6 +1972,7 @@ a.closebtn:hover {
 .card {
  background-color: var(--background-color-light) !important;
  border: none !important;
+ border-radius: var(--border-radius) !important;
 }
 
 .card-body {
@@ -2009,6 +2045,10 @@ border-radius: var(--border-radius);
   color: var(--text-color-light) !important;
 }
 
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+  color: var(--text-color-light) !important;
+}
+
 .navbar-expand-sm .navbar-nav {
   background-color: var(--background-color-light) !important;
   padding-bottom: 8px;
@@ -2073,6 +2113,17 @@ border-radius: var(--border-radius);
 .graph-cell {
 border-radius: var(--border-radius) !important;
 box-shadow: var(--box-shadow) !important;
+}
+
+.c-navbar-toggler {
+  border-radius: var(--border-radius) !important;
+  color: var(--text-color-light) !important;
+}
+
+tr.gradeX:hover td {
+  background-color: var(--hover-table) !important;
+  color: var(--text-color-light) !important;
+  font-weight: var(--font-weight-bold);
 }
 `;
 
