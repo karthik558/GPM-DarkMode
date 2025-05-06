@@ -1418,7 +1418,7 @@ const lightDarkCSS = `
   --text-color-muted: #666666; /* Muted text */
   --message-date-color: #a0a0a0;
   --icon-background-color: #afafaf;
-  --text-color-dark-red: #470007; 
+  --text-color-dark-violet: #7a80dd;
 
   /* Backgrounds */
   --background-color-light: #ebebeb; /* Main background */
@@ -1699,7 +1699,7 @@ ul#tabmenu li a:hover {
 }
 .c-table td a {
   font-weight: 700 !important;
-  color: var(--text-color-dark-red) !important;
+  color: var(--text-color-dark-violet) !important;
 }
 .k-button {
   background-color: var(--primary-color) !important;
@@ -1751,7 +1751,7 @@ a.closebtn {
   color: var(--text-color-light) !important;
 }
 a.closebtn:hover {
-  background-color: var(--text-color-dark-red) !important;
+  background-color: var(--text-color-dark-violet) !important;
 }
 
 /* Cancel Button */
