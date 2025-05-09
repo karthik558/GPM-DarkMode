@@ -644,6 +644,19 @@ select.form-control:not([size]):not([multiple]) {
   background-color: var(--primary-color);
   display: inline-block;
 }
+
+@media (max-width: 576px) {
+	.c-link {
+		padding: 5px 10px;
+	}
+}
+
+@media (max-width: 576px) {
+  .c-username {
+   display: none;
+  }
+}
+
 .c-link:hover {
   color: var(--text-color-light);
   text-decoration: none;
@@ -785,6 +798,10 @@ tr.gradeX:hover td {
 
 .table, th, td {
   background-color: var(--background-color-table) !important;
+}
+
+.white-bg .navbar-fixed-top, .white-bg .navbar-static-top {
+  background-color: var(--background-color-dark) !important;
 }
 `;
 
@@ -1271,6 +1288,18 @@ a.closebtn:hover {
   background-color: var(--primary-color-hover);
   display: inline-block;
 }
+
+@media (max-width: 576px) {
+	.c-link {
+		padding: 5px 10px;
+	}
+}
+@media (max-width: 576px) {
+  .c-username {
+   display: none;
+  }
+}
+
 .c-link:hover {
   color: var(--text-color-light);
   text-decoration: none;
@@ -1445,6 +1474,10 @@ tr.gradeX:hover td {
 }
 
 .table, th, td {
+  background-color: var(--background-color-light) !important;
+}
+
+.white-bg .navbar-fixed-top, .white-bg .navbar-static-top {
   background-color: var(--background-color-light) !important;
 }
 `;
@@ -1666,7 +1699,7 @@ button,
 .btn,
 .button {
   background-color: var(--background-color-gray) !important;
-  color: var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
   border: 1px solid var(--primary-color) !important;
   padding: var(--button-padding) !important;
   border-radius: var(--border-radius);
@@ -1950,7 +1983,19 @@ a.closebtn:hover {
   background-color: var(--secondary-color);
   display: inline-block;
 }
-.c-link:hover {
+
+@media (max-width: 576px) {
+	.c-link {
+		padding: 5px 10px;
+	}
+}
+
+@media (max-width: 576px) {
+  .c-username {
+   display: none;
+  }
+}
+  .c-link:hover {
   color: var(--text-color-light);
   text-decoration: none;
   background-color: var(--secondary-color-hover) !important;
@@ -2142,6 +2187,10 @@ tr.gradeX:hover td {
 }
 
 .table, th, td {
+  background-color: var(--background-color-light) !important;
+}
+
+.white-bg .navbar-fixed-top, .white-bg .navbar-static-top {
   background-color: var(--background-color-light) !important;
 }
 `;
