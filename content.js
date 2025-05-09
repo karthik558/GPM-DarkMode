@@ -803,6 +803,10 @@ tr.gradeX:hover td {
 .white-bg .navbar-fixed-top, .white-bg .navbar-static-top {
   background-color: var(--background-color-dark) !important;
 }
+
+.chat-discussion.max-height {
+  color: var(--text-color-light) !important;
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -1479,6 +1483,10 @@ tr.gradeX:hover td {
 
 .white-bg .navbar-fixed-top, .white-bg .navbar-static-top {
   background-color: var(--background-color-light) !important;
+}
+
+.chat-discussion.max-height {
+  color: var(--text-color-light) !important;
 }
 `;
 
@@ -2192,6 +2200,10 @@ tr.gradeX:hover td {
 
 .white-bg .navbar-fixed-top, .white-bg .navbar-static-top {
   background-color: var(--background-color-light) !important;
+}
+
+.chat-discussion.max-height {
+  color: var(--text-color-light) !important;
 }
 `;
 
