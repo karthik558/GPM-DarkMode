@@ -152,6 +152,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+// Function to open the releases page
+function checkForUpdates() {
+  const releasesUrl = 'https://github.com/karthik558/GPM-DarkMode/releases/';
+    try {
+        chrome.tabs.create({ url: releasesUrl }, (tab) => {
+            if (chrome.runtime.lastError) {
+                console.error('Error opening releases page:', chrome.runtime.lastError);
+                return;
+            }
+            window.close(); // Close the popup after successfully opening the releases page
+        });
+    } catch (error) {
+        console.error('Error checking for updates:', error);
+    }
+}
+
 // Add event listener for update button
 document.addEventListener('DOMContentLoaded', () => {
     const updateButton = document.getElementById('updateButton');
