@@ -393,7 +393,7 @@ ul#tabmenu li a:hover {
 }
 
 .message {
-background-color: #3779c836 !important;
+background-color: var(--background-color-dark) !important;
 border-radius: var(--border-radius);
 }
 
@@ -459,6 +459,25 @@ a.closebtn:hover {
 .popup .popuptext {
   background-color: var(--popup-background) !important;
   color: var(--text-color-light) !important;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--popup-background) !important;
+  box-shadow: var(--box-shadow);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+  z-index: 9999;
+  padding: 10px;
+  position: absolute;
+}
+
+.popup .show {
+  display: block;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-out both;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+  border-radius: var(--border-radius);
+  background-color: var(--popup-background) !important;
 }
 
 /* Ibox Value */
@@ -594,9 +613,14 @@ select.form-control:not([size]):not([multiple]) {
   height: var(--form-control-height);
 }
 
+.chat-message {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-light) !important;
+}
+
 /* Chat Message Avatar */
 .chat-message .c-message-avatar {
-  background-color: var(--chat-message-background) !important;
+  background-color: var(--background-color-dark) !important;
 }
 
 /* Specialized Form Group Inputs */
@@ -716,6 +740,12 @@ select.form-control:not([size]):not([multiple]) {
   box-shadow: var(--box-shadow) !important;
 }
 
+.card-body:hover {
+  background-color: var(--primary-color-hover) !important;
+  box-shadow: var(--box-shadow-hover) !important;
+  transform: translateY(-2px);
+}
+
 /* Scrollbar Styling (Webkit) */
 ::-webkit-scrollbar {
   width: 10px;
@@ -739,7 +769,7 @@ html {
 }
 
 .c-title-strip {
-  background-color: var(--primary-color-hover) !important;
+  background-color: var(--primary-color) !important;
   color: var(--text-color-light) !important;
 }
 
@@ -1177,7 +1207,27 @@ a.closebtn:hover {
 .popup .popuptext {
   background-color: var(--popup-background) !important;
   color: var(--text-color-light) !important;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--popup-background) !important;
+  box-shadow: var(--box-shadow);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+  z-index: 9999;
+  padding: 10px;
+  position: absolute;
 }
+
+.popup .show {
+  display: block;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-out both;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+  border-radius: var(--border-radius);
+  background-color: var(--popup-background) !important;
+}
+
 .c-ibox-value span {
   background-color: var(--danger-color) !important;
   color: var(--text-color-light) !important;
@@ -1349,6 +1399,12 @@ a.closebtn:hover {
   border-radius: var(--border-radius) !important;
   padding: 15px !important;
   box-shadow: var(--box-shadow);
+}
+
+.card-body:hover {
+  background-color: var(--primary-color-hover) !important;
+  box-shadow: var(--box-shadow-hover) !important;
+  transform: translateY(-2px);
 }
 
 /* Scrollbar Styling for Webkit */
@@ -1870,7 +1926,27 @@ a.closebtn:hover {
 .popup .popuptext {
   background-color: var(--popup-background) !important;
   color: var(--text-color-light) !important;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--popup-background) !important;
+  box-shadow: var(--box-shadow);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+  z-index: 9999;
+  padding: 10px;
+  position: absolute;
 }
+
+.popup .show {
+  display: block;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-out both;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+  border-radius: var(--border-radius);
+  background-color: var(--popup-background) !important;
+}
+
 .c-ibox-value span {
   background-color: var(--danger-color) !important;
   color: var(--text-color-light) !important;
@@ -2050,6 +2126,12 @@ a.closebtn:hover {
   box-shadow: var(--box-shadow);
 }
 
+.card-body:hover {
+  background-color: var(--primary-color-hover) !important;
+  box-shadow: var(--box-shadow-hover) !important;
+  transform: translateY(-2px);
+}
+  
 /* Scrollbar Styling for Webkit */
 ::-webkit-scrollbar {
   width: 10px;
