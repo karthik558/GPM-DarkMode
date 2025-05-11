@@ -2330,12 +2330,17 @@ function setupObserver() {
     observer.disconnect();
   }
   observer = new MutationObserver((mutations) => {
-    // In our themes the CSS should cover new elements.
-    // If additional processing is needed, it can be added here.
+    // Force the title to be "IIM | GPM"
+    if (document.title !== "IIM | GPM") {
+      document.title = "IIM | GPM";
+    }
   });
   
   // Wait for document.body to be available
   if (document.body) {
+    // Set initial title
+    document.title = "IIM | GPM";
+    // Observe for changes
     observer.observe(document.body, {
       childList: true,
       subtree: true,
@@ -2344,6 +2349,9 @@ function setupObserver() {
   } else {
     // If body is not available, wait for it to load
     document.addEventListener('DOMContentLoaded', () => {
+      // Set initial title
+      document.title = "IIM | GPM";
+      // Observe for changes
       observer.observe(document.body, {
         childList: true,
         subtree: true,
