@@ -73,6 +73,14 @@ const darkModeCSS = `
   --scrollbar-thumb-hover-color: #777; /* Even lighter on hover */
 }
 
+/* Color Override for specific blue elements */
+*[style*="rgb(61, 52, 235)"],
+*[style*="rgb(61,52,235)"],
+*[style*="blue"],
+*[style*="#0000FF"]{
+  color: var(--primary-color) !important;
+}
+
 /* Base styles */
 html {
   color-scheme: dark !important;
@@ -353,6 +361,11 @@ ul#tabmenu li a:hover {
 
 .c-table td a {
   font-weight: 600 !important;
+}
+
+.c-table td a:hover {
+  color: var(--text-color-light) !important;
+  text-decoration: none !important;
 }
 
 .k-button {
@@ -928,6 +941,14 @@ const lightNewCSS = `
   --input-focus-shadow: rgba(76, 120, 174, 0.09);
 }
 
+/* Color Override for specific blue elements */
+*[style*="rgb(61, 52, 235)"],
+*[style*="rgb(61,52,235)"],
+*[style*="blue"],
+*[style*="#0000FF"]{
+  color: var(--primary-color) !important;
+}
+
 /* Global Settings */
 html {
   color-scheme: light !important;
@@ -1152,6 +1173,12 @@ ul#tabmenu li a:hover {
 .c-table td a {
   font-weight: 600 !important;
 }
+
+.c-table td a:hover {
+  color: var(--text-color-light) !important;
+  text-decoration: none !important;
+}
+
 .k-button {
   background-color: var(--primary-color) !important;
   color: #2a2a2a !important;
@@ -1646,6 +1673,14 @@ const lightDarkCSS = `
   --input-focus-shadow: rgba(76, 120, 174, 0.09);
 }
 
+/* Color Override for specific blue elements */
+*[style*="rgb(61, 52, 235)"],
+*[style*="rgb(61,52,235)"],
+*[style*="blue"],
+*[style*="#0000FF"]{
+  color: var(--danger-color) !important;
+}
+
 /* Global Settings */
 html {
   color-scheme: light !important;
@@ -1873,8 +1908,14 @@ ul#tabmenu li a:hover {
 }
 .c-table td a {
   font-weight: 700 !important;
-  color: var(--text-color-dark-violet) !important;
+  color: var(--danger-color) !important;
 }
+
+.c-table td a:hover {
+  color: var(--text-color-light) !important;
+  text-decoration: none !important;
+}
+  
 .k-button {
   background-color: var(--primary-color) !important;
   color: #2a2a2a !important;
