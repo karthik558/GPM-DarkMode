@@ -364,6 +364,10 @@ ul#tabmenu li a:hover {
   background-color: var(--primary-color) !important;
 }
 
+.redactor-toolbar li a {
+  color: var(--text-color-light) !important;
+}
+  
 .navbar-expand-sm .navbar-nav {
   background-color: var(--background-color-dark-alt) !important;
   padding-bottom: 8px;
@@ -839,6 +843,21 @@ tr.gradeX:hover td {
 }
 
 .chat-discussion.max-height {
+  color: var(--text-color-light) !important;
+}
+
+.ui-widget-content {
+  background: var(--background-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
+  
+.ui-datepicker .ui-datepicker-title {
+  color: var(--text-color-light) !important;
+  background-color: var(--background-color-dark) !important;
+}
+
+.ui-datepicker td {
+  background-color: var(--background-color-dark) !important;
   color: var(--text-color-light) !important;
 }
 `;
