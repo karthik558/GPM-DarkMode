@@ -621,6 +621,10 @@ select.form-control:not([size]):not([multiple]) {
 /* Chat Message Avatar */
 .chat-message .c-message-avatar {
   background-color: var(--background-color-dark) !important;
+  color: var(--text-color-light) !important;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow) !important;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* Specialized Form Group Inputs */
@@ -1299,7 +1303,11 @@ a.closebtn:hover {
   background-color: #346198 !important;
 }
 .chat-message .c-message-avatar {
-  background-color: var(--chat-message-background) !important;
+  background-color: var(--background-color-light) !important;
+  color: var(--text-color-dark) !important;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .c-dropdown-toggle {
   color: var(--text-color-dark);
@@ -2024,7 +2032,11 @@ a.closebtn:hover {
   transform: translateY(-2px);
 }
 .chat-message .c-message-avatar {
-  background-color: var(--chat-message-background) !important;
+  background-color: var(--background-color-light) !important;
+  color: var(--text-color-dark) !important;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .c-dropdown-toggle {
   color: var(--text-color-dark);
