@@ -15,6 +15,7 @@ const darkModeCSS = `
   --text-color-dark: #f0f0f0; /* Very light text (almost white) */
   --text-color-light: #ffffff; /* Pure white for contrast */
   --text-color-muted: #aaaaaa;  /* Lighter muted text */
+  --text-color-dlgt-red: #72a7fb; /* Dark light red text */
 
   /* Backgrounds */
   --background-color-dark: #252526; /* Darker background */
@@ -364,7 +365,7 @@ ul#tabmenu li a:hover {
 }
 
 .c-table td a:hover {
-  color: var(--text-color-light) !important;
+  color: var(--text-color-dlgt-red) !important;
   text-decoration: none !important;
 }
 
@@ -889,6 +890,7 @@ const lightNewCSS = `
   --text-color-dark: #333333; /* Darker text for better readability */
   --text-color-light: #f8f8f8; /* Off-white for light theme */
   --text-color-muted: #777777; /* For less important text */
+  --text-color-blt: #2c4977; /* Blue text for links */
 
   /* Backgrounds */
   --background-color-light: #f1f5f9; /* Dropdown menu and light background */
@@ -1175,7 +1177,7 @@ ul#tabmenu li a:hover {
 }
 
 .c-table td a:hover {
-  color: var(--text-color-light) !important;
+  color: var(--text-color-blt) !important;
   text-decoration: none !important;
 }
 
@@ -1617,7 +1619,7 @@ const lightDarkCSS = `
   --text-color-muted: #666666; /* Muted text */
   --message-date-color: #a0a0a0;
   --icon-background-color: #afafaf;
-  --text-color-dark-violet: #7a80dd;
+  --text-color-dark-red: #c82333;
 
   /* Backgrounds */
   --background-color-light: #ebebeb; /* Main background */
@@ -1654,6 +1656,7 @@ const lightDarkCSS = `
   --success-background: #d4edda;
   --danger-color: #dc3545;
   --danger-color-hover: #c82333;
+  --text-color-lgt-red:#7c0410;
   --progress-bar-color: #28a745;
   --label-info-background: #17a2b8;
   --popup-background: #292929;
@@ -1912,7 +1915,7 @@ ul#tabmenu li a:hover {
 }
 
 .c-table td a:hover {
-  color: var(--text-color-light) !important;
+  color: var(--text-color-lgt-red) !important;
   text-decoration: none !important;
 }
   
@@ -1966,7 +1969,7 @@ a.closebtn {
   color: var(--text-color-light) !important;
 }
 a.closebtn:hover {
-  background-color: var(--text-color-dark-violet) !important;
+  background-color: var(--text-color-dark-red) !important;
 }
 
 /* Cancel Button */
