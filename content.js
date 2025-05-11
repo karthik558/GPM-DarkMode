@@ -468,7 +468,7 @@ a.closebtn:hover {
   box-shadow: var(--box-shadow);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  text-align: center;
+  text-align: left;
   z-index: 9999;
   padding: 10px;
   position: absolute;
@@ -1235,7 +1235,7 @@ a.closebtn:hover {
   box-shadow: var(--box-shadow);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  text-align: center;
+  text-align: left;
   z-index: 9999;
   padding: 10px;
   position: absolute;
@@ -1958,7 +1958,7 @@ a.closebtn:hover {
   box-shadow: var(--box-shadow);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  text-align: center;
+  text-align: left;
   z-index: 9999;
   padding: 10px;
   position: absolute;
