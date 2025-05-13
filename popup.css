@@ -224,35 +224,128 @@ input:checked + .slider:before {
 
 /* Footer */
 .footer {
-  padding: 8px 20px; /* Reduced top/bottom padding */
+  padding: 12px 20px 16px; /* Reduced padding */
   border-top: none; /* Removed border */
   text-align: center;
   background-color: var(--ios-white);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ios-gray);
   border-bottom-left-radius: 0; /* Removed rounded corners */
   border-bottom-right-radius: 0; /* Removed rounded corners */
+}
+
+/* Author Card Styling */
+.author-card {
+  background: linear-gradient(135deg, rgba(86, 119, 170, 0.08), rgba(86, 119, 170, 0.15));
+  border-radius: 12px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(86, 119, 170, 0.2);
+  max-width: 220px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  animation: authorCardPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes authorCardPulse {
+  0% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-color: rgba(86, 119, 170, 0.15);
+  }
+  100% {
+    box-shadow: 0 3px 12px rgba(86, 119, 170, 0.2);
+    border-color: rgba(86, 119, 170, 0.25);
+  }
+}
+
+.author-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.author-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.author-card:hover::after {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* Author Link Styling */
 .author-link {
   color: var(--ios-blue);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.author-icon {
+  font-size: 16px;
+  color: var(--ios-blue);
+  opacity: 0.8;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  margin-top: -2px;
+}
+
+.author-link:hover .author-icon {
+  transform: rotate(30deg) scale(1.1);
+  opacity: 1;
+}
+
+.author-text {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.9;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  transition: color 0.3s ease;
+}
+
+.author-name {
+  font-weight: 600;
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.author-name::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.author-link:hover .author-name {
+  transform: translateY(-1px);
+}
+
+.author-link:hover .author-name::after {
+  width: 100%;
 }
 
 .author-link:hover {
   color: var(--ios-blue-dark);
-}
-
-.external-link {
-  opacity: 0.7;
-  width: 14px;
-  height: 14px;
 }
 
 /* Animation for Card Appearance */
@@ -316,8 +409,28 @@ body.dark-mode .footer {
   border-bottom-right-radius: 0; /* Removed rounded corners */
 }
 
+body.dark-mode .author-card {
+  background: linear-gradient(135deg, rgba(125, 158, 210, 0.12), rgba(125, 158, 210, 0.2));
+  border: 1px solid rgba(125, 158, 210, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+body.dark-mode .author-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 body.dark-mode .author-link {
-  color: var(--ios-blue);
+  color: #7d9ed2;
+}
+
+body.dark-mode .author-name {
+  color: #a3bfe6;
+}
+
+body.dark-mode .author-icon {
+  color: #7d9ed2;
 }
 
 body.dark-mode .author-link:hover {
@@ -381,7 +494,34 @@ body.light-new-mode .footer {
     border-bottom-right-radius: 0; /* Removed rounded corners */
 }
 
+body.light-new-mode .author-card {
+    background: linear-gradient(135deg, rgba(86, 119, 170, 0.06), rgba(86, 119, 170, 0.12));
+    border: 1px solid rgba(86, 119, 170, 0.15);
+    animation: authorCardPulseLightMode 3s ease-in-out infinite alternate;
+}
+
+@keyframes authorCardPulseLightMode {
+  0% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    border-color: rgba(86, 119, 170, 0.15);
+  }
+  100% {
+    box-shadow: 0 3px 12px rgba(86, 119, 170, 0.15);
+    border-color: rgba(86, 119, 170, 0.2);
+  }
+}
+
+
+
 body.light-new-mode .author-link {
+    color: var(--ios-blue);
+}
+
+body.light-new-mode .author-name {
+    color: var(--ios-blue-dark);
+}
+
+body.light-new-mode .author-icon {
     color: var(--ios-blue);
 }
 
