@@ -5,9 +5,9 @@
   "description": "Unofficial Customized theme for GPM Software [Dark Mode, Light Mode, Materialized]",
   "version": "3.5.5",
   "icons": {
-    "16": "logo-blue.png",
-    "48": "logo-blue.png",
-    "128": "logo-blue.png"
+    "16": "icons/logo-blue.png",
+    "48": "icons/logo-blue.png",
+    "128": "icons/logo-blue.png"
   },
   "permissions": [
     "storage",
@@ -35,9 +35,9 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "logo-blue.png",
-      "48": "logo-blue.png",
-      "128": "logo-blue.png"
+      "16": "icons/logo-blue.png",
+      "48": "icons/logo-blue.png",
+      "128": "icons/logo-blue.png"
     }
   },
   "browser_specific_settings": {
