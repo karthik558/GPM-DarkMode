@@ -1,6 +1,6 @@
 const MANAGED_DOMAINS = ['mgntproject.com', 'iimwin.com'];
 // Allowed theme modes
-const MODES = ["light", "dark", "light-new"];
+const MODES = ["light", "dark", "light-new", "light-dark", "light-purple"];
 
 // Get the browser API
 const browser = typeof chrome !== 'undefined' ? chrome : browser;

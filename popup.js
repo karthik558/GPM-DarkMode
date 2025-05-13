@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sepiaIntensity = result.sepiaIntensity || 0;
     
     // Set the toggle state based on the stored theme mode
-    toggle.checked = (mode === 'dark' || mode === 'light-new' || mode === 'light-dark');
+    toggle.checked = (mode === 'dark' || mode === 'light-new' || mode === 'light-dark' || mode === 'light-purple');
     
     // Set the selected theme radio button
     const themeRadio = document.querySelector(`.theme-radio[value="${mode}"]`);
