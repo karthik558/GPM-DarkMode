@@ -27,19 +27,18 @@
 ![Dark Theme](src/picture/dark-mode.png)
 - <b> Theme Preview Material Light Mode</b>
 ![Light Theme](src/picture/light-mode-v2.png)
-
 - <b> Theme Preview Light Dark Mode</b>
 ![Light Dark Mode](src/picture/light-dark-mode.png)
-- <div style="display: flex; gap: 10px;">
-  <div style="flex: 1;">
-    <b>Extension Preview (Light)</b><br>
-    <img src="src/picture/extension-light.png" alt="Extension Light" width="300">
-  </div>
-  <div style="flex: 1;">
-    <b>Extension Preview (Dark)</b><br>
-    <img src="src/picture/extension-dark.png" alt="Extension Dark" width="300">
-  </div>
-</div>
+<table>
+  <tr>
+    <td><b>Light Mode</b></td>
+    <td><b>Dark Mode</b></td>
+  </tr>
+  <tr>
+    <td><img src="src/picture/extension-light.png" alt="Extension Light" width="200"></td>
+    <td><img src="src/picture/extension-dark.png" alt="Extension Dark" width="200"></td>
+  </tr>
+</table>
 
 ## 🌟 Features
 
