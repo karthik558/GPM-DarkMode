@@ -2390,6 +2390,22 @@ chrome.storage.local.get(['themeMode'], (result) => {
   applyTheme(mode);
 });
 
+// Initialize theme on page load - Check storage and apply theme
+document.addEventListener('DOMContentLoaded', () => {
+  chrome.storage.local.get(['themeMode', 'sepiaIntensity'], (result) => {
+    const mode = result.themeMode || 'light-new'; // Default to light-new if not set
+    const intensity = result.sepiaIntensity || 0;
+
+    // Apply the theme based on stored settings
+    applyTheme(mode);
+
+    // Apply sepia filter if set
+    if (intensity > 0) {
+      applySepiaFilter(intensity);
+    }
+  });
+});
+
 // showPage: Ensures the page becomes visible
 function showPage() {
   const preStyle = document.getElementById("pre-dark-mode");

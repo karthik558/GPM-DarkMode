@@ -5,16 +5,26 @@ const MODES = ["light", "dark", "light-new"];
 // Get the browser API
 const browser = typeof chrome !== 'undefined' ? chrome : browser;
 
-// Initialize default theme mode on installation (default is Light Mode)
+// Initialize default theme mode on installation (default to Material Light)
 browser.runtime.onInstalled.addListener(() => {
-  browser.storage.local.set({ themeMode: "light" });
+  browser.storage.local.set({ themeMode: "light-new" });
+});
+
+// Handle browser startup - ensure theme persists across restarts
+browser.runtime.onStartup.addListener(() => {
+  // Check if theme is already set, if not, default to light-new
+  browser.storage.local.get(['themeMode'], (result) => {
+    if (!result.themeMode) {
+      browser.storage.local.set({ themeMode: "light-new" });
+    }
+  });
 });
 
 // Utility function to cycle to the next theme mode
 function getNextThemeMode(currentMode) {
   const currentIndex = MODES.indexOf(currentMode);
   if (currentIndex === -1) {
-    return MODES[0];
+    return "light-new"; // Default to light-new if invalid mode
   }
   return MODES[(currentIndex + 1) % MODES.length];
 }
@@ -48,7 +58,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' &&
     MANAGED_DOMAINS.some(domain => tab.url.includes(domain))) {
     browser.storage.local.get(['themeMode'], (result) => {
-      const currentMode = result.themeMode || "light";
+      const currentMode = result.themeMode || "light-new"; // Default to light-new if nothing set
       browser.tabs.sendMessage(tabId, {
         action: 'setTheme',
         mode: currentMode

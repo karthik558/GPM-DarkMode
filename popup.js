@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Get the current theme mode and sepia value from storage
   chrome.storage.local.get(['themeMode', 'sepiaIntensity'], function (result) {
-    const mode = result.themeMode || 'light';
+    const mode = result.themeMode || 'light-new'; // Default to light-new if nothing stored
     const sepiaIntensity = result.sepiaIntensity || 0;
     
     // Set the toggle state based on the stored theme mode
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       });
     } else {
-      // When disabling, revert to light theme
+      // When disabling, revert to light theme (original theme)
       document.body.classList.remove('dark-mode');
       
       chrome.storage.local.get(['sepiaIntensity'], function(result) {
