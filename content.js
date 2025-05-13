@@ -884,6 +884,14 @@ tr.gradeX:hover td {
 .message-content {
   color: var(--text-color-dark) !important;
 }
+
+.k-icon:not(.k-loading), .k-grouping-dropclue, .k-drop-hint, .k-callout, .k-tool-icon, .k-tool-icon.k-state-hover, .k-tool-icon.k-state-active, .k-tool-icon.k-state-active.k-state-hover, .k-tool-icon.k-state-selected, .k-tool-icon.k-state-selected.k-state-hover, .k-column-menu .k-sprite {
+  color: var(--text-color-light) !important;
+  background-color: var(--text-color-light) !important;
+  border-radius: 25px !important;
+  padding: 3px !important;
+  margin-left: 5px !important;
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -1631,6 +1639,7 @@ tr.gradeX:hover td {
   background-color: var(--background-color-light) !important;
   border-radius: 25px !important;
   padding: 3px !important;
+  margin-left: 5px !important;
 }
 `;
 
@@ -2415,6 +2424,7 @@ tr.gradeX:hover td {
   background-color: var(--background-color-light) !important;
   border-radius: 25px !important;
   padding: 3px !important;
+  margin-left: 5px !important;
 }
 `;
 
@@ -3203,6 +3213,7 @@ tr.gradeX:hover td {
   background-color: var(--background-color-light) !important;
   border-radius: 25px !important;
   padding: 3px !important;
+  margin-left: 5px !important;
 }
 `;
 
