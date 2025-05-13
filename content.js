@@ -2516,7 +2516,7 @@ function applyTheme(mode) {
     setupObserver();
     
     // Change favicon to dark mode icon using the extension's icon
-    changeFavicon(chrome.runtime.getURL("icons/favicon.png"));
+    changeFavicon(chrome.runtime.getURL("icons/favicon-bak.png"));
   } else if (mode === "light-new") {
     themeStyleElement = document.createElement("style");
     themeStyleElement.id = "extension-light-new-theme";
@@ -2534,7 +2534,7 @@ function applyTheme(mode) {
     setupObserver();
     
     // Change favicon for light-dark mode
-    changeFavicon(chrome.runtime.getURL("icons/favicon.png"));
+    changeFavicon(chrome.runtime.getURL("icons/logo-red.png"));
   } else {
     // Light mode (default) - remove all custom styles
     // document.documentElement.style.filter = '';
