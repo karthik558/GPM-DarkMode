@@ -174,4 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (updateButton) {
         updateButton.addEventListener('click', checkForUpdates);
     }
+    
+    // Add event listener for author card
+    const authorCard = document.getElementById('authorCard');
+    if (authorCard) {
+        authorCard.addEventListener('click', () => {
+            chrome.tabs.create({ url: 'https://karthiklal.in' });
+        });
+    }
 });
