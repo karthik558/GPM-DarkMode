@@ -1608,6 +1608,10 @@ tr.gradeX:hover td {
 .message-content {
   color: var(--text-color-dark) !important;
 }
+
+.heading {
+  background-color: var(--background-color-light) !important;
+}
 `;
 
 // Light Dark Mode (your tuned version)
@@ -2373,6 +2377,10 @@ tr.gradeX:hover td {
 
 .message-content {
   color: var(--text-color-dark) !important;
+}
+
+.heading {
+  background-color: var(--background-color-light) !important;
 }
 `;
 
