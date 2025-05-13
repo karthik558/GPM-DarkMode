@@ -874,6 +874,10 @@ tr.gradeX:hover td {
   background-color: var(--background-color-dark) !important;
   color: var(--text-color-light) !important;
 }
+
+.message-content {
+  color: var(--text-color-dark) !important;
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -1599,6 +1603,10 @@ tr.gradeX:hover td {
 
 .chat-discussion.max-height {
   color: var(--text-color-light) !important;
+}
+
+.message-content {
+  color: var(--text-color-dark) !important;
 }
 `;
 
@@ -2361,6 +2369,10 @@ tr.gradeX:hover td {
 
 .chat-discussion.max-height {
   color: var(--text-color-light) !important;
+}
+
+.message-content {
+  color: var(--text-color-dark) !important;
 }
 `;
 
