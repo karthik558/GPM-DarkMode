@@ -2,9 +2,7 @@
 
 ![GPM Dark Mode Logo](icons/favicon-bak.png)
 
-![Chrome Web Store](https://img.shields.io/badge/chrome-extension-orange.svg)
-![Firefox Add-on](https://img.shields.io/badge/firefox-addon-blue.svg)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nimelepbpejjlbmoobocpfnjhihnpked?style=flat-square&logo=google-chrome&logoColor=white&label=chrome) ![Firefox Add-on](https://img.shields.io/amo/v/firefox-color?style=flat-square&logo=firefox-browser&logoColor=white&label=firefox) [![GitHub release](https://img.shields.io/github/v/release/karthik558/GPM-DarkMode?style=flat-square&logo=github)](https://github.com/karthik558/GPM-DarkMode/releases/latest) [![License](https://img.shields.io/github/license/karthik558/GPM-DarkMode?style=flat-square&logo=mit)](LICENSE) [![Stars](https://img.shields.io/github/stars/karthik558/GPM-DarkMode?style=flat-square&logo=github)](https://github.com/karthik558/GPM-DarkMode/stargazers)
 
 </div>
 
@@ -21,17 +19,33 @@
 
 - <b> Extension Preview </b>
 ![GPM Dark Mode Preview](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/658b7a0e802d5ea30997d837bd56efe903db7708/ext-enable.gif)
-- <b> Default Theme</b>
-![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/658b7a0e802d5ea30997d837bd56efe903db7708/default.png)
-- <b> Material Dark Theme</b>
-![Dark Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/dark.png)
-- <b> Material Light Theme (Blue)</b>
-![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-blue.png)
-- <b> Material Light Dark Theme</b>
-![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-dark.png)
-- <b> Material Light Theme (Purple)</b>
-![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-purple.png)
+## Theme Gallery
+
 <table>
+  <tr>
+    <td><b>Default Theme</b></td>
+    <td><b>Material Dark Theme</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/658b7a0e802d5ea30997d837bd56efe903db7708/default.png" alt="Default Theme"></td>
+    <td><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/dark.png" alt="Dark Theme"></td>
+  </tr>
+  <tr>
+    <td><b>Material Light Theme (Blue)</b></td>
+    <td><b>Material Light Dark Theme</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-blue.png" alt="Light Theme (Blue)"></td>
+    <td><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-dark.png" alt="Light Dark Theme"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><b>Material Light Theme (Purple)</b></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-purple.png" alt="Light Theme (Purple)"></td>
+  </tr>
+</table>
+<table align="center">
   <tr>
     <td><b>Light Mode</b></td>
     <td><b>Dark Mode</b></td>
