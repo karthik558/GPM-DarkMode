@@ -20,23 +20,25 @@
 ## 🖼️ Preview
 
 - <b> Extension Preview </b>
-![GPM Dark Mode Preview](src/video/dark-enable.gif)
-- <b> Theme Preview Light Mode (Official one)</b>
-![Light Theme](src/picture/light-mode.png)
-- <b> Theme Preview Material Dark Mode</b>
-![Dark Theme](src/picture/dark-mode.png)
-- <b> Theme Preview Material Light Mode</b>
-![Light Theme](src/picture/light-mode-v2.png)
-- <b> Theme Preview Light Dark Mode</b>
-![Light Dark Mode](src/picture/light-dark-mode.png)
+![GPM Dark Mode Preview](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/658b7a0e802d5ea30997d837bd56efe903db7708/ext-enable.gif)
+- <b> Default Theme</b>
+![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/658b7a0e802d5ea30997d837bd56efe903db7708/default.png)
+- <b> Material Dark Theme</b>
+![Dark Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/dark.png)
+- <b> Material Light Theme (Blue)</b>
+![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-blue.png)
+- <b> Material Light Dark Theme</b>
+![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-dark.png)
+- <b> Material Light Theme (Purple)</b>
+![Light Theme](https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/light-purple.png)
 <table>
   <tr>
     <td><b>Light Mode</b></td>
     <td><b>Dark Mode</b></td>
   </tr>
   <tr>
-    <td><img src="src/picture/extension-light.png" alt="Extension Light" width="200"></td>
-    <td><img src="src/picture/extension-dark.png" alt="Extension Dark" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/extension-light.png" alt="Extension Light" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/FoORK-Lab/wifi-auth-dependencies/refs/heads/main/extension-dark.png" alt="Extension Dark" width="200"></td>
   </tr>
 </table>
 
