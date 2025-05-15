@@ -439,6 +439,11 @@ border-radius: var(--border-radius);
   text-decoration: none;
 }
 
+
+.c-breadcrumb .breadcrumb-item:hover {
+	text-decoration: underline;
+}
+
 /* Alert Styles */
 .alert-success {
   color: var(--success-color) !important;
@@ -1184,6 +1189,15 @@ ul#tabmenu li a:hover {
   border-width: 0.1px !important;
   background-color: transparent !important;
   border-style: none !important;
+}
+
+.c-breadcrumb .breadcrumb-item a {
+  color: var(--text-color-light) !important;
+  text-decoration: none;
+}
+
+.c-breadcrumb .breadcrumb-item:hover {
+	text-decoration: underline;
 }
 
 .header .btn-warning {
@@ -2306,6 +2320,11 @@ border-radius: var(--border-radius);
   text-decoration: none;
 }
 
+
+.c-breadcrumb .breadcrumb-item:hover {
+	text-decoration: underline;
+}
+
 .bi-zoom-in::before {
   color: var(--text-color-light) !important;
 }
@@ -3096,6 +3115,11 @@ border-radius: var(--border-radius);
 .c-breadcrumb .breadcrumb-item a {
   color: var(--text-color-light) !important;
   text-decoration: none;
+}
+
+
+.c-breadcrumb .breadcrumb-item:hover {
+	text-decoration: underline;
 }
 
 .bi-zoom-in::before {
