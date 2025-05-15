@@ -892,6 +892,10 @@ tr.gradeX:hover td {
   padding: 3px !important;
   margin-left: 5px !important;
 }
+
+.k-reset {
+  border: none !important;
+}
 `;
 
 // Light Mode CSS (your tuned version)
@@ -1640,6 +1644,10 @@ tr.gradeX:hover td {
   border-radius: 25px !important;
   padding: 3px !important;
   margin-left: 5px !important;
+}
+
+.k-reset {
+  border: none !important;
 }
 `;
 
@@ -2425,6 +2433,10 @@ tr.gradeX:hover td {
   border-radius: 25px !important;
   padding: 3px !important;
   margin-left: 5px !important;
+}
+
+.k-reset {
+  border: none !important;
 }
 `;
 
@@ -3214,6 +3226,10 @@ tr.gradeX:hover td {
   border-radius: 25px !important;
   padding: 3px !important;
   margin-left: 5px !important;
+}
+
+.k-reset {
+  border: none !important;
 }
 `;
 
