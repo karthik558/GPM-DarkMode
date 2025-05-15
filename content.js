@@ -430,8 +430,12 @@ border-radius: var(--border-radius);
   background-color: var(--background-color-dark-alt) !important;
 }
 
+.c-breadcrumb .breadcrumb {
+  background-color: var(--primary-color) !important;
+}
+
 .c-breadcrumb .breadcrumb-item a {
-  color: var(--breadcrumb-link-color) !important;
+  color: var(--text-color-light) !important;
   text-decoration: none;
 }
 
