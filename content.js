@@ -430,18 +430,22 @@ border-radius: var(--border-radius);
   background-color: var(--background-color-dark-alt) !important;
 }
 
-.c-breadcrumb .breadcrumb {
-  background-color: var(--primary-color) !important;
-}
-
 .c-breadcrumb .breadcrumb-item a {
-  color: var(--text-color-light) !important;
+  color: var(--breadcrumb-link-color) !important;
   text-decoration: none;
 }
 
+.c-breadcrumb .breadcrumb-item a:hover {
+	color: var(--text-color-light) !important;
+}
 
 .c-breadcrumb .breadcrumb-item:hover {
-	text-decoration: underline;
+  padding: 2px 10px;
+	background-color: var(--primary-color) !important;
+	border-radius: 15px;
+  transition: background-color 0.2s ease-in-out;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
 }
 
 /* Alert Styles */
@@ -1196,8 +1200,17 @@ ul#tabmenu li a:hover {
   text-decoration: none;
 }
 
+.c-breadcrumb .breadcrumb-item a:hover {
+	color: var(--text-color-light) !important;
+}
+
 .c-breadcrumb .breadcrumb-item:hover {
-	text-decoration: underline;
+  padding: 2px 10px;
+	background-color: var(--primary-color-hover) !important;
+	border-radius: 15px;
+  transition: background-color 0.2s ease-in-out;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .header .btn-warning {
@@ -2320,9 +2333,17 @@ border-radius: var(--border-radius);
   text-decoration: none;
 }
 
+.c-breadcrumb .breadcrumb-item a:hover {
+	color: var(--text-color-light) !important;
+}
 
 .c-breadcrumb .breadcrumb-item:hover {
-	text-decoration: underline;
+  padding: 2px 10px;
+	background-color: var(--secondary-color) !important;
+	border-radius: 15px;
+  transition: background-color 0.2s ease-in-out;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .bi-zoom-in::before {
@@ -3117,9 +3138,17 @@ border-radius: var(--border-radius);
   text-decoration: none;
 }
 
+.c-breadcrumb .breadcrumb-item a:hover {
+	color: var(--text-color-light) !important;
+}
 
 .c-breadcrumb .breadcrumb-item:hover {
-	text-decoration: underline;
+  padding: 2px 10px;
+	background-color: var(--secondary-color) !important;
+	border-radius: 15px;
+  transition: background-color 0.2s ease-in-out;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .bi-zoom-in::before {
