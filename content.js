@@ -500,7 +500,7 @@ a.closebtn:hover {
   text-align: left;
   z-index: 9999;
   padding: 10px;
-  position: absolute;
+  position: fixed;
 }
 
 .popup .show {
@@ -1314,7 +1314,7 @@ a.closebtn:hover {
   text-align: left;
   z-index: 9999;
   padding: 10px;
-  position: absolute;
+  position: fixed;
 }
 
 .popup .show {
@@ -2079,7 +2079,7 @@ a.closebtn:hover {
   text-align: left;
   z-index: 9999;
   padding: 10px;
-  position: absolute;
+  position: fixed;
 }
 
 .popup .show {
@@ -2875,7 +2875,7 @@ a.closebtn:hover {
   text-align: left;
   z-index: 9999;
   padding: 10px;
-  position: absolute;
+  position: fixed;
 }
 
 .popup .show {
