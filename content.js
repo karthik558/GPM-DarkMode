@@ -1635,7 +1635,7 @@ tr.gradeX:hover td {
 }
 
 .heading {
-  background-color: var(--background-color-light) !important;
+  background-color: transparent !important;
 }
 
 .k-icon:not(.k-loading), .k-grouping-dropclue, .k-drop-hint, .k-callout, .k-tool-icon, .k-tool-icon.k-state-hover, .k-tool-icon.k-state-active, .k-tool-icon.k-state-active.k-state-hover, .k-tool-icon.k-state-selected, .k-tool-icon.k-state-selected.k-state-hover, .k-column-menu .k-sprite {
@@ -2424,7 +2424,7 @@ tr.gradeX:hover td {
 }
 
 .heading {
-  background-color: var(--background-color-light) !important;
+  background-color: transparent !important;
 }
 
 .k-icon:not(.k-loading), .k-grouping-dropclue, .k-drop-hint, .k-callout, .k-tool-icon, .k-tool-icon.k-state-hover, .k-tool-icon.k-state-active, .k-tool-icon.k-state-active.k-state-hover, .k-tool-icon.k-state-selected, .k-tool-icon.k-state-selected.k-state-hover, .k-column-menu .k-sprite {
@@ -3217,7 +3217,7 @@ tr.gradeX:hover td {
 }
 
 .heading {
-  background-color: var(--text-color-light) !important;
+  background-color: transparent !important;
 }
 
 .k-icon:not(.k-loading), .k-grouping-dropclue, .k-drop-hint, .k-callout, .k-tool-icon, .k-tool-icon.k-state-hover, .k-tool-icon.k-state-active, .k-tool-icon.k-state-active.k-state-hover, .k-tool-icon.k-state-selected, .k-tool-icon.k-state-selected.k-state-hover, .k-column-menu .k-sprite {
