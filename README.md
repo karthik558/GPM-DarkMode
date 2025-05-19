@@ -110,7 +110,7 @@ chrome://extensions/
 ```bash
 git clone https://github.com/karthik558/GPM-DarkMode.git
 ```
-2. Download the xpi file from this link: [GPM-DarkMode.xpi](https://addons.mozilla.org/firefox/downloads/file/4492427/97e73e7413e743b68deb-3.5.5.xpi) <b> (Recommended) </b>
+2. Download the xpi file from this link: [GPM-DarkMode.xpi](https://addons.mozilla.org/firefox/downloads/file/4496267/97e73e7413e743b68deb-3.6.1.xpi) <b> (Recommended) </b>
 3. Open Firefox and navigate to:
 
 ```
