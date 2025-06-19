@@ -17,6 +17,7 @@
   "host_permissions": [
     "*://*.mgntproject.com/*",
     "*://*.iimwin.com/*",
+    "*://*.experientle.com/*",
     "https://api.github.com/*"
   ],
   "background": {
@@ -26,7 +27,8 @@
     {
       "matches": [
         "*://*.mgntproject.com/*",
-        "*://*.iimwin.com/*"
+        "*://*.iimwin.com/*",
+        "*://*.experientle.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"
@@ -48,6 +50,6 @@
   },
   "web_accessible_resources": [{
     "resources": ["icons/*.png"],
-    "matches": ["*://*.mgntproject.com/*", "*://*.iimwin.com/*"]
+    "matches": ["*://*.mgntproject.com/*", "*://*.iimwin.com/*", "*://*.experientle.com/*"]
   }]
 }

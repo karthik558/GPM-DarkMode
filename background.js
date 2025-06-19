@@ -1,4 +1,4 @@
-const MANAGED_DOMAINS = ['mgntproject.com', 'iimwin.com'];
+const MANAGED_DOMAINS = ['mgntproject.com', 'iimwin.com', 'experientle.com'];
 // Allowed theme modes
 const MODES = ["light", "dark", "light-new", "light-dark", "light-purple"];
 

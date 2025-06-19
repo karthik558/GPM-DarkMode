@@ -3498,7 +3498,14 @@ function addLogoClickHandler() {
       img.setAttribute('data-click-handler', 'true');
       img.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = 'http://mgntproject.com/pm/';
+        // Determine the correct homepage URL based on current domain
+        let homeUrl = 'http://mgntproject.com/pm/'; // Default
+        if (window.location.hostname.includes('iimwin.com')) {
+          homeUrl = 'http://iimwin.com/pm/';
+        } else if (window.location.hostname.includes('experientle.com')) {
+          homeUrl = 'https://www.experientle.com/pm/';
+        }
+        window.location.href = homeUrl;
       });
     }
   });
@@ -3523,7 +3530,14 @@ function modifyLogo() {
       img.setAttribute('data-click-handler', 'true');
       img.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = 'http://mgntproject.com/pm/';
+        // Determine the correct homepage URL based on current domain
+        let homeUrl = 'http://mgntproject.com/pm/'; // Default
+        if (window.location.hostname.includes('iimwin.com')) {
+          homeUrl = 'http://iimwin.com/pm/';
+        } else if (window.location.hostname.includes('experientle.com')) {
+          homeUrl = 'https://www.experientle.com/pm/';
+        }
+        window.location.href = homeUrl;
       });
     }
   });

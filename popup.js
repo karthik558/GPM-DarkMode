@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateManagedTabs(newMode, sepiaIntensity) {
     chrome.tabs.query({}, function (tabs) {
       tabs.forEach(tab => {
-        if (tab.url.includes('mgntproject.com') || tab.url.includes('iimwin.com')) {
+        if (tab.url.includes('mgntproject.com') || tab.url.includes('iimwin.com') || tab.url.includes('experientle.com')) {
           chrome.tabs.sendMessage(tab.id, {
             action: 'setTheme',
             mode: newMode,
